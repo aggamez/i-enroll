@@ -10,8 +10,8 @@
     $result = $con->query($query);
 
 	if($result){
-		header("location:/i-enroll/adminCurriculum.php");
+		header("location:../../adminCurriculum.php");
 	}else{
-		header("location:/i-enroll/adminCurriculum.php");
+		header("location:../../adminCurriculum.php");
 	}
 ?>

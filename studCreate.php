@@ -50,28 +50,31 @@
                 <div class="bg-overlay d-flex justify-content-center align-items-center">
                     <div class="container p-2 p-lg-5 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5 overflow-scroll">
                         <h1 class="text-dark fs-3 fs-lg-1">Student Register</h1>
-                        <form>
+                        <form
+                                    class=""
+                                    method="post" 
+                                    action="functions/php/addStudent.php">
                             <div class="text-dark fs-4">
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" id="firstName" name="first_name" class="form-control form-control-lg input"
+                                            <input type="text" id="fName" name="fName" class="form-control form-control-lg input"
                                             placeholder="First Name" required />
-                                            <label class="form-label fs-6" for="firstName">First Name</label>
+                                            <label class="form-label fs-6" for="fName">First Name</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" id="midName" name="middle_name" class="form-control form-control-lg input"
+                                            <input type="text" id="midName" name="mName" class="form-control form-control-lg input"
                                             placeholder="Middle Name" required />
                                             <label class="form-label fs-6" for="lastName">Middle Name</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating ">
-                                            <input type="text" id="lastName" name="last_name" class="form-control form-control-lg input"
+                                            <input type="text" id="lName" name="lName" class="form-control form-control-lg input"
                                             placeholder="Last Name" required />
-                                            <label class="form-label fs-6" for="lastName">Last Name</label>
+                                            <label class="form-label fs-6" for="lName">Last Name</label>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +84,7 @@
                                         <div class="form-floating">
                                             <input type="text" id="address" name="address" class="form-control form-control-lg input"
                                             placeholder="First Name" required />
-                                            <label class="form-label fs-6" for="firstName">Address</label>
+                                            <label class="form-label fs-6" for="address">Address</label>
                                         </div>
                                     </div>
                                 </div>
@@ -90,20 +93,20 @@
                                     <div class="col-lg-4">
                                         <div class="form-floating">
                                             <div class="form-floating datepicker">
-                                                <input type="date" class="form-control input" id="bdate" name="bdate" required/>
-                                                <label for="bdate" class="form-label fs-6">Birthday</label>
+                                                <input type="date" class="form-control input" id="birthdate" name="birthdate" required/>
+                                                <label for="birthdate" class="form-label fs-6">Birthday</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <select class="form-select input fs-6" name="gender" id="gender">
+                                            <select class="form-select input fs-6" name="sex" id="sex">
                                             <option selected disabled>Select Option</option>
                                             <option value="M">Male</option>
                                             <option value="F">Female</option>
                                             <option value="X">Prefer not to say</option>
                                             </select>
-                                            <label for="gender" class="form-label fs-6">Sex</label>
+                                            <label for="sex" class="form-label fs-6">Sex</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -123,8 +126,8 @@
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control input" id="contact" name="contact" required/>
-                                            <label for="contact" class="form-label fs-6">Contact #</label>
+                                            <input type="text" class="form-control input" id="contactNo" name="contactNo" maxlength="11" required/>
+                                            <label for="contactNo" class="form-label fs-6">Contact #</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -162,14 +165,14 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                        <select class="form-select input" name="yrlvl" id="yrlvl">
+                                        <select class="form-select input" name="yrLvl" id="yrLvl">
                                             <option selected disabled>Year Level</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                         </select>
-                                        <label for="yrlvl" class="form-label fs-6">Year Level</label>
+                                        <label for="yrLvl" class="form-label fs-6">Year Level</label>
                                         </div>
                                     </div>
                                 </div>

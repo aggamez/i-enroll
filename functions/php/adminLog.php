@@ -12,10 +12,12 @@
 
     if($user == $userChk){
         if($pass == $passChk){
-            header("location:/i-enroll/adminDash.php");
+            header("location:../../adminDash.php");
         } else{
-            header("location:/i-enroll/adminLogin.php");
+            header("location:../..//adminLogin.php");
         }
     } else{
-        header("location:/i-enroll/adminLogin.php");
+        header("location:../../adminLogin.php");
     }
+
+?>
