@@ -146,10 +146,16 @@
                                         <div class="form-floating">
                                         <select class="form-select input" name="program" id="program">
                                             <option selected disabled>Select Program</option>
-                                            <option value="">Prog 1</option>
-                                            <option value="">Prog 2</option>
-                                            <option value="">Prog 3</option>
-                                            <option value="">Prog 4</option>
+                                            <?php
+                                            include('functions/php/config.php');
+                                            
+                                            $query = "SELECT * FROM curriculums WHERE id > 2;";
+                                            $result = $con->query($query);
+
+                                            while ($row = $result -> fetch_assoc()): ?>
+                                            <option value="<?php echo $row['code']?>"><?php echo $row['name']?></option>
+
+                                            <?php endwhile?>
                                         </select>
                                         <label for="program" class="form-label fs-6">Program</label>
                                         </div>
@@ -158,10 +164,10 @@
                                         <div class="form-floating">
                                         <select class="form-select input" name="yrlvl" id="yrlvl">
                                             <option selected disabled>Year Level</option>
-                                            <option value="">1</option>
-                                            <option value="">2</option>
-                                            <option value="">3</option>
-                                            <option value="">4</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
                                         </select>
                                         <label for="yrlvl" class="form-label fs-6">Year Level</label>
                                         </div>

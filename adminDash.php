@@ -26,7 +26,7 @@
                     <span class="navbar-toggler-icon text-white"></span>
                 </button>
                 <div class="offcanvas offcanvas-start w-lg-25 text-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header bg-mar" style="min-height: 10vh; max-height: auto;">
+                    <div class="offcanvas-header bg-maroon" style="min-height: 10vh; max-height: auto;">
                         <h5 class="offcanvas-title text-white fs-3" id="offcanvasNavbarLabel">Admin Dashboard</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>

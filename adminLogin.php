@@ -29,14 +29,17 @@
                         <h1 class="text-dark fs-2">Admin Log-in</h1>
                         <hr class="text-dark border border-dark border-1 w-80 fs-1">
                         <div>
-                        <form class="d-grid text-dark">
+                        <form 
+                            method="post" 
+                            action="functions/php/adminLog.php"
+                            class="d-grid text-dark">
                             <div class="mb-3">
                                 <label for="username" class="form-label text-dark fs-2">Username</label>
-                                <input type="text" class="form-control" id="username">
+                                <input type="text" class="form-control" name="username" id="username">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label text-dark fs-2">Password</label>
-                                <input type="password" class="form-control" id="password">
+                                <label for="password" class="form-label text-dark fs-2">Password</label>
+                                <input type="password" class="form-control" name="password" id="password">
                             </div>
                             <div class="mb-3 form-check d-flex justify-content-center align-items-center gap-3">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">

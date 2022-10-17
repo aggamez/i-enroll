@@ -23,12 +23,11 @@ body::-webkit-scrollbar{
     width:  100vw;
 }
 
-.bg-mar{
+.bg-maroon{
     background-color: #800000;
 }
 
-.bg-maroon{
-    background-color: #800000;
+.navbar{
     min-height: 10vh;
     max-height: auto;
     width:  100vw;
@@ -63,4 +62,8 @@ h1{
 
 .en:hover{
     background-color:#800000 !important;
+}
+
+.clear{
+    text-decoration: none;
 }

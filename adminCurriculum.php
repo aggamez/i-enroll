@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
         <script src="lib/js/bootstrap.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     </head>
 
@@ -25,7 +26,7 @@
                     <span class="navbar-toggler-icon text-white"></span>
                 </button>
                 <div class="offcanvas offcanvas-start w-lg-25 text-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header bg-mar" style="min-height: 10vh; max-height: auto;">
+                    <div class="offcanvas-header bg-maroon" style="min-height: 10vh; max-height: auto;">
                         <h5 class="offcanvas-title text-white fs-3" id="offcanvasNavbarLabel">Admin Dashboard</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
@@ -76,14 +77,21 @@
                                     action="functions/php/addCurriculum.php">
                                 <div class="container gap-2 d-flex flex-column">
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <div class="form-floating">
                                                 <input type="text" id="code" name="code" class="form-control form-control-lg input"
                                                 placeholder="Code" required />
                                                 <label class="form-label fs-6" for="code">Curriculum Code</label>
                                             </div>
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-3">
+                                            <div class="form-floating">
+                                                <input type="text" id="subCode" name="subCode" class="form-control form-control-lg input"
+                                                placeholder="Subject Code" />
+                                                <label class="form-label fs-6" for="subCode">Subject Code</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
                                             <div class="form-floating">
                                                 <input type="text" id="name" name="name" class="form-control form-control-lg input"
                                                 placeholder="Name" required />
@@ -125,13 +133,18 @@
                             <td class=""><?php echo $row['code']; ?></td>
                             <td class=""><?php echo $row['name']; ?></td>
                             <td class="mx-auto text-center">
-                                <form   method="post" 
-                                        action="functions/php/delCurriculum.php">
-                                    <button type="submit" name="submit" class="mx-1 text-decoration-none text-danger border border-none delete" value="<?php echo $row['id']; ?>"
-                                                        data-bs-toggle="modal" data-bs-target="#delCurr" id="<?php echo $row['id']; ?>">
-                                        <i class="bi bi-trash-fill text-danger"></i>
-                                    </button>
-                                </form>
+                                <a href="#" class="mx-1 clear text-muted view" data-id="<?php echo $row['id']; ?>"
+                                    data-bs-toggle="modal" data-bs-target="#view-curr" id="<?php echo $row['id']; ?>">
+                                    <i class="bi bi-eye-fill"></i>
+                                </a>
+                                <a href="#" class="mx-1 clear text-primary edit" data-id="<?php echo $row['id']; ?>"
+                                    data-bs-toggle="modal" data-bs-target="#edit-curr" id="<?php echo $row['id']; ?>">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a href="#" class="mx-1 clear text-danger delete" data-id="<?php echo $row['id']; ?>"
+                                    data-bs-toggle="modal" data-bs-target="#del-curr" id="<?php echo $row['id']; ?>">
+                                    <i class="bi bi-trash-fill"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php endwhile ?>
@@ -150,6 +163,91 @@
             <div class="footer d-flex justify-content-center align-items-center sticky-bottom bg-dark">
                 <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
             </div>
+
+            <div class="modal fade" id="view-curr" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">View Curriculum</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="modal fade" id="edit-curr" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Edit Curriculum</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="modal fade" id="del-curr" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Delete Curriculum</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('.view').click(function() {
+                        var uid = $(this).data('id');
+                        $.ajax({
+                            url: 'functions/php/viewCurr.php',
+                            type: 'post',
+                            data: {uid: uid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#view-curr').modal('show');
+                            }
+                        });
+                    });
+
+                    $('.edit').click(function() {
+                        var uid = $(this).data('id');
+                        $.ajax({
+                            url: 'functions/php/editCurr.php',
+                            type: 'post',
+                            data: {uid: uid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#edit-curr').modal('show');
+                            }
+                        });
+                    });
+
+                    $('.delete').click(function() {
+                        var uid = $(this).data('id');
+                        $.ajax({
+                            url: 'functions/php/delCurr.php',
+                            type: 'post',
+                            data: {uid: uid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#del-curr').modal('show');
+                            }
+                        });
+                    });
+                });
+            </script>
     </body>
 
 </html>

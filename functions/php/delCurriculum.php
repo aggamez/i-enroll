@@ -1,7 +1,7 @@
 <?php
     include('config.php');
     
-    $id = $_POST['submit'];
+    $id = $_POST['id'];
 
     $query = "DELETE FROM `curriculums` WHERE id = $id";
 
