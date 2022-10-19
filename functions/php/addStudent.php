@@ -15,11 +15,11 @@
     $yrLvl= $_POST['yrLvl'];
     $username = $program . $lName;
     $password = $program . $lName;
-    $emailParse = str_replace(' ', '', strtolower($lName . $fName));
+    $emailParse = str_replace(' ', '', strtolower($lName . '.' . $fName));
     $email = $emailParse . "@tcu.edu.ph";
 
-    $query =    "INSERT INTO `user-student` (`fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `nationality`, `religion`, `program`, `yrLvl`, `username`, `password`, `email`) 
-                VALUES ('$fName', '$mName', '$lName', '$address', '$birthdate', '$sex', '$civStat', '$nationality', '$religion', '$program', '$yrLvl', '$username', '$password', '$email')";
+    $query =    "INSERT INTO `user-student` (`fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrLvl`, `username`, `password`, `email`) 
+                VALUES ('$fName', '$mName', '$lName', '$address', '$birthdate', '$sex', '$civStat', '$contactNo', '$nationality', '$religion', '$program', '$yrLvl', '$username', '$password', '$email')";
 
     $result = $con->query($query);
 
@@ -41,14 +41,13 @@
 
     <script src="../../lib/js/bootstrap.bundle.min.js"></script>
     </head>
-    <body>
-    <h3>Here is your credentials. You may change the username and password later.</h3>
-    <h4>Username : <?php echo $username?></h4>
-    <h4>Password : <?php echo $password?></h4>
-    <h4>E-Mail : <?php echo $email?></h4>
-
-    <a class="btn btn-success py-1 px-2 ms-auto" href="../../studLogin.php">
-    Proceed to Log-in
-    </a>
+    <body class="d-flex flex-column align-items-center justify-content-center gap-2">
+        <h3>Here is your credentials. You may change the username and password later.</h3>
+        <h4>Username : <?php echo $username?></h4>
+        <h4>Password : <?php echo $password?></h4>
+        <h4>E-Mail : <?php echo $email?></h4>
+        <a class="btn btn-success py-1 px-2 ms-auto" href="../../studLogin.php">
+        Proceed to Log-in
+        </a>
     </body>
 </html>

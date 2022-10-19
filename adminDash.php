@@ -43,12 +43,24 @@
                                 Management
                                 </a>
                                 <ul class="dropdown-menu w-100 m-0">
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminCurriculum.php"><i class="bi bi-list-ul"></i>Curriculum</a></li>
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSubjects.php"><i class="bi bi-list-columns-reverse"></i>Subjects</a></li>
+                                <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminCurriculum.php">
+                                    <i class="bi bi-list-ul"></i>Curriculum</a></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSubjects.php">
+                                        <i class="bi bi-list-columns-reverse"></i>Subjects</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminUsers.php"><i class="bi bi-person-circle"></i> Admin Users</a></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminDepartments.php">
+                                        <i class="bi bi-clipboard-fill"></i>Departments</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminAccounts.php">
+                                        <i class="bi bi-person-circle"></i> Admin Users</a></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminStudents.php">
+                                        <i class="bi bi-file-earmark-person-fill"></i> Student Users</a></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminFaculty.php">
+                                        <i class="bi bi-person-video3"></i> Faculty Users</a></li>
                                 </ul>
                             </li>
                         </ul>

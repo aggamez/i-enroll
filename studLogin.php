@@ -53,7 +53,9 @@
                         <h1 class="text-dark fs-3 fs-lg-1">Student Log-in</h1>
                         <hr class="text-dark border border-dark border-1 w-80 fs-1">
                         <div>
-                        <form class="d-grid text-dark">
+                        <form       class="text-dark"
+                                    method="post" 
+                                    action="functions/php/studLog.php">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
