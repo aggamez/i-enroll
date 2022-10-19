@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2022 at 10:35 AM
+-- Generation Time: Oct 19, 2022 at 11:19 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -63,6 +63,13 @@ CREATE TABLE `subject` (
   `corequisite` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `subject`
+--
+
+INSERT INTO `subject` (`id`, `code`, `name`, `type`, `units`, `semester`, `year`, `program`, `prerequisite`, `corequisite`) VALUES
+(4, 'CS101', 'Introduction to Programming', 'LEC', 3, 1, 1, 'CS', ' ', 'CS102');
+
 -- --------------------------------------------------------
 
 --
@@ -72,11 +79,10 @@ CREATE TABLE `subject` (
 CREATE TABLE `user-admin` (
   `id` int(11) NOT NULL,
   `username` text NOT NULL,
-  `pass` text NOT NULL,
-  `department` varchar(5) NOT NULL,
-  `position` text NOT NULL,
-  `lastName` text NOT NULL,
-  `firstName` text NOT NULL,
+  `password` text NOT NULL,
+  `lName` varchar(50) NOT NULL,
+  `fName` varchar(50) NOT NULL,
+  `mName` varchar(50) NOT NULL,
   `email` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -84,8 +90,8 @@ CREATE TABLE `user-admin` (
 -- Dumping data for table `user-admin`
 --
 
-INSERT INTO `user-admin` (`id`, `username`, `pass`, `department`, `position`, `lastName`, `firstName`, `email`) VALUES
-(1, 'admin', 'admin', 'ADMIN', 'admin head', 'lname', 'fname', 'example@email.com');
+INSERT INTO `user-admin` (`id`, `username`, `password`, `lName`, `fName`, `mName`, `email`) VALUES
+(1, 'admin', 'admin', 'lname', 'fname', 'mname', 'example@email.com');
 
 -- --------------------------------------------------------
 
@@ -103,7 +109,7 @@ CREATE TABLE `user-student` (
   `sex` varchar(1) NOT NULL,
   `civStat` varchar(1) NOT NULL,
   `contactNo` varchar(11) NOT NULL,
-  `nationality` varchar(1) NOT NULL,
+  `nationality` varchar(50) NOT NULL,
   `religion` text NOT NULL,
   `program` varchar(10) NOT NULL,
   `yrLvl` varchar(1) NOT NULL,
@@ -111,6 +117,13 @@ CREATE TABLE `user-student` (
   `password` varchar(50) NOT NULL,
   `email` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user-student`
+--
+
+INSERT INTO `user-student` (`id`, `fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrLvl`, `username`, `password`, `email`) VALUES
+(10, 'John Marcseaa', 'Damien', 'Doessaa', '2714 Street, City', '2022-10-06', 'M', 'S', '09125556554', 'F', 'Christian', 'BSCS', '1', 'BSCSDoessaa', 'BSCSDoessaa', 'doessaa.johnmarcseaa@tcu.edu.ph');
 
 --
 -- Indexes for dumped tables
@@ -158,19 +171,19 @@ ALTER TABLE `curriculums`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user-admin`
 --
 ALTER TABLE `user-admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user-student`
 --
 ALTER TABLE `user-student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
