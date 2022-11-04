@@ -1,5 +1,6 @@
 <?php
-    include('config.php');
+    session_start();
+    include "config.php";
     
     $fName = $_POST['fName'];
     $mName = $_POST['mName'];
@@ -18,8 +19,10 @@
     $emailParse = str_replace(' ', '', strtolower($lName . '.' . $fName));
     $email = $emailParse . "@tcu.edu.ph";
 
-    $query =    "INSERT INTO `user-student` (`fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrLvl`, `username`, `password`, `email`) 
-                VALUES ('$fName', '$mName', '$lName', '$address', '$birthdate', '$sex', '$civStat', '$contactNo', '$nationality', '$religion', '$program', '$yrLvl', '$username', '$password', '$email')";
+    $yrLvl= $_POST['yrReg'];
+
+    $query =    "INSERT INTO `user-student` (`fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrReg`, `yrLvl`, `username`, `password`, `email`, `yrStd`) 
+                VALUES ('$fName', '$mName', '$lName', '$address', '$birthdate', '$sex', '$civStat', '$contactNo', '$nationality', '$religion', '$program', '$yrReg', '$yrLvl', '$username', '$password', '$email', '$yrLvl')";
 
     $result = $con->query($query);
 

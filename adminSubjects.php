@@ -1,18 +1,31 @@
 <!doctype html>
 <html>
-    <?php 
+    <?php
+        session_start();
+        if(empty($_SESSION['idAdmin'])){
+            header("Location:adminLogin.php");
+        }
+ 
         include('functions/php/config.php');
     ?>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>i-Enroll System</title>
         
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="lib/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+ 
+        <script type="text/javascript" src="lib/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-        <script src="lib/js/bootstrap.bundle.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.css">
 
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.js"></script>
+        <!-- Latest compiled and minified Locales -->
+        <script src="https://unpkg.com/bootstrap-table@1.21.1/dist/locale/bootstrap-table-en-US.min.js"></script>
     </head>
 
     <body>
@@ -31,7 +44,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav flex-column justify-content-end flex-grow-1 pe-3 text-dark">
+                    <ul class="h-100 navbar-nav d-flex flex-column justify-content-start flex-grow-1 pe-3 text-dark">
                             <li class="nav-item">
                                 <a class="nav-link active d-flex flex-row align-items-center text-dark gap-2" aria-current="page" href="adminDash.php"> 
                                     <i class="bi bi-house-fill fs-4"></i> 
@@ -39,22 +52,32 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle fs-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Management
+                                <a class="nav-link dropdown-toggle fs-4 d-flex flex-row justify-content-end align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="d-flex flex-row justify-content-start align-items-center me-auto gap-2">
+                                        <i class="bi bi-gear-fill"></i>
+                                        <h6 class="fs-4 align-items-center">Management</h6>
+                                    </div>
+                                    
                                 </a>
                                 <ul class="dropdown-menu w-100 m-0">
+                                <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminDepartments.php">
+                                        <i class="bi bi-list-columns-reverse"></i>Colleges / Departments</a></li>
+                                    <li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminCurriculum.php">
                                         <i class="bi bi-list-ul"></i>Curriculum</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSubjects.php">
                                         <i class="bi bi-list-columns-reverse"></i>Subjects</a></li>
+
+                                    <li><hr class="dropdown-divider"></li>
+
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminStudStatus.php">
+                                        <i class="bi bi-clipboard-fill"></i>Student Management</a></li>
                                     <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminDepartments.php">
-                                        <i class="bi bi-clipboard-fill"></i>Departments</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSchedules.php">
+                                        <i class="bi bi-clipboard-fill"></i>Schedule Management</a></li>
+
+                                    <li><hr class="dropdown-divider"></li>
+
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminAccounts.php">
                                         <i class="bi bi-person-circle"></i> Admin Users</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminStudents.php">
@@ -62,6 +85,12 @@
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminFaculty.php">
                                         <i class="bi bi-person-video3"></i> Faculty Users</a></li>
                                 </ul>
+                            </li>
+                            <li class="nav-item mt-auto">
+                                <a class="nav-link d-flex flex-row align-items-center text-dark gap-2 fs-4" aria-current="page" href="functions/php/adminOut.php"> 
+                                    <i class="text-danger bi bi-box-arrow-right"></i>
+                                    <h6 class="fs-4">Log-out</h6>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -75,7 +104,7 @@
                      
                 </div>
                 <div class="d-flex flex-column justify-content-between
-                            align-items-start gap-2">
+                            align-items-start gap-2 w-100">
                     <div class="w-100 d-flex flex-row justify-content-start align-items-start pb-0 border-bottom border-3 border-dark">
                         <h2 class="fs-3 text-dark"> Add Subject </h2>
                         <a class="btn btn-success py-1 px-2 ms-auto" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -91,21 +120,21 @@
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="form-floating">
-                                                <input type="text" id="code" name="code" class="form-control form-control-lg input"
-                                                placeholder="Code" required />
-                                                <label class="form-label fs-6" for="scode">Subject Code</label>
+                                                <input type="text" id="idSub" name="idSub" class="form-control form-control-lg input"
+                                                placeholder="idSub" required />
+                                                <label class="form-label fs-6" for="idSub">Course ID</label>
                                             </div>
                                         </div>
                                         <div class="col-9">
                                             <div class="form-floating">
                                                 <input type="text" id="name" name="name" class="form-control form-control-lg input"
                                                 placeholder="Name" required />
-                                                <label class="form-label fs-6" for="name">Subject Name</label>
+                                                <label class="form-label fs-6" for="name">Course Name</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-8">
                                             <div class="form-floating">
                                                 <select class="form-select input" name="program" id="program" required>
                                                     <option selected disabled>Curriculum</option>
@@ -123,60 +152,52 @@
                                                 <label for="program" class="form-label fs-6">Curriculum</label>
                                             </div>
                                         </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-floating">
+                                                <select class="form-select input fs-6" name="type" id="type">
+                                                    <option selected disabled>Select Option</option>
+                                                    <option value="P">Program Major / Elective</option>
+                                                    <option value="M">Minor / General Elective</option>
+                                                </select>
+                                                <label for="type" class="form-label fs-6">Type of Course</label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="form-floating">
-                                                <select class="form-select input" name="type" id="type" required>
-                                                    <option selected disabled>Type of Subject</option>
-                                                    <option value="LEC">Lecture</option>
-                                                    <option value="LAB">Laboratory</option>
-                                                </select>
-                                                <label class="form-label fs-6" for="code">Subject Type</label>
+                                                <input type="number" class="form-control input" id="year" name="year" maxlength="1" 
+                                                            min="1" max="4" step="1" value="0" required/>
+                                                <label class="form-label fs-6" for="year">Year Level</label>
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="form-floating">
-                                                <select class="form-select input" name="year" id="year" required>
-                                                    <option selected disabled>Year Level</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                </select>
-                                                <label class="form-label fs-6" for="code">Year Level</label>
+                                                <input type="number" class="form-control input" id="semester" name="semester" maxlength="1" 
+                                                        min="1" max="2" step="1" value="0" required/>
+                                                <label class="form-label fs-6" for="semester">Semester</label>
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="form-floating">
-                                                <select class="form-select input" name="semester" id="semester" required>
-                                                    <option selected disabled>Semester</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                </select>
-                                                <label class="form-label fs-6" for="code">Semester</label>
+                                            <input type="text" class="form-control input" id="unitLec" name="unitLec" required/>
+                                                <label for="unitsLec" class="form-label fs-6">Number of Units (Lecture)</label>
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="form-floating">
-                                            <input type="text" class="form-control input" id="units" name="units" required/>
-                                                <label for="program" class="form-label fs-6">Number of Units</label>
+                                            <input type="text" class="form-control input" id="unitLab" name="unitLab" value="0" required/>
+                                                <label for="unitsLab" class="form-label fs-6">Number of Units (Laboratory)</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h4>For the Pre- and Co- Requisites, use a comma "," to separate codes.</h4>
+                                        <h4>For the Pre-Requisites, use a comma "," to separate codes.</h4>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
                                         <input type="text" class="form-control input" id="prerequisite" name="prerequisite"/>
                                             <label for="program" class="form-label fs-6">Pre-Requisite</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                        <input type="text" class="form-control input" id="corequisite" name="corequisite"/>
-                                            <label for="program" class="form-label fs-6">Co-Requisite</label>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-success mt-2 ms-auto">Submit</button>
@@ -187,68 +208,73 @@
                 </div>
 
                 <div class="d-flex flex-column justify-content-between
-                            align-items-start gap-2 mt-5">
+                            align-items-start gap-2 mt-5 w-100">
                     <div class="w-100 d-flex flex-row justify-content-start align-items-start pb-0 border-bottom border-3 border-dark">
                         <h2 class="fs-3 text-dark"> Subject List </h2>
                     </div>
-                    <?php
-                        include('functions/php/config.php');
+                    <div class="w-100 d-flex flex-row justify-content-center align-items-center pb-0 border-bottom border-3 border-dark overflow-auto"
+                            style="max-height: 35rem;">
+                        <?php
+                            include('functions/php/config.php');
+                            
+                            $query = "SELECT * FROM subject";
+                            $result = $con->query($query);
+
+                            if(mysqli_num_rows($result) > 0): ?>
+                                <table class="table table-striped table-bordered w-100 mt-auto" >
+                                            <thead>
+                                                <tr>
+                                                    <th data-sortable="true">Subject ID</th>
+                                                    <th data-sortable="true">Subject Name</th>
+                                                    <th>Curriculum</th>
+                                                    <th>Units (Lec)</th>
+                                                    <th>Units (Lab)</th>
+                                                    <th>Total Units</th>
+                                                    <th data-sortable="true">Year Level</th>
+                                                    <th data-sortable="true">Semester</th>
+                                                    <th>Pre-Requisites</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
                         
-                        $query = "SELECT * FROM subject";
-                        $result = $con->query($query);
+                        <?php while ($row = $result -> fetch_assoc()): ?>
+                            <tr>
+                                <td class=""><?php echo $row['idSub']; ?></td>
+                                <td class=""><?php echo $row['name']; ?></td>
+                                <td class=""><?php echo $row['program']; ?></td>
+                                <td class="text-center"><?php echo $row['unitLec']; ?></td>
+                                <td class="text-center"><?php echo $row['unitLab']; ?></td>
+                                <td class="fw-bold text-center"><?php echo $row['unitTot']; ?></td>
+                                <td class="text-center"><?php echo $row['year']; ?></td>
+                                <td class="text-center"><?php echo $row['semester']; ?></td>
+                                <td class=""><?php echo $row['prerequisite'] ?></td>
+                                <td class="mx-auto text-center">
+                                    <a href="#" class="mx-1 clear text-muted view" data-id="<?php echo $row['id']; ?>"
+                                        data-bs-toggle="modal" data-bs-target="#view-subj" id="<?php echo $row['id']; ?>">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </a>
+                                    <a href="#" class="mx-1 clear text-primary edit" data-id="<?php echo $row['id']; ?>"
+                                        data-bs-toggle="modal" data-bs-target="#edit-subj" id="<?php echo $row['id']; ?>">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    <a href="#" class="mx-1 clear text-danger delete" data-id="<?php echo $row['id']; ?>"
+                                        data-bs-toggle="modal" data-bs-target="#del-subj" id="<?php echo $row['id']; ?>">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endwhile ?>
+                            </tbody>
+                        </table>
+                        
+                        <?php else:?>        
+                            <div class="w-100 card card-body d-flex flex-column border border-dark bg-danger">
+                                <h2 class="fs-3 text-white text-center"> No subjects yet! </h2>
+                            </div>
 
-                        if(mysqli_num_rows($result) > 0): ?>
-                            <table id="" class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Subject Code</th>
-                                                <th>Subject Name</th>
-                                                <th>Type</th>
-                                                <th>Program</th>
-                                                <th>Units</th>
-                                                <th>Year Level</th>
-                                                <th>Semester</th>
-                                                <th>Pre-Requisites / Co-Requisites</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                    
-                    <?php while ($row = $result -> fetch_assoc()): ?>
-                        <tr>
-                            <td class=""><?php echo $row['code']; ?></td>
-                            <td class=""><?php echo $row['name']; ?></td>
-                            <td class=""><?php echo $row['type']; ?></td>
-                            <td class=""><?php echo $row['program']; ?></td>
-                            <td class=""><?php echo $row['units']; ?></td>
-                            <td class=""><?php echo $row['year']; ?></td>
-                            <td class=""><?php echo $row['semester']; ?></td>
-                            <td class=""><?php echo $row['prerequisite'] . $row['corequisite']; ?></td>
-                            <td class="mx-auto text-center">
-                                <a href="#" class="mx-1 clear text-muted view" data-id="<?php echo $row['id']; ?>"
-                                    data-bs-toggle="modal" data-bs-target="#view-subj" id="<?php echo $row['id']; ?>">
-                                    <i class="bi bi-eye-fill"></i>
-                                </a>
-                                <a href="#" class="mx-1 clear text-primary edit" data-id="<?php echo $row['id']; ?>"
-                                    data-bs-toggle="modal" data-bs-target="#edit-subj" id="<?php echo $row['id']; ?>">
-                                    <i class="bi bi-pencil-square"></i>
-                                </a>
-                                <a href="#" class="mx-1 clear text-danger delete" data-id="<?php echo $row['id']; ?>"
-                                    data-bs-toggle="modal" data-bs-target="#del-subj" id="<?php echo $row['id']; ?>">
-                                    <i class="bi bi-trash-fill"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    <?php endwhile ?>
-                        </tbody>
-                    </table>
-                    
-                    <?php else:?>        
-                        <div class="w-100 card card-body d-flex flex-column border border-dark bg-danger">
-                            <h2 class="fs-3 text-white text-center"> No subjects yet! </h2>
-                        </div>
-
-                    <?php endif ?>
+                        <?php endif ?>
+                    </div>
                 </div>
             </div>
 
@@ -303,7 +329,7 @@
                     $('.view').click(function() {
                         var uid = $(this).data('id');
                         $.ajax({
-                            url: 'functions/php/viewsubj.php',
+                            url: 'functions/php/viewSubj.php',
                             type: 'post',
                             data: {uid: uid},
                             success: function(response){
@@ -316,7 +342,7 @@
                     $('.edit').click(function() {
                         var uid = $(this).data('id');
                         $.ajax({
-                            url: 'functions/php/editsubj.php',
+                            url: 'functions/php/editSubj.php',
                             type: 'post',
                             data: {uid: uid},
                             success: function(response){
@@ -329,7 +355,7 @@
                     $('.delete').click(function() {
                         var uid = $(this).data('id');
                         $.ajax({
-                            url: 'functions/php/delsubj.php',
+                            url: 'functions/php/delSubj.php',
                             type: 'post',
                             data: {uid: uid},
                             success: function(response){

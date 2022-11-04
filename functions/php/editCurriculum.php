@@ -7,7 +7,7 @@
     $name = $_POST['name'];
 
     $query =    "UPDATE`curriculums` 
-                SET code = '$code', subCode = '$subCode', name = '$name'
+                SET code = '$code', name = '$name'
                 WHERE id = $id;
                 
                 ";

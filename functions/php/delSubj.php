@@ -1,9 +1,10 @@
 <?php
+    session_start();
     include "config.php";
     $id = $_POST['uid'];
 
 
-    $query = $con -> query("SELECT * from curriculums WHERE id = '$id'") or die($con -> error);
+    $query = $con -> query("SELECT * from `subject` WHERE `id` = '$id'") or die($con -> error);
     while($row = $query -> fetch_assoc()) { 
         ?>
         <form
@@ -18,7 +19,7 @@
 
                     <div class="form-floating">
                         <input type="text" class="form-control visually-hidden" 
-                        value="<?php echo $row['id']?>" name="id" placeholder="id">
+                        value="<?php echo $row['idSub']?>" name="idSub" placeholder="idSub">
                     </div>
 
                     <button class="btn btn-danger" type="submit" name="deleteCurriculum">Delete</button>

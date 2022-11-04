@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include "config.php";
     $id = $_POST['uid'];
 
@@ -6,9 +7,6 @@
     $query = $con -> query("SELECT * from `user-student` WHERE id = '$id'") or die($con -> error);
     while($row = $query -> fetch_assoc()) { 
         ?>
-        <form 
-            action="functions/php/editStudent.php" 
-            method="post">
             <div class="row py-2 gap-2 gap-lg-0">
                 <div class="col-4">
                     <div class="form-floating">
@@ -99,7 +97,7 @@
             </div>
 
             <div class="row py-2 gap-2 gap-lg-0">
-                <div class="col-8">
+                <div class="col-12">
                     <div class="form-floating">
                     <select class="form-select input" name="program" id="program" disabled>
                         <option selected disabled>Select Program</option>
@@ -115,18 +113,6 @@
                         <?php endwhile?>
                     </select>
                     <label for="program" class="form-label fs-6">Program</label>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-floating">
-                    <select class="form-select input" name="yrLvl" id="yrLvl" disabled>
-                    <option selected disabled>Year Level</option>
-                    <option value="1" <?php if("1" == $row['yrLvl']) echo 'selected="selected"'; ?>>1</option>
-                    <option value="2" <?php if("2" == $row['yrLvl']) echo 'selected="selected"'; ?>>2</option>
-                    <option value="3" <?php if("3" == $row['yrLvl']) echo 'selected="selected"'; ?>>3</option>
-                    <option value="4" <?php if("4" == $row['yrLvl']) echo 'selected="selected"'; ?>>4</option>
-                    </select>
-                    <label for="yrLvl" class="form-label fs-6">Year Level</label>
                     </div>
                 </div>
             </div>
@@ -154,6 +140,32 @@
                         <input type="text" id="email" name="email" class="form-control form-control-lg input"
                         placeholder="Email" value="<?php echo $row['email']?>" readonly />
                         <label class="form-label fs-6" for="email">Email</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-2 gap-2 gap-lg-0">
+                <div class="col-4">
+                    <div class="form-floating">
+                        <input type="number" class="form-control input" id="yearLvl" name="yearLvl" maxlength="1" 
+                            min="2016" max="2099" step="1" value="<?php echo $row['yrReg']; ?>" readonly/>
+                        <label for="yearReg" class="form-label fs-6">Year Started</label>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="form-floating">
+                        <input type="number" class="form-control input" id="yearLvl" name="yearLvl" maxlength="1" 
+                                min="1" max="4" step="1" value="<?php echo $row['yrLvl']; ?>" readonly/>
+                        <label for="yearReg" class="form-label fs-6">Year Level</label>
+                    </div>
+                </div>
+                
+                <div class="col-4">
+                    <div class="form-floating">
+                    <input type="number" class="form-control input" id="yearLvl" name="yearLvl" maxlength="1" 
+                                min="1" max="4" step="1" value="<?php echo $row['yrStd']; ?>" readonly/>
+                    <label for="yearReg" class="form-label fs-6">Year Standing</label>
                     </div>
                 </div>
             </div>

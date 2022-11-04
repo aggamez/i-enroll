@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include "config.php";
     $id = $_POST['uid'];
 
@@ -11,23 +12,14 @@
             method="post">
             <div class="container gap-2 d-flex flex-column">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-3">
                         <div class="form-floating">
                             <input type="text" id="code" name="code" class="form-control form-control-lg input"
                                     placeholder="Code" value="<?php echo $row['code']?>" required/>
                             <label class="form-label fs-6" for="code">Curriculum Code</label>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="form-floating">
-                            <input type="text" id="subCode" name="subCode" class="form-control form-control-lg input"
-                                placeholder="subCode" value="<?php echo $row['subCode']?>" required/>
-                                <label class="form-label fs-6" for="subCode">Subject Code</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
+                    <div class="col-9">
                         <div class="form-floating">
                             <input type="text" id="name" name="name" class="form-control form-control-lg input"
                                 placeholder="Name" value="<?php echo $row['name']?>" required/>

@@ -1,9 +1,10 @@
 <?php
+    session_start();
     include "config.php";
     $id = $_POST['uid'];
 
 
-    $query = $con -> query("SELECT * from subject WHERE id = '$id'") or die($con -> error);
+    $query = $con -> query("SELECT * from subject WHERE `id` = '$id'") or die($con -> error);
     while($row = $query -> fetch_assoc()) { 
         ?>
         <form   action="functions/php/editSubject.php" 
@@ -12,9 +13,9 @@
                 <div class="row">
                     <div class="col-3">
                         <div class="form-floating">
-                            <input type="text" id="code" name="code" class="form-control form-control-lg input"
-                            placeholder="Code" value="<?php echo $row['code']?>"  />
-                            <label class="form-label fs-6" for="scode">Subject Code</label>
+                            <input type="text" id="idSub" name="idSub" class="form-control form-control-lg input"
+                            placeholder="idSub" value="<?php echo $row['idSub']?>"  />
+                            <label class="form-label fs-6" for="idSub">Subject ID</label>
                         </div>
                     </div>
                     <div class="col-9">
@@ -26,7 +27,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-8">
                         <div class="form-floating">
                             <select class="form-select input" name="program" id="program" >
                                 <option selected disabled>Curriculum</option>
@@ -43,45 +44,44 @@
                             <label for="program" class="form-label fs-6">Curriculum</label>
                         </div>
                     </div>
+                    <div class="col-4">
+                        <div class="form-floating">
+                            <select class="form-select input fs-6" name="type" id="type">
+                                <option selected disabled>Select Option</option>
+                                <option value="P" <?php if("P" == $row['type']) echo 'selected="selected"'; ?>>Program Major / Elective</option>
+                                <option value="M" <?php if("M" == $row['type']) echo 'selected="selected"'; ?>>Minor / General Elective</option>
+                            </select>
+                            <label for="type" class="form-label fs-6">Type of Course</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-3">
                         <div class="form-floating">
-                            <select class="form-select input" name="type" id="type" >
-                                <option selected disabled>Type of Subject</option>
-                                <option value="LEC" <?php if("LEC" == $row['type']) echo 'selected="selected"'; ?>>Lecture</option>
-                                <option value="LAB" <?php if("LAB" == $row['type']) echo 'selected="selected"'; ?>>Laboratory</option>
-                            </select>
-                            <label class="form-label fs-6" for="code">Subject Type</label>
+                            <input type="number" class="form-control input" id="year" name="year" maxlength="1" 
+                                        min="1" max="4" step="1" value="<?php echo $row['year']; ?>" required/>
+                            <label class="form-label fs-6" for="year">Year Level</label>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="form-floating">
-                            <select class="form-select input" name="year" id="year" >
-                                <option selected disabled>Year Level</option>
-                                <option value="1" <?php if("1" == $row['year']) echo 'selected="selected"'; ?>>1</option>
-                                <option value="2" <?php if("2" == $row['year']) echo 'selected="selected"'; ?>>2</option>
-                                <option value="3" <?php if("3" == $row['year']) echo 'selected="selected"'; ?>>3</option>
-                                <option value="4" <?php if("4" == $row['year']) echo 'selected="selected"'; ?>>4</option>
-                            </select>
-                            <label class="form-label fs-6" for="code">Year Level</label>
+                            <input type="number" class="form-control input" id="semester" name="semester" maxlength="1" 
+                                    min="1" max="2" step="1" value="<?php echo $row['semester']; ?>" required/>
+                            <label class="form-label fs-6" for="semester">Semester</label>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="form-floating">
-                            <select class="form-select input" name="semester" id="semester" >
-                                <option selected disabled>Semester</option>
-                                <option value="1" <?php if("1" == $row['semester']) echo 'selected="selected"'; ?>>1</option>
-                                <option value="2" <?php if("2" == $row['semester']) echo 'selected="selected"'; ?>>2</option>
-                            </select>
-                            <label class="form-label fs-6" for="code">Semester</label>
+                        <input type="text" class="form-control input" id="unitLec" name="unitLec" 
+                        value="<?php echo $row['unitLec']?>" />
+                            <label for="program" class="form-label fs-6">Lecture Units</label>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="form-floating">
-                        <input type="text" class="form-control input" id="units" name="units" 
-                        value="<?php echo $row['units']?>" />
-                            <label for="program" class="form-label fs-6">Number of Units</label>
+                        <input type="text" class="form-control input" id="unitLab" name="unitLab" 
+                        value="<?php echo $row['unitLab']?>" />
+                            <label for="program" class="form-label fs-6">Laboratory Units</label>
                         </div>
                     </div>
                 </div>
@@ -92,13 +92,6 @@
                     <input type="text" class="form-control input" id="prerequisite" name="prerequisite" 
                     value="<?php echo $row['prerequisite']?>" />
                         <label for="program" class="form-label fs-6">Pre-Requisite</label>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-floating">
-                    <input type="text" class="form-control input" id="corequisite" name="corequisite"
-                    value="<?php echo $row['corequisite']?>" />
-                        <label for="program" class="form-label fs-6">Co-Requisite</label>
                     </div>
                 </div>
                 <div class="row">

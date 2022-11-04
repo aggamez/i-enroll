@@ -46,9 +46,9 @@
                 </div>
             </nav>
 
-            <div class="bg text-white" style="background-image: url('assets/img/bg2.png');">
+            <div class="min-vh-100 text-white" style="background-image: url('assets/img/bg2.png'); ">
                 <div class="bg-overlay d-flex justify-content-center align-items-center">
-                    <div class="container p-2 p-lg-5 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5 overflow-scroll">
+                    <div class="container w-75 p-3 p-lg-5 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5">
                         <h1 class="text-dark fs-3 fs-lg-1">Student Register</h1>
                         <form
                                     class=""
@@ -145,7 +145,7 @@
                                 </div>
 
                                 <div class="row py-2 gap-2 gap-lg-0">
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-6">
                                         <div class="form-floating">
                                         <select class="form-select input" name="program" id="program">
                                             <option selected disabled>Select Program</option>
@@ -163,27 +163,30 @@
                                         <label for="program" class="form-label fs-6">Program</label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <div class="form-floating">
-                                        <select class="form-select input" name="yrLvl" id="yrLvl">
-                                            <option selected disabled>Year Level</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                        </select>
-                                        <label for="yrLvl" class="form-label fs-6">Year Level</label>
+                                            <input type="number" class="form-control input" id="yearReg" name="yearReg" maxlength="4" 
+                                                    min="2016" max="2099" step="1" value="2022" required/>
+                                            <label for="yearReg" class="form-label fs-6">Year Started</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-floating">
+                                            <input type="number" class="form-control input" id="yearLvl" name="yearLvl" maxlength="1" 
+                                                    min="1" max="4" step="1" value="1" required/>
+                                            <label for="yearReg" class="form-label fs-6">Year Level</label>
                                         </div>
                                     </div>
                                 </div>
                                 
 
-                                <div class="row py-2 gap-2 gap-lg-0">
+                                <div class="row p-2 gap-2 gap-lg-0">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                         <label class="form-check-label" for="exampleCheck1">My info is correct and would like to register.</label>
                                     </div>
                                 </div>
+
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>

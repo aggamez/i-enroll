@@ -1,8 +1,11 @@
-<?php 
 
-?>
-
+<!doctype html>
 <html>
+
+    <?php 
+
+    ?>
+
     <head>
         <title>i-Enroll System</title>
         
@@ -47,22 +50,50 @@
                 </div>
             </nav>
             
-            <div class="bg d-flex flex-row justify-content-center align-items-center" style="">
+            <div class="bg d-flex flex-column justify-content-center align-items-center gap-5" >
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <h1 class="fs-1 text-dark"> Enroll Now! </h1>
+                    <h1 class="fs-1 text-dark"> Student Enrollment Portals </h1>
                     <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3 gap-lg-5">
-                        <div class="card bg-dark" style="height: 8rem;">
-                            <div class="card-body d-flex flex-column justify-content-center align-items-center text-white">
-                                <i class="bi bi-person-plus-fill"></i>
-                                <a class="text-success text-decoration-none fs-4" href="studCreate.php">New Student</a>
+                        <a href="studCreate.php" class="btn btn-dark text-decoration-none ">
+                            <div class="card bg-dark" style="height: 8rem; width: 10rem;">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center text-white">
+                                    <i class="bi bi-person-plus-fill fs-4"></i>
+                                    <h5 class="text-success fs-5">New Student</h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card bg-dark" style="height: 8rem;">
-                            <div class="card-body d-flex flex-column justify-content-center align-items-center text-white">
-                                <i class="bi bi-person-fill"></i>
-                                <a class="text-primary text-decoration-none fs-4" href="studLogin.php">Old Student</a>
+                        </a>
+                        
+                        <a href="studLogin.php" class="btn btn-dark text-decoration-none ">
+                            <div class="card bg-dark" style="height: 8rem; width: 10rem;">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center text-white">
+                                    <i class="bi bi-person-fill fs-4"></i>
+                                    <h5 class="text-primary fs-5">Old Student</h6>
+                                </div>
                             </div>
-                        </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <h1 class="fs-1 text-dark"> Institutional Portals </h1>
+                    <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3 gap-lg-5">
+                        <a href="adminLogin.php" class="btn btn-dark text-decoration-none ">
+                            <div class="card bg-dark" style="height: 8rem; width: 10rem;">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center text-white">
+                                    <i class="bi bi-person-plus-fill fs-4"></i>
+                                    <h5 class="text-info fs-5">Administrator Portal</h6>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="facultyLogin.php" class="btn btn-dark text-decoration-none ">
+                            <div class="card bg-dark" style="height: 8rem; width: 10rem;">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center text-white">
+                                    <i class="bi bi-person-fill fs-4"></i>
+                                    <h5 class="text-info fs-5">Faculty Portal</h6>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 <?php
-    include('config.php');
+    session_start();
+    include "config.php";
     
     $fName = $_POST['fName'];
     $mName = $_POST['mName'];

@@ -5,4 +5,10 @@
 	$db = 'i-enroll';
 
 	$con = new mysqli($server,$user,$pass,$db);
+
+	$tz = 'Asia/Manila';
+	date_default_timezone_set('Asia/Manila');
+
+	$currSem = 1;
+	
 ?>
