@@ -61,13 +61,8 @@
                                         <i class="bi bi-list-columns-reverse"></i>Subjects</a></li>
 
                                     <li><hr class="dropdown-divider"></li>
-
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminStudStatus.php">
-                                        <i class="bi bi-clipboard-fill"></i>Student Management</a></li>
-                                    <li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSchedules.php">
                                         <i class="bi bi-clipboard-fill"></i>Schedule Management</a></li>
-
                                     <li><hr class="dropdown-divider"></li>
 
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminAccounts.php">

@@ -1,4 +1,5 @@
 <?php 
+	include_once 'funcs.php';
 	$server = 'localhost';
 	$user = 'root';
 	$pass = '';
@@ -10,5 +11,6 @@
 	date_default_timezone_set('Asia/Manila');
 
 	$currSem = 1;
+	$currYear = 2022;
 	
 ?>

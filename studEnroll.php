@@ -7,7 +7,6 @@
         }
 
         include('functions/php/config.php');
-        include('functions/php/funcs.php');
 
         $user = $_SESSION['studUser'];
         $enrollCode = $_SESSION['enrollCode'];
@@ -107,55 +106,53 @@
                             <div class="bg-gray w-auto">
                                 <div class="bg-dark">
                                     <a  class=  "nav-link dropdown-toggle fs-2 d-flex flex-row justify-content-end 
-                                                align-items-center gap-2 text-white" 
+                                                align-items-center gap-2 text-white w-100" 
                                         data-bs-toggle="collapse" 
                                         href="<?php echo $divHref?>" role="button" aria-expanded="true"
                                         aria-controls="<?php echo $divId?>">
-                                        <div class="d-flex flex-row justify-content-start align-items-center me-auto gap-2">
+                                        <div class="d-flex flex-row justify-content-start align-items-center me-auto w-100 gap-2">
                                             <h6 class="fs-3 align-items-center">Year <?php echo $yr?>, Semester <?php echo $sem?></h6>
                                         </div>
                                     </a>
                                 </div>
                             
-                                <div class="collapse" id="<?php echo $divId?>">
-                                    <?php
-                                        $querys = "SELECT * FROM subject WHERE `year` = '$yr' AND `semester` = '$sem'";
-                                        $results = $con->query($querys);
-                                        
-                                        if(mysqli_num_rows($results) > 0): ?>
-                                        <table class="table table-striped table-bordered w-100 fs-6">
-                                            <thead>
-                                                <tr>
-                                                    <th>Subject ID</th>
-                                                    <th class="text-center">Units</th>
-                                                    <th>Pre-Requisites</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php while ($rows = $results -> fetch_assoc()): ?>
+                                    <div class="collapse" id="<?php echo $divId?>">
+                                        <?php
+                                            $querys = "SELECT * FROM subject WHERE `year` = '$yr' AND `semester` = '$sem'";
+                                            $results = $con->query($querys);
+                                            
+                                            if(mysqli_num_rows($results) > 0): ?>
+                                            <table class="table table-striped table-bordered w-100 fs-6">
+                                                <thead>
                                                     <tr>
-                                                        <td class=""><?php echo $rows['idSub']; ?></td>
-                                                        <td class="fw-bold text-center"><?php echo $rows['unitTot']; ?></td>
-                                                        <td class=""><?php echo $rows['prerequisite']; ?></td>
-                                                        
-                                                        <?php
-                                                            $subCode = $rows['idSub'];
-                                                            $schedQuery = "SELECT * FROM `schedule` WHERE `idSub` = '$subCode'";
-                                                            $schedRes = $con->query($schedQuery);
-                                                            if(mysqli_num_rows($schedRes) > 0): //check for schedules 
-                                                            
-                                                            ?>
-
-                                                        <?php else: ?>
-                                                            <td class="fs-6"> <a class="fs-6 text-danger text-decoration-none"> <i class="bi bi-slash-circle"></i> Unavailable </a> </td> 
-                                                        <?php endif; ?>
+                                                        <th>Subject ID</th>
+                                                        <th class="text-center">Units</th>
+                                                        <th>Pre-Requisites</th>
+                                                        <th></th>
                                                     </tr>
-                                                <?php endwhile ?>
-                                            </tbody>
-                                        </table>
-                                    <?php endif ?>
-                                </div>
+                                                </thead>
+                                                <tbody>
+                                                    <?php while ($rows = $results -> fetch_assoc()): ?>
+                                                        <tr>
+                                                            <td class=""><?php echo $rows['idSub']; ?></td>
+                                                            <td class="fw-bold text-center"><?php echo $rows['unitTot']; ?></td>
+                                                            <td class=""><?php echo $rows['prerequisite']; ?></td>
+                                                            
+                                                            <?php
+                                                                $subCode = $rows['idSub'];
+                                                                $schedQuery = "SELECT * FROM `schedule` WHERE `idSub` = '$subCode'";
+                                                                $schedRes = $con->query($schedQuery);
+                                                                if(mysqli_num_rows($schedRes) > 0): //check for schedules ?>
+                                                                    <td class="fs-6"> <a class="fs-6 text-primary text-decoration-none"> <i class="bi bi-plus-circle"></i> Add </a> </td> 
+                                                                <?php else: ?>
+                                                                    <td class="fs-6"> <a class="fs-6 text-danger text-decoration-none"> <i class="bi bi-slash-circle"></i> Unavailable </a> </td> 
+                                                                <?php endif; ?>
+                                                        </tr>
+                                                    <?php endwhile ?>
+                                                </tbody>
+                                            </table>
+                                        <?php endif ?>
+                                    </div>
                             </div>
                     <?php } }?>
                 </div>

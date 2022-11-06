@@ -1,7 +1,7 @@
 <?php
     session_start();
     include "config.php";
-    include "funcs.php";
+    include_once "funcs.php";
 
 
     $user = $_POST['username'];

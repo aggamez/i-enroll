@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php 
 
 ?>
@@ -145,7 +146,7 @@
                                 </div>
 
                                 <div class="row py-2 gap-2 gap-lg-0">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="form-floating">
                                         <select class="form-select input" name="program" id="program">
                                             <option selected disabled>Select Program</option>
@@ -163,18 +164,31 @@
                                         <label for="program" class="form-label fs-6">Program</label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                </div>
+
+                                <div class="row py-2 gap-2 gap-lg-0">
+                                    <div class="col-lg-4">
                                         <div class="form-floating">
                                             <input type="number" class="form-control input" id="yearReg" name="yearReg" maxlength="4" 
                                                     min="2016" max="2099" step="1" value="2022" required/>
                                             <label for="yearReg" class="form-label fs-6">Year Started</label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <div class="form-floating">
                                             <input type="number" class="form-control input" id="yearLvl" name="yearLvl" maxlength="1" 
                                                     min="1" max="4" step="1" value="1" required/>
                                             <label for="yearReg" class="form-label fs-6">Year Level</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-floating">
+                                            <select class="form-select input fs-6" name="status" id="status">
+                                                <option selected disabled>Select Option</option>
+                                                <option value="R">Regular</option>
+                                                <option value="X">Irregular</option>
+                                            </select>
+                                            <label for="status" class="form-label fs-6">Student Status</label>
                                         </div>
                                     </div>
                                 </div>
