@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2022 at 08:25 AM
+-- Generation Time: Nov 06, 2022 at 02:51 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -145,7 +145,26 @@ INSERT INTO `logs` (`id`, `idLog`, `date`, `source`, `action`, `target`) VALUES
 (70, '09fdce572c4d67b94ab8d8753176d3c03aa21047b9fb119f65f1eabb95f51656', '2022-11-04 15:10:39', 'admin2022init', 'EDIT / CHANGE', 'NSTP1'),
 (71, 'f502188ea5c5737f11f58c3bee47d98137c68746b65d7541bb6abfe4daa03307', '2022-11-04 15:11:18', 'admin2022init', 'EDIT / CHANGE', 'CC103'),
 (72, '9ac58ba8fee081ad3b861d25a223fadb53743a67822b980d4a98af4805b9462f', '2022-11-04 15:11:25', 'admin2022init', 'EDIT / CHANGE', 'CC104'),
-(73, '86b2ef4bb586f9a8c649db75a68e9dffcd6f5cf91e999f105cb71bb32c50b3fd', '2022-11-04 15:11:30', 'admin2022init', 'EDIT / CHANGE', 'CC105');
+(73, '86b2ef4bb586f9a8c649db75a68e9dffcd6f5cf91e999f105cb71bb32c50b3fd', '2022-11-04 15:11:30', 'admin2022init', 'EDIT / CHANGE', 'CC105'),
+(74, '55d01d3be3729cade8660278bb036dd69b0bd468204160d65c2dc44191ff08d1', '2022-11-06 16:54:58', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(75, 'fe767d4fbfd7bb1e755c70fdfa6c1593257ab8764b6ae94d480071bd20c3c4d6', '2022-11-06 16:55:59', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(76, '1f634e2c9f9c2925b90ec4fe1375b26411b7874398d557fa83f7cd2eefccba02', '2022-11-06 16:57:02', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(77, '1fc6df7d4ecdca53ce90efcea12cc4607ee8a93e6f268eea3d4ba4b9baf080ee', '2022-11-06 16:58:58', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(78, '6ae45385b8dfcbb7236fdb6da553a3960776e6395cb83d8b6a7f76c6ef7c8dd1', '2022-11-06 17:00:50', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(79, '6fab3158849b60b672261a6f82df574e7adf115f9bd03e72ba990b350bbb40da', '2022-11-06 17:06:37', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(80, '69daa8588b4fa0542ebe4ef6e9e98e203e0e7b938b936e97866f38bac48d570f', '2022-11-06 17:07:05', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(81, '1f3002ae99601e3219f812856f9da5c9f00347c04d131d58c964a910955ebd1f', '2022-11-06 17:09:54', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(82, '676002539194753ad1b58d416e6d704bcdcac568381565dab4d060cc1db4bd2e', '2022-11-06 17:11:39', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(83, '610d3ade2b964d13c0573368cafb6501dd891e4b0b6cc1d397bb3c39ffa6b71a', '2022-11-06 17:12:03', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(84, 'c19798ce916997a9fab74e9b1cc2360f32ea1081e8f2c63050c682ba93546358', '2022-11-06 19:08:04', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(85, 'c51c2457b03cee11303ed078a3232a4de6a324e00614b58b7cd9faa526326cad', '2022-11-06 19:09:49', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(86, '6b96b426359dd5749580f19a9626d67d3d50d1d35d72c69682eb5e4f10d022eb', '2022-11-06 20:49:39', 'admin2022init', 'ADD SECTION', 'CS1A'),
+(87, 'cd1a60ef4f4e58a72fbe5ff78207206e9e39e05f88cc0ec80b85d18594e48de2', '2022-11-06 21:30:08', 'admin2022init', 'DELETE / REMOVE', 'CC101'),
+(88, 'b6952a25397be0097bd94aedb6f99edc92e9d760d2d3eb453a2df954c6c6aca0', '2022-11-06 21:30:44', 'admin2022init', 'CREATE / ADD', 'CC101'),
+(89, '72c49e20bb0382c879fe2920557317c3b8885cda004109b08a3515ce93f63ca4', '2022-11-06 21:34:24', 'admin2022init', 'REMOVE SECTIONS', 'CC101'),
+(90, '13fc79d8ae582acfe5bb7cdfd71bb32e08a9a10a2147c8a7223f538a691c2d2a', '2022-11-06 21:39:55', 'admin2022init', 'ADD SECTION', 'CS1A'),
+(91, 'f5c151278426a537daba09cb0a66fb8896333edefb350bcd4490e66e64415165', '2022-11-06 21:40:17', 'admin2022init', 'ADD SECTION', 'CS1B'),
+(92, 'a58f9dec1c82106b984af2ff1b4125793ffd996182df1c5ae9e36a64f93c7327', '2022-11-06 21:48:00', 'SYSTEM', 'ADD STUDENT', '22-00000');
 
 -- --------------------------------------------------------
 
@@ -157,11 +176,21 @@ CREATE TABLE `schedule` (
   `id` int(11) NOT NULL,
   `idSub` varchar(10) NOT NULL,
   `section` varchar(15) NOT NULL,
+  `studLimit` int(11) NOT NULL,
   `professor` varchar(150) NOT NULL,
   `rmAssign` varchar(50) NOT NULL,
+  `days` varchar(50) NOT NULL,
   `timeIni` varchar(5) NOT NULL,
   `timeEnd` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`id`, `idSub`, `section`, `studLimit`, `professor`, `rmAssign`, `days`, `timeIni`, `timeEnd`) VALUES
+(2, 'CC101', 'CS1A', 15, '', '', 'MON,WED,FRI', '18:45', '19:45'),
+(3, 'CC101', 'CS1B', 10, '', '', 'MON,WED,FRI', '07:45', '08:45');
 
 -- --------------------------------------------------------
 
@@ -170,8 +199,75 @@ CREATE TABLE `schedule` (
 --
 
 CREATE TABLE `student-academics` (
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `idStud` varchar(10) NOT NULL,
+  `idSub` varchar(10) NOT NULL,
+  `status` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student-academics`
+--
+
+INSERT INTO `student-academics` (`id`, `idStud`, `idSub`, `status`) VALUES
+(175, '22-00000', 'CC101', 'P'),
+(176, '22-00000', 'CC102', 'P'),
+(177, '22-00000', 'DS101', 'P'),
+(178, '22-00000', 'AL101', 'O'),
+(179, '22-00000', 'GE1', 'O'),
+(180, '22-00000', 'GE2', 'O'),
+(181, '22-00000', 'GE10', 'O'),
+(182, '22-00000', 'PE1', 'O'),
+(183, '22-00000', 'NSTP1', 'O'),
+(184, '22-00000', 'CC103', 'O'),
+(185, '22-00000', 'CC104', 'O'),
+(186, '22-00000', 'CC105', 'O'),
+(187, '22-00000', 'DS102', 'O'),
+(188, '22-00000', 'GE3', 'O'),
+(189, '22-00000', 'GE4', 'O'),
+(190, '22-00000', 'PE2', 'O'),
+(191, '22-00000', 'GE11', 'O'),
+(192, '22-00000', 'NSTP2', 'O'),
+(193, '22-00000', 'CC106', 'O'),
+(194, '22-00000', 'SDF104', 'O'),
+(195, '22-00000', 'AL102', 'O'),
+(196, '22-00000', 'NC101', 'O'),
+(197, '22-00000', 'GE5', 'O'),
+(198, '22-00000', 'GE6', 'O'),
+(199, '22-00000', 'GEE22', 'O'),
+(200, '22-00000', 'IT100', 'O'),
+(201, '22-00000', 'PE3', 'O'),
+(202, '22-00000', 'AR101', 'O'),
+(203, '22-00000', 'OS101', 'O'),
+(204, '22-00000', 'PL101', 'O'),
+(205, '22-00000', 'HCI101', 'O'),
+(206, '22-00000', 'AL103', 'O'),
+(207, '22-00000', 'GE7', 'O'),
+(208, '22-00000', 'GE8', 'O'),
+(209, '22-00000', 'GEE32', 'O'),
+(210, '22-00000', 'PE4', 'O'),
+(211, '22-00000', 'IAS101', 'O'),
+(212, '22-00000', 'SE101', 'O'),
+(213, '22-00000', 'ELEC1', 'O'),
+(214, '22-00000', 'CC107', 'O'),
+(215, '22-00000', 'DS103', 'O'),
+(216, '22-00000', 'GE9', 'O'),
+(217, '22-00000', 'IT101', 'O'),
+(218, '22-00000', 'GEE13', 'O'),
+(219, '22-00000', 'ELEC2', 'O'),
+(220, '22-00000', 'SE102', 'O'),
+(221, '22-00000', 'THS101', 'O'),
+(222, '22-00000', 'ELEC3', 'O'),
+(223, '22-00000', 'CC108', 'O'),
+(224, '22-00000', 'OS102', 'O'),
+(225, '22-00000', 'SDF105', 'O'),
+(226, '22-00000', 'SP101', 'O'),
+(227, '22-00000', 'THS102', 'O'),
+(228, '22-00000', 'ELEC 4', 'O'),
+(229, '22-00000', 'ELEC 5', 'O'),
+(230, '22-00000', 'HCI102', 'O'),
+(231, '22-00000', 'IT102', 'O'),
+(232, '22-00000', 'PRC101', 'O');
 
 -- --------------------------------------------------------
 
@@ -316,15 +412,16 @@ CREATE TABLE `user-student` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `yrStd` tinyint(4) NOT NULL
+  `yrStd` tinyint(4) NOT NULL,
+  `status` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user-student`
 --
 
-INSERT INTO `user-student` (`id`, `idStud`, `fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrReg`, `yrLvl`, `username`, `password`, `email`, `yrStd`) VALUES
-(10, '', 'John Marcseaa', 'Damien', 'Doessaa', '2714 Street, City', '2022-10-06', 'M', 'S', '09125556554', 'F', 'Christian', 'BSCS', 2022, 1, 'BSCSDoessaa', 'BSCSDoessaa', 'doessaa.johnmarcseaa@tcu.edu.ph', 1);
+INSERT INTO `user-student` (`id`, `idStud`, `fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrReg`, `yrLvl`, `username`, `password`, `email`, `yrStd`, `status`) VALUES
+(14, '22-00000', 'John Marc', 'Barroza', 'Santos', '2714 Street, City', '2002-02-21', 'M', 'S', '09423156465', 'Filipino', 'Christian', 'BSCS', 2022, 1, '22-00000', 'Aqr6ikGQ', 'santos.johnmarc@tcu.edu.ph', 1, 'N');
 
 --
 -- Indexes for dumped tables
@@ -411,25 +508,25 @@ ALTER TABLE `enroll-codes`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student-academics`
 --
 ALTER TABLE `student-academics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `user-admin`
@@ -447,7 +544,7 @@ ALTER TABLE `user-faculty`
 -- AUTO_INCREMENT for table `user-student`
 --
 ALTER TABLE `user-student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
