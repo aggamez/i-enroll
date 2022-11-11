@@ -2,9 +2,9 @@
     session_start();
 	include('config.php');
     
-    $id = $_POST['idSub'];
+    $id = $_POST['id'];
 
-    $query = "DELETE FROM `schedule` WHERE `idSub` = '$id'";
+    $query = "DELETE FROM `sections` WHERE `id` = '$id'";
 
     $result = $con->query($query);
 
@@ -15,14 +15,14 @@
 
         $source = $_SESSION['idAdmin'];
         $target = $id;
-        $action = 'REMOVE SECTIONS';
+        $action = 'REMOVE SCHEDULE';
         $idParse = substr($target, 0, 2) . "ds" . $dl;
         $idLog = hash('sha256', $idParse);
 
 		$logQuery = "INSERT INTO `logs` (`idLog`, `date`, `source`, `action`, `target`) VALUES ('$idLog', '$dt', '$source', UPPER('$action'), '$target')";
         $log = $con->query($logQuery);
-		header("location:../../adminSchedules.php");
+		header("location:../../adminSections.php");
 	}else{
-		header("location:../../adminSchedules.php");
+		header("location:../../adminSections.php");
 	}
 ?>

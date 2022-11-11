@@ -9,9 +9,10 @@
         
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
 
         <script src="lib/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/js/jquery-3.6.1.min.js"></script>
 
     </head>
 
@@ -52,7 +53,6 @@
                     <div class="container w-75 p-3 p-lg-5 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5">
                         <h1 class="text-dark fs-3 fs-lg-1">Student Register</h1>
                         <form
-                                    class=""
                                     method="post" 
                                     action="functions/php/addStudent.php">
                             <div class="text-dark fs-4">
@@ -153,11 +153,11 @@
                                             <?php
                                             include('functions/php/config.php');
                                             
-                                            $query = "SELECT * FROM curriculums WHERE id > 2;";
+                                            $query = "SELECT * FROM `curriculums`;";
                                             $result = $con->query($query);
 
                                             while ($row = $result -> fetch_assoc()): ?>
-                                            <option value="<?php echo $row['code']?>"><?php echo $row['name']?></option>
+                                            <option value="<?php echo $row['idCurr']?>"><?php echo $row['nameCurr']?></option>
 
                                             <?php endwhile?>
                                         </select>
@@ -169,16 +169,16 @@
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="number" class="form-control input" id="yearReg" name="yearReg" maxlength="4" 
+                                            <input type="number" class="form-control input" id="yrReg" name="yrReg" maxlength="4" 
                                                     min="2016" max="2099" step="1" value="2022" required/>
-                                            <label for="yearReg" class="form-label fs-6">Year Started</label>
+                                            <label for="yrReg" class="form-label fs-6">Year Started</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="number" class="form-control input" id="yearLvl" name="yearLvl" maxlength="1" 
+                                            <input type="number" class="form-control input" id="yrLvl" name="yrLvl" maxlength="1" 
                                                     min="1" max="4" step="1" value="1" required/>
-                                            <label for="yearReg" class="form-label fs-6">Year Level</label>
+                                            <label for="yrLvl" class="form-label fs-6">Year Level</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -189,6 +189,16 @@
                                                 <option value="X">Irregular</option>
                                             </select>
                                             <label for="status" class="form-label fs-6">Student Status</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row py-2 gap-2 gap-lg-0">
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control input" id="idStud" 
+                                            name="idStud" maxlength="8" required/>
+                                            <label for="idStud" class="form-label fs-6">Student ID</label>
                                         </div>
                                     </div>
                                 </div>

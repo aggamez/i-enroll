@@ -2,39 +2,17 @@
     session_start();
     include "config.php";
     
-    $idSub = $_POST["idSub"];
-    $section = $_POST["section"];
-    $professor = $_POST["professor"];
-    $studLimit = $_POST["studLimit"];
-    $rmAssign = $_POST["rmAssign"];
-    $days = $_POST["days"];
-    $timeIni = $_POST["timeIni"];
-    $timeEnd = $_POST["timeEnd"];
+    $section = $_POST['section'];
+    $idCourse = $_POST['idCourse'];
+    $type = $_POST['type'];
 
-
-
-
-    $query = "INSERT INTO `schedule` (`idSub`, `section`, `professor`, `studLimit`, `rmAssign`, `days`, `timeIni`, `timeEnd`) VALUES ('$idSub', '$section', '$professor', '$studLimit', '$rmAssign', '$days', '$timeIni', '$timeEnd')";
+    $query = "INSERT INTO `sections` (`section`, `idCourse`, `type`) VALUES ('$section', '$idCourse', '$type')";
 
     $result = $con->query($query);
 
 	if($result){
-        $time = date_create('now');
-        $dt = date_format($time, 'Y-m-d H:i:s');
-        $dl = date_format($time, 'YmdHis');
-
-        $source = $_SESSION['idAdmin'];
-        $target = $section;
-        $action = 'ADD SECTION';
-        $idParse = substr($target, 0, 2) . "cs" . $dl;
-        $idLog = hash('sha256', $idParse);
-
-        $logQuery = "INSERT INTO `logs` (`idLog`, `date`, `source`, `action`, `target`) VALUES ('$idLog', '$dt', '$source', UPPER('$action'), '$target')";
-        $log = $con->query($logQuery);
-
-
-		header("location:../../adminSchedules.php");
+		header("location:../../adminSections.php");
 	}else{
-		header("location:../../adminSchedules.php");
+		header("location:../../adminSections.php");
 	}
 ?>

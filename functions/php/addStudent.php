@@ -20,19 +20,17 @@
     $religion = $_POST['religion'];
     $program = $_POST['program'];
     $status = $_POST['status'];
+    
+    
 
-    if($status == 'N'){
-        $username = substr($currYear, 2, 2) . "-" . sprintf('%05d', $count);
+    if($status == "N"){
+        $idStud= substr($currYear, 2, 2) . "-" . sprintf('%05d', $count);
         $yrLvl = 1;
-        $yrStd = 1;
         $yrReg = $currYear;
-        $idStud = $username;
     }else{
         $yrLvl = $_POST['yrLvl'];
-        $yrStd = $_POST['yrLvl'];
         $yrReg = $_POST['yrReg'];
         $idStud = $_POST['idStud'];
-        $username = $idStud;
     }
     
     $password = generateRandomString(8);
@@ -40,8 +38,8 @@
     $email = $emailParse . "@tcu.edu.ph";
 
     
-    $query =   "INSERT INTO `user-student` (`idStud`, `fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrReg`, `yrLvl`, `username`, `password`, `email`, `yrStd`, `status`) 
-                VALUES ('$idStud', '$fName', '$mName', '$lName', '$address', '$birthdate', '$sex', '$civStat', '$contactNo', '$nationality', '$religion', '$program', '$yrReg', '$yrLvl', '$username', '$password', '$email', '$yrLvl', '$status')";
+    $query =   "INSERT INTO `user-student` (`idStud`, `fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrReg`, `yrLvl`, `password`, `email`, `status`) 
+                VALUES ('$idStud', '$fName', '$mName', '$lName', '$address', '$birthdate', '$sex', '$civStat', '$contactNo', '$nationality', '$religion', '$program', '$yrReg', '$yrLvl', '$password', '$email', '$status')";
 
     $result = $con->query($query);
 
@@ -60,17 +58,18 @@
         $logQuery = "INSERT INTO `logs` (`idLog`, `date`, `source`, `action`, `target`) VALUES ('$idLog', '$dt', '$source', UPPER('$action'), '$target')";
         $log = $con->query($logQuery);
 
-        $currQuery = "SELECT * FROM `curriculums` WHERE `code` = '$program'";
+        $currQuery = "SELECT * FROM `curriculums` WHERE `idCurr` = '$program'";
         $currData = $con->query($currQuery);
         $currVal = $currData -> fetch_assoc();
-        $currCode = $currVal['subCode'];
+        $courCode = $currVal['idCourse'];
 
-        $subQuery = "SELECT * FROM `subject` WHERE `program` = '$currCode'";
+        $subQuery = "SELECT * FROM `subject` WHERE `program` = '$courCode'";
         $subData = $con->query($subQuery);
         while($subjects = $subData->fetch_assoc()){
             $course = $subjects['idSub'];
+            $units = $subjects['unitTot'];
             $subStatus = 'O';
-            $statQuery = "INSERT INTO `student-academics` (`idStud`, `idSub`, `status`) VALUES ('$idStud', '$course', '$subStatus')";
+            $statQuery = "INSERT INTO `student-academics` (`idStud`, `idSub`, `units`, `status`) VALUES ('$idStud', '$course', '$units', '$subStatus')";
             $acadQuery = $con->query($statQuery);
         }
 
@@ -84,14 +83,15 @@
 
             <link rel="stylesheet" href="../../assets/css/style.css">
             <link rel="stylesheet" href="../../lib/css/bootstrap.min.css">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="../../lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
 
             <script src="../../lib/js/bootstrap.bundle.min.js"></script>
+            <script src="../../lib/js/jquery-3.6.1.min.js"></script>
             </head>
             <body class="">
                 <div class="d-flex flex-column align-items-center justify-content-center gap-2 min-vh-100 w-100" >
                     <h3>Here is your credentials. You may change the password later.</h3>
-                    <h4>Username : <?php echo $username?></h4>
+                    <h4>Username : <?php echo $idStud?></h4>
                     <h4>Password : <?php echo $password?></h4>
                     <h4>E-Mail : <?php echo $email?> <br> </h4>
                     

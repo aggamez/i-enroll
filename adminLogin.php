@@ -9,9 +9,10 @@
         
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
 
         <script src="lib/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/js/jquery-3.6.1.min.js"></script>
 
     </head>
 

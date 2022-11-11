@@ -2,11 +2,11 @@
     session_start();
     include "config.php";
     
-    $code = $_POST['code'];
-    $subCode = $_POST['subCode'];
-    $name = $_POST['name'];
+    $idCurr = $_POST['idCurr'];
+    $idCourse = $_POST['idCourse'];
+    $nameCurr = $_POST['nameCurr'];
 
-    $query = "INSERT INTO `curriculums` (`code`, `name`) VALUES ('$code', '$name')";
+    $query = "INSERT INTO `curriculums` (`idCurr`, `idCourse`, `nameCurr`) VALUES ('$idCurr', '$idCourse', '$nameCurr')";
 
     $result = $con->query($query);
 

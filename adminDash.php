@@ -14,9 +14,10 @@
         
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
 
         <script src="lib/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/js/jquery-3.6.1.min.js"></script>
 
     </head>
 
@@ -38,7 +39,7 @@
                     <div class="offcanvas-body">
                         <ul class="h-100 navbar-nav d-flex flex-column justify-content-start flex-grow-1 pe-3 text-dark">
                             <li class="nav-item">
-                                <a class="nav-link active d-flex flex-row align-items-center text-dark gap-2" aria-current="page" href="adminDash.php"> 
+                                <a class="nav-link active d-flex flex-row align-items-center text-dark gap-2 active" aria-current="page" href="adminDash.php"> 
                                     <i class="bi bi-house-fill fs-4"></i> 
                                     <h6 class="fs-4">Dashboard</h6>
                                 </a>
@@ -51,21 +52,21 @@
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu w-100 m-0">
-                                <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminDepartments.php">
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminDepartments.php">
                                         <i class="bi bi-list-columns-reverse"></i>Colleges / Departments</a></li>
-                                    <li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminCurriculum.php">
-                                        <i class="bi bi-list-ul"></i>Curriculum</a></li>
+                                        <i class="bi bi-list-ul"></i>Curriculums</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSubjects.php">
                                         <i class="bi bi-list-columns-reverse"></i>Subjects</a></li>
 
                                     <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSections.php">
+                                        <i class="bi bi-clipboard-fill"></i>Section Management</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSchedules.php">
                                         <i class="bi bi-clipboard-fill"></i>Schedule Management</a></li>
-
                                     <li><hr class="dropdown-divider"></li>
 
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminAccounts.php">
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2 " href="adminAccounts.php">
                                         <i class="bi bi-person-circle"></i> Admin Users</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminStudents.php">
                                         <i class="bi bi-file-earmark-person-fill"></i> Student Users</a></li>

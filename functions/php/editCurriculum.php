@@ -2,12 +2,12 @@
     include('config.php');
     
     $id = $_POST['id'];
-    $code = $_POST['code'];
-    $subCode = $_POST['subCode'];
-    $name = $_POST['name'];
+    $idCurr = $_POST['idCurr'];
+    $idCourse = $_POST['idCourse'];
+    $nameCurr = $_POST['nameCurr'];
 
     $query =    "UPDATE`curriculums` 
-                SET code = '$code', name = '$name'
+                SET `idCurr` = '$idCurr', `idCourse` = '$idCourse', `nameCurr` = '$nameCurr'
                 WHERE id = $id;
                 
                 ";

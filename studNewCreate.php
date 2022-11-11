@@ -9,9 +9,10 @@
         
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
 
         <script src="lib/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/js/jquery-3.6.1.min.js"></script>
 
     </head>
 
@@ -153,11 +154,11 @@
                                             <?php
                                             include('functions/php/config.php');
                                             
-                                            $query = "SELECT * FROM curriculums WHERE id > 2;";
+                                            $query = "SELECT * FROM `curriculums`;";
                                             $result = $con->query($query);
 
                                             while ($row = $result -> fetch_assoc()): ?>
-                                            <option value="<?php echo $row['code']?>"><?php echo $row['name']?></option>
+                                            <option value="<?php echo $row['idCurr']?>"><?php echo $row['nameCurr']?></option>
 
                                             <?php endwhile?>
                                         </select>
@@ -169,16 +170,16 @@
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-lg-4 visually-hidden">
                                         <div class="form-floating">
-                                            <input type="number" class="form-control input" id="yearReg" name="yearReg" maxlength="4" 
-                                                    min="2016" max="2099" step="1" value="<?php echo $currYear?>" required/>
-                                            <label for="yearReg" class="form-label fs-6">Year Started</label>
+                                            <input type="number" class="form-control input" id="yrReg" name="yrReg" maxlength="4" 
+                                                    min="2016" max="2099" step="1" value="<?php echo $currYear?>"/>
+                                            <label for="yrReg" class="form-label fs-6">Year Started</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 visually-hidden">
                                         <div class="form-floating">
-                                            <input type="number" class="form-control input" id="yearLvl" name="yearLvl" maxlength="1" 
-                                                    min="1" max="4" step="1" value="1" required/>
-                                            <label for="yearLevel" class="form-label fs-6">Year Level</label>
+                                            <input type="number" class="form-control input" id="yrLvl" name="yrLvl" maxlength="1" 
+                                                    min="1" max="4" step="1" value="1"/>
+                                            <label for="yrLevel" class="form-label fs-6">Year Level</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 visually-hidden">
@@ -199,7 +200,6 @@
                                         <label class="form-check-label" for="exampleCheck1">My info is correct and would like to register.</label>
                                     </div>
                                 </div>
-
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>

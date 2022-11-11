@@ -13,10 +13,10 @@
         
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
 
         <script src="lib/js/bootstrap.bundle.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="lib/js/jquery-3.6.1.min.js"></script>
 
     </head>
 
@@ -38,7 +38,7 @@
                     <div class="offcanvas-body">
                     <ul class="h-100 navbar-nav d-flex flex-column justify-content-start flex-grow-1 pe-3 text-dark">
                             <li class="nav-item">
-                                <a class="nav-link active d-flex flex-row align-items-center text-dark gap-2" aria-current="page" href="adminDash.php"> 
+                                <a class="nav-link d-flex flex-row align-items-center text-dark gap-2" href="adminDash.php"> 
                                     <i class="bi bi-house-fill fs-4"></i> 
                                     <h6 class="fs-4">Dashboard</h6>
                                 </a>
@@ -52,20 +52,21 @@
                                     
                                 </a>
                                 <ul class="dropdown-menu w-100 m-0">
-                                <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminDepartments.php">
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2 active" href="adminDepartments.php">
                                         <i class="bi bi-list-columns-reverse"></i>Colleges / Departments</a></li>
-                                    <li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminCurriculum.php">
-                                        <i class="bi bi-list-ul"></i>Curriculum</a></li>
+                                        <i class="bi bi-list-ul"></i>Curriculums</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSubjects.php">
                                         <i class="bi bi-list-columns-reverse"></i>Subjects</a></li>
 
                                     <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSections.php">
+                                        <i class="bi bi-clipboard-fill"></i>Section Management</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSchedules.php">
                                         <i class="bi bi-clipboard-fill"></i>Schedule Management</a></li>
                                     <li><hr class="dropdown-divider"></li>
 
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminAccounts.php">
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2 " href="adminAccounts.php">
                                         <i class="bi bi-person-circle"></i> Admin Users</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminStudents.php">
                                         <i class="bi bi-file-earmark-person-fill"></i> Student Users</a></li>
@@ -107,16 +108,16 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <div class="form-floating">
-                                                <input type="text" id="code" name="code" class="form-control form-control-lg input"
+                                                <input type="text" id="idDept" name="idDept" class="form-control form-control-lg input"
                                                 placeholder="Code" required />
-                                                <label class="form-label fs-6" for="code">Department Code</label>
+                                                <label class="form-label fs-6" for="idDept">Department Code</label>
                                             </div>
                                         </div>
                                         <div class="col-8">
                                             <div class="form-floating">
-                                                <input type="text" id="name" name="name" class="form-control form-control-lg input"
+                                                <input type="text" id="nameDept" name="nameDept" class="form-control form-control-lg input"
                                                 placeholder="Name" required />
-                                                <label class="form-label fs-6" for="name">Department Name</label>
+                                                <label class="form-label fs-6" for="nameDept">Department Name</label>
                                             </div>
                                         </div>
                                     </div>
@@ -151,8 +152,8 @@
                     
                     <?php while ($row = $result -> fetch_assoc()): ?>
                         <tr>
-                            <td class=""><?php echo $row['code']; ?></td>
-                            <td class=""><?php echo $row['name']; ?></td>
+                            <td class=""><?php echo $row['idDept']; ?></td>
+                            <td class=""><?php echo $row['nameDept']; ?></td>
                             <td class="mx-auto text-center">
                                 <a href="#" class="mx-1 clear text-muted view" data-id="<?php echo $row['id']; ?>"
                                     data-bs-toggle="modal" data-bs-target="#view-curr" id="<?php echo $row['id']; ?>">
@@ -185,7 +186,7 @@
                 <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
             </div>
 
-            <div class="modal fade" id="view-curr" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="view-dept" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -199,7 +200,7 @@
                 </div>
                 </div>
 
-                <div class="modal fade" id="edit-curr" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="edit-dept" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -213,7 +214,7 @@
                 </div>
                 </div>
 
-                <div class="modal fade" id="del-curr" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="del-dept" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                     <div class="modal-header">

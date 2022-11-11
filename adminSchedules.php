@@ -14,18 +14,10 @@
         
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
- 
-        <script type="text/javascript" src="lib/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.css">
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.js"></script>
-        <!-- Latest compiled and minified Locales -->
-        <script src="https://unpkg.com/bootstrap-table@1.21.1/dist/locale/bootstrap-table-en-US.min.js"></script>
+        <script src="lib/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/js/jquery-3.6.1.min.js"></script>
     </head>
 
     <body>
@@ -60,21 +52,21 @@
                                     
                                 </a>
                                 <ul class="dropdown-menu w-100 m-0">
-                                <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminDepartments.php">
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminDepartments.php">
                                         <i class="bi bi-list-columns-reverse"></i>Colleges / Departments</a></li>
-                                    <li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminCurriculum.php">
-                                        <i class="bi bi-list-ul"></i>Curriculum</a></li>
+                                        <i class="bi bi-list-ul"></i>Curriculums</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSubjects.php">
                                         <i class="bi bi-list-columns-reverse"></i>Subjects</a></li>
 
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSchedules.php">
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSections.php">
+                                        <i class="bi bi-clipboard-fill"></i>Section Management</a></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2 active" href="adminSchedules.php">
                                         <i class="bi bi-clipboard-fill"></i>Schedule Management</a></li>
-
                                     <li><hr class="dropdown-divider"></li>
 
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminAccounts.php">
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2 " href="adminAccounts.php">
                                         <i class="bi bi-person-circle"></i> Admin Users</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminStudents.php">
                                         <i class="bi bi-file-earmark-person-fill"></i> Student Users</a></li>
@@ -111,7 +103,7 @@
                         <div class="card card-body d-flex flex-column border border-dark">
                             <form   class=""
                                     method="post" 
-                                    action="functions/php/addSection.php">
+                                    action="functions/php/addSchedule.php">
                                 <div class="container gap-2 d-flex flex-column">
                                     <div class="row">
                                         <div class="col-9">
@@ -134,9 +126,19 @@
                                         </div>
                                         <div class="col-3">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control input" id="section" 
-                                                name="section" maxlength="15" required/>
-                                                <label class="form-label fs-6" for="section">Section</label>
+                                                <select class="form-select input" name="section" id="section">
+                                                    <option selected disabled>Section</option>
+                                                    <?php
+                                                    
+                                                    $querysec = "SELECT * FROM `sections`";
+                                                    $resultsec = $con->query($querysec);
+
+                                                    while ($rowsec = $resultsec -> fetch_assoc()): ?>
+                                                    <option value="<?php echo $rowsec['section']?>"> <?php echo $rowsec['section']?></option>
+
+                                                    <?php endwhile?>
+                                                </select>
+                                                <label for="idFac" class="form-label fs-6">Section</label>
                                             </div>
                                         </div>
                                     </div>
@@ -146,13 +148,12 @@
                                                 <select class="form-select input" name="idFac" id="idFac">
                                                     <option selected disabled>Faculty Member</option>
                                                     <?php
-                                                    include('functions/php/config.php');
                                                     
                                                     $queryfac = "SELECT * FROM `user-faculty`";
                                                     $resultfac = $con->query($queryfac);
 
-                                                    while ($rowfac = $result -> fetch_assoc()): ?>
-                                                    <option value=""></option>
+                                                    while ($rowfac = $resultfac -> fetch_assoc()): ?>
+                                                    <option value="<?php echo $rowfac['idFaculty']?>"> <?php echo $fullName = "(". $rowfac['curriculum']. ")" . " " . $rowfac['fName'] . ' ' . substr($rowfac['mName'],0,1) . ' ' . $rowfac['lName'];?></option>
 
                                                     <?php endwhile?>
                                                 </select>
@@ -177,14 +178,14 @@
                                         <div class="col-2">
                                             <div class="form-floating">
                                             <input type="time" class="form-control input" id="timeIni" name="timeIni" maxlength="4" 
-                                                        min="00:00" max="24:00" required/>
+                                                        min="00:00" max="24:00"/>
                                             <label class="form-label fs-6" for="timeIni">Time Start</label>
                                             </div>
                                         </div>
                                         <div class="col-2">
                                             <div class="form-floating">
                                                 <input type="time" class="form-control input" id="timeEnd" name="timeEnd" maxlength="4" 
-                                                        min="00:00" max="24:00"  required/>
+                                                        min="00:00" max="24:00"/>
                                                 <label class="form-label fs-6" for="timeEnd">Time End</label>
                                             </div>
                                         </div>
@@ -224,6 +225,7 @@
                                                 <tr>
                                                     <th data-sortable="true">Course ID</th>
                                                     <th data-sortable="true">Course Name</th>
+                                                    <th data-sortable="true" class="text-center">Units</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -233,6 +235,7 @@
                             <tr>
                                 <td class=""><?php echo $row['idSub']; ?></td>
                                 <td class=""><?php echo $row['name']; ?></td>
+                                <td class="text-center"><?php echo $row['unitTot']; ?></td>
                                 <td class="mx-auto text-center">
                                     <a href="#" class="mx-1 clear text-muted view" data-id="<?php echo $row['id']; ?>"
                                         data-bs-toggle="modal" data-bs-target="#view-sched" id="<?php echo $row['id']; ?>">
@@ -266,7 +269,7 @@
                 <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
             </div>
 
-            <div class="modal fade" id="view-sched" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="view-sched" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -306,7 +309,7 @@
                     </div>
                     </div>
                 </div>
-            </div>
+                </div>
 
             <script type="text/javascript">
                 $(document).ready(function() {

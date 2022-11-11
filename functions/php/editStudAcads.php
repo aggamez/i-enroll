@@ -7,9 +7,10 @@
     $studentData = $studentQuery -> fetch_assoc();
     $idStud = $studentData['idStud'];
     $studProg = $studentData['program'];
+    $yrLvl = $studentData['yrLvl'];
 
 
-    $query = $con -> query("SELECT * from `curriculums` WHERE `code` = '$studProg'") or die($con -> error);
+    $query = $con -> query("SELECT * from `curriculums` WHERE `idCurr` = '$studProg'") or die($con -> error);
     while($row = $query -> fetch_assoc()) { ?>
     <form 
         action="functions/php/editStudentAcads.php" 
@@ -18,16 +19,16 @@
             <div class="row">
                 <div class="col-3">
                     <div class="form-floating">
-                        <input type="text" id="code" name="code" class="form-control form-control-lg input"
-                                placeholder="Code" value="<?php echo $row['code'];?>" readonly />
-                        <label class="form-label fs-6" for="code">Curriculum Code</label>
+                        <input type="text" id="idCurr" name="idCurr" class="form-control form-control-lg input"
+                                placeholder="Code" value="<?php echo $row['idCurr'];?>" readonly />
+                        <label class="form-label fs-6" for="idCurr">Curriculum Code</label>
                     </div>
                 </div>
                 <div class="col-9">
                     <div class="form-floating">
-                        <input type="text" id="name" name="name" class="form-control form-control-lg input"
-                            placeholder="Name" value="<?php echo $row['name'];?>" readonly />
-                        <label class="form-label fs-6" for="name">Curriculum Name</label>
+                        <input type="text" id="nameCurr" name="nameCurr" class="form-control form-control-lg input"
+                            placeholder="Name" value="<?php echo $row['nameCurr'];?>" readonly />
+                        <label class="form-label fs-6" for="nameCurr">Curriculum Name</label>
                     </div>
                 </div>
             </div>
@@ -37,7 +38,7 @@
             <h3>Curriculum Status</h3>
             <?php
                 $counter = 1;
-                for ($yr = 1; $yr <= 4; $yr++) {
+                for ($yr = 1; $yr <= $yrLvl; $yr++) {
                     for ($sem = 1; $sem <= 2; $sem++) { ?>
                         <h4>Year <?php echo $yr;?>, Semester <?php echo $sem;?></h4>
                         <?php
@@ -73,29 +74,37 @@
                                     $studStat = $statResult['status'];
 
                                 ?>
-                                <div class="form-floating">
-                                    <select class="form-select input fs-6" name="acadRow[<?php echo $counter; ?>][status]">
-                                        <option selected disabled>Select Option</option>
+                                <div class="">
+                                    <select class="form-select input fs-6" name="acadRow[<?php echo $counter; ?>][status]" 
+                                    <?php   if($yr < $yrLvl):
+                                            else:
+                                                if($currSem < $sem):
+                                                    echo 'disabled';
+                                                endif;
+                                            endif; ?>>
+                                        <option disabled>Select Option</option>
                                         <option value="O" <?php if("O" == $studStat) echo 'selected="selected"'; ?>>Open</option>
                                         <option value="P" <?php if("P" == $studStat) echo 'selected="selected"'; ?>>Passed</option>
+                                        <option value="R" <?php if("R" == $studStat) echo 'selected="selected"'; ?> disabled>Registered</option>
+                                        <option value="E" <?php if("E" == $studStat) echo 'selected="selected"'; ?> disabled>Enrolled</option>
                                     </select>
                                 </div>
                             </td>
                         </tr>
-                    <?php $counter++; endwhile ?>
+                    <?php $counter++; endwhile; ?>
                         </tbody>
                     </table>
-                <?php endif ?>
+                <?php endif; ?>
             
             <?php } }?>
             
         </div>
         <div class="row">
-                <div class="form-floating">
-                        <input type="text" class="form-control visually-hidden" 
-                        value="<?php echo $idStud;?>" name="idStud" placeholder="idStud">
-                </div>
-                <button class="btn btn-success" type="submit" name="editStudentAcads">Edit Student Academics</button>
+            <div class="form-floating">
+                    <input type="text" class="form-control visually-hidden" 
+                    value="<?php echo $idStud;?>" name="idStud" placeholder="idStud">
             </div>
+            <button class="btn btn-success" type="submit" name="editStudentAcads">Edit Student Academics</button>
+        </div>
     </form>
 <?php } ?>

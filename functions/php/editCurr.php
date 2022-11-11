@@ -4,7 +4,7 @@
     $id = $_POST['uid'];
 
 
-    $query = $con -> query("SELECT * from curriculums WHERE id = '$id'") or die($con -> error);
+    $query = $con -> query("SELECT * from `curriculums` WHERE `id` = '$id'") or die($con -> error);
     while($row = $query -> fetch_assoc()) { 
         ?>
         <form 
@@ -14,16 +14,23 @@
                 <div class="row">
                     <div class="col-3">
                         <div class="form-floating">
-                            <input type="text" id="code" name="code" class="form-control form-control-lg input"
-                                    placeholder="Code" value="<?php echo $row['code']?>" required/>
-                            <label class="form-label fs-6" for="code">Curriculum Code</label>
+                            <input type="text" id="idCurr" name="idCurr" class="form-control form-control-lg input"
+                                    placeholder="Code" value="<?php echo $row['idCurr']?>" required/>
+                            <label class="form-label fs-6" for="idCurr">Curriculum Code</label>
                         </div>
                     </div>
-                    <div class="col-9">
+                    <div class="col-3">
                         <div class="form-floating">
-                            <input type="text" id="name" name="name" class="form-control form-control-lg input"
-                                placeholder="Name" value="<?php echo $row['name']?>" required/>
-                            <label class="form-label fs-6" for="name">Curriculum Name</label>
+                            <input type="text" id="idCourse" name="idCourse" class="form-control form-control-lg input"
+                            placeholder="Course Code" value="<?php echo $row['idCourse']?>" required />
+                            <label class="form-label fs-6" for="idCourse">Course Code</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" id="nameCurr" name="nameCurr" class="form-control form-control-lg input"
+                                placeholder="Name" value="<?php echo $row['nameCurr']?>" required/>
+                            <label class="form-label fs-6" for="nameCurr">Curriculum Name</label>
                         </div>
                     </div>
                 </div>

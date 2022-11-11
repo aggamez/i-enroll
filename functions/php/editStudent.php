@@ -14,10 +14,12 @@
     $nationality = $_POST['nationality'];
     $religion = $_POST['religion'];
     $program = $_POST['program'];
+    $yrReg= $_POST['yrReg'];
     $yrLvl= $_POST['yrLvl'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
+    $status = $_POST['status'];
 
     $query =    "UPDATE `user-student` 
     
@@ -25,7 +27,8 @@
                 `address` = '$address', `birthdate` = '$birthdate',`sex` = '$sex', 
                 `civStat` = '$civStat', `contactNo` = '$contactNo',`religion` = '$religion', 
                 `religion` = '$religion', `program` = '$program',`yrLvl` = '$yrLvl',
-                `username` = '$username',`password` = '$password', `email` = '$email'
+                `yrReg` = '$yrReg',`password` = '$password', `email` = '$email',
+                `status` = '$status'
 
                 WHERE id = $id;";
 

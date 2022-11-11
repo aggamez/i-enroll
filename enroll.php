@@ -11,9 +11,10 @@
         
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
 
         <script src="lib/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/js/jquery-3.6.1.min.js"></script>
 
     </head>
 
@@ -71,6 +72,15 @@
                                 </div>
                             </div>
                         </a>
+
+                        <a href="studLogin.php" class="btn btn-dark text-decoration-none ">
+                            <div class="card bg-dark" style="height: 8rem; width: 10rem;">
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center text-white">
+                                    <i class="bi bi-person-fill fs-4"></i>
+                                    <h5 class="text-info fs-5">Enrollment Portal</h6>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -81,16 +91,16 @@
                             <div class="card bg-dark" style="height: 8rem; width: 10rem;">
                                 <div class="card-body d-flex flex-column justify-content-center align-items-center text-white">
                                     <i class="bi bi-person-plus-fill fs-4"></i>
-                                    <h5 class="text-info fs-5">Administrator Portal</h6>
+                                    <h5 class="text-white fs-5">Administrator Portal</h6>
                                 </div>
                             </div>
                         </a>
                         
-                        <a href="studLogin.php" class="btn btn-dark text-decoration-none ">
+                        <a href="facultyLogin.php" class="btn btn-dark text-decoration-none ">
                             <div class="card bg-dark" style="height: 8rem; width: 10rem;">
                                 <div class="card-body d-flex flex-column justify-content-center align-items-center text-white">
                                     <i class="bi bi-person-fill fs-4"></i>
-                                    <h5 class="text-info fs-5">Enrollment Portal</h6>
+                                    <h5 class="text-white fs-5">Faculty Portal</h6>
                                 </div>
                             </div>
                         </a>

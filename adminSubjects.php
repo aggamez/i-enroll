@@ -14,18 +14,10 @@
         
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
- 
-        <script type="text/javascript" src="lib/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.css">
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.js"></script>
-        <!-- Latest compiled and minified Locales -->
-        <script src="https://unpkg.com/bootstrap-table@1.21.1/dist/locale/bootstrap-table-en-US.min.js"></script>
+        <script src="lib/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/js/jquery-3.6.1.min.js"></script>
     </head>
 
     <body>
@@ -134,7 +126,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-8">
+                                        <div class="col-12">
                                             <div class="form-floating">
                                                 <select class="form-select input" name="program" id="program" required>
                                                     <option selected disabled>Curriculum</option>
@@ -150,16 +142,6 @@
                                                     <?php endwhile?>
                                                 </select>
                                                 <label for="program" class="form-label fs-6">Curriculum</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="form-floating">
-                                                <select class="form-select input fs-6" name="type" id="type">
-                                                    <option selected disabled>Select Option</option>
-                                                    <option value="P">Program Major / Elective</option>
-                                                    <option value="M">Minor / General Elective</option>
-                                                </select>
-                                                <label for="type" class="form-label fs-6">Type of Course</label>
                                             </div>
                                         </div>
                                     </div>

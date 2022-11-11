@@ -12,12 +12,11 @@
     $unitLec = $_POST["unitLec"];
     $unitLab = $_POST["unitLab"];
     $unitTot = $unitLec + $unitLab;
-    $type = $_POST["type"];
     $prerequisite = $_POST["prerequisite"];
     $name = str_replace ("'","\'",$iname);
 
 
-    $query = "INSERT INTO `subject` (`idSub`, `name`, `unitLec`, `unitLab`, `unitTot`, `semester`, `year`, `program`, `type`, `prerequisite`) VALUES ('$idSub', '$name', '$unitLec', '$unitLab', '$unitTot', '$semester', '$year', '$program', '$type', '$prerequisite')";
+    $query = "INSERT INTO `subject` (`idSub`, `name`, `unitLec`, `unitLab`, `unitTot`, `semester`, `year`, `program`, `prerequisite`) VALUES ('$idSub', '$name', '$unitLec', '$unitLab', '$unitTot', '$semester', '$year', '$program', '$prerequisite')";
 
     $result = $con->query($query);
 

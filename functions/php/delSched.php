@@ -8,7 +8,7 @@
     while($row = $query -> fetch_assoc()) { 
         ?>
         <form
-                action="functions/php/delSection.php" 
+                action="functions/php/delSchedule.php" 
                 method="post"
                 onsubmit=""
                 class="d-flex flex-column">
