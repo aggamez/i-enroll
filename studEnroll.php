@@ -110,7 +110,7 @@
                         </div>
                         <div class="row overflow-auto" style="max-height: 22rem;">
                             <?php
-                            $enrolledQuery = "SELECT * FROM `student-enrollment` WHERE `enrollCode` = '$enrollCode'";
+                            $enrolledQuery = "SELECT * FROM `student-academics` WHERE `idStud` = '$idStud' AND `status` = 'R'";
                             $enrolledReslt = $con->query($enrolledQuery);
                             if(mysqli_num_rows($enrolledReslt) > 0): ?>
                                     <table id="" class="table table-striped table-bordered">
@@ -131,7 +131,7 @@
                                 $subsReslt = $con->query($subsQuery);
                                 $subsData = $subsReslt -> fetch_assoc();
 
-                                $sectQuery = "SELECT * FROM `schedule` WHERE `idSub` = '$idSub'";
+                                $sectQuery = "SELECT * FROM `student-enrollment` WHERE `idSub` = '$idSub' AND `enrollCode` = '$enrollCode'";
                                 $sectReslt = $con->query($sectQuery);
                                 $sectData = $sectReslt -> fetch_assoc();
 
