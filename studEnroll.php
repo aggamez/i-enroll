@@ -179,15 +179,15 @@
                             $divHref = "#" . $yrW . $semW;
                             $divHref = preg_replace('/\s+/', '', $divHref);
                             ?>
-                            <div class="bg-gray w-auto">
-                                <div class="bg-dark">
+                            <div class="w-100">
+                                <div class="bg-maroon">
                                     <a  class=  "nav-link dropdown-toggle fs-2 d-flex flex-row justify-content-end 
                                                 align-items-center gap-2 text-white w-100" 
                                         data-bs-toggle="collapse" 
                                         href="<?php echo $divHref?>" role="button" aria-expanded="true"
                                         aria-controls="<?php echo $divId?>">
                                         <div class="d-flex flex-row justify-content-start align-items-center me-auto w-100 gap-2">
-                                            <h6 class="fs-3 align-items-center">Year <?php echo $yr?>, Semester <?php echo $sem?></h6>
+                                            <h6 class="fs-4 align-items-center">Year <?php echo $yr?>, Semester <?php echo $sem?></h6>
                                         </div>
                                     </a>
                                 </div>

@@ -37,53 +37,62 @@
                     </div>
                     <div class="offcanvas-body">
                     <ul class="h-100 navbar-nav d-flex flex-column justify-content-start flex-grow-1 pe-3 text-dark">
+
                             <li class="nav-item">
-                                <a class="nav-link active d-flex flex-row align-items-center text-dark gap-2" aria-current="page" href="adminDash.php"> 
+                                <a class="nav-link d-flex flex-row align-items-center text-dark gap-2" href="adminDash.php"> 
                                     <i class="bi bi-house-fill fs-4"></i> 
                                     <h6 class="fs-4">Dashboard</h6>
                                 </a>
                             </li>
+
                             <li class="nav-item dropdown">
+
                                 <a class="nav-link dropdown-toggle fs-4 d-flex flex-row justify-content-end align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="d-flex flex-row justify-content-start align-items-center me-auto gap-2">
                                         <i class="bi bi-gear-fill"></i>
                                         <h6 class="fs-4 align-items-center">Management</h6>
                                     </div>
-                                    
                                 </a>
+
                                 <ul class="dropdown-menu w-100 m-0">
-                                <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminDepartments.php">
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2 " href="adminDepartments.php">
                                         <i class="bi bi-list-columns-reverse"></i>Colleges / Departments</a></li>
-                                    <li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminCurriculum.php">
-                                        <i class="bi bi-list-ul"></i>Curriculum</a></li>
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSubjects.php">
+                                        <i class="bi bi-list-ul"></i>Curriculums</a></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2 active" href="adminSubjects.php">
                                         <i class="bi bi-list-columns-reverse"></i>Subjects</a></li>
 
                                     <li><hr class="dropdown-divider"></li>
-
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminStudStatus.php">
-                                        <i class="bi bi-clipboard-fill"></i>Student Management</a></li>
-                                    <li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSections.php">
+                                        <i class="bi bi-clipboard-fill"></i>Section Management</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminSchedules.php">
                                         <i class="bi bi-clipboard-fill"></i>Schedule Management</a></li>
 
                                     <li><hr class="dropdown-divider"></li>
-
-                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminAccounts.php">
-                                        <i class="bi bi-person-circle"></i> Admin Users</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminStudents.php">
                                         <i class="bi bi-file-earmark-person-fill"></i> Student Users</a></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2 " href="adminEnrollments.php">
+                                        <i class="bi bi-person-circle"></i> Enrollment Forms</a></li>
+                                    
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2 " href="adminAccounts.php">
+                                        <i class="bi bi-person-circle"></i> Admin Users</a></li>
                                     <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminFaculty.php">
                                         <i class="bi bi-person-video3"></i> Faculty Users</a></li>
+
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item d-flex flex-row align-items-center gap-2" href="adminLogs.php">
+                                        <i class="bi bi-file-earmark-person-fill"></i> System Logs</a></li>
                                 </ul>
                             </li>
+
                             <li class="nav-item mt-auto">
                                 <a class="nav-link d-flex flex-row align-items-center text-dark gap-2 fs-4" aria-current="page" href="functions/php/adminOut.php"> 
                                     <i class="text-danger bi bi-box-arrow-right"></i>
                                     <h6 class="fs-4">Log-out</h6>
                                 </a>
                             </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -137,8 +146,7 @@
                                                     $result = $con->query($query);
 
                                                     while ($row = $result -> fetch_assoc()): ?>
-                                                    <option value="<?php echo $row['subCode']?>"><?php echo $row['name']?></option>
-
+                                                    <option value="<?php echo $row['idCourse'];?>"><?php echo $row['nameCurr'];?></option>
                                                     <?php endwhile?>
                                                 </select>
                                                 <label for="program" class="form-label fs-6">Curriculum</label>

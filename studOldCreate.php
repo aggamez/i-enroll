@@ -13,6 +13,7 @@
 
         <script src="lib/js/bootstrap.bundle.min.js"></script>
         <script src="lib/js/jquery-3.6.1.min.js"></script>
+        <script src="functions/js/formValidate.js"></script>
 
     </head>
 
@@ -53,27 +54,29 @@
                     <div class="container w-75 p-3 p-lg-5 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5">
                         <h1 class="text-dark fs-3 fs-lg-1">Student Register</h1>
                         <form
+                                    name="oldStud"
+                                    onsubmit="return validateForm()"
                                     method="post" 
                                     action="functions/php/addStudent.php">
                             <div class="text-dark fs-4">
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" id="fName" name="fName" class="form-control form-control-lg input"
+                                            <input type="text" id="formText" name="fName" class="form-control form-control-lg input"
                                             placeholder="First Name" required />
                                             <label class="form-label fs-6" for="fName">First Name</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" id="midName" name="mName" class="form-control form-control-lg input"
+                                            <input type="text" id="formText" name="mName" class="form-control form-control-lg input"
                                             placeholder="Middle Name" required />
                                             <label class="form-label fs-6" for="lastName">Middle Name</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating ">
-                                            <input type="text" id="lName" name="lName" class="form-control form-control-lg input"
+                                            <input type="text" id="formText" name="lName" class="form-control form-control-lg input"
                                             placeholder="Last Name" required />
                                             <label class="form-label fs-6" for="lName">Last Name</label>
                                         </div>
@@ -83,7 +86,7 @@
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-lg-12">
                                         <div class="form-floating">
-                                            <input type="text" id="address" name="address" class="form-control form-control-lg input"
+                                            <input type="text" id="formText" name="address" class="form-control form-control-lg input"
                                             placeholder="First Name" required />
                                             <label class="form-label fs-6" for="address">Address</label>
                                         </div>
@@ -94,14 +97,14 @@
                                     <div class="col-lg-4">
                                         <div class="form-floating">
                                             <div class="form-floating datepicker">
-                                                <input type="date" class="form-control input" id="birthdate" name="birthdate" required/>
+                                                <input type="date" class="form-control input" id="formSelect" name="birthdate" required/>
                                                 <label for="birthdate" class="form-label fs-6">Birthday</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <select class="form-select input fs-6" name="sex" id="sex">
+                                            <select class="form-select input fs-6" id="formSelect" name="sex">
                                             <option selected disabled>Select Option</option>
                                             <option value="M">Male</option>
                                             <option value="F">Female</option>
@@ -112,7 +115,7 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <select class="form-select input fs-6" name="civStat" id="civStat">
+                                            <select class="form-select input fs-6" id="formSelect" name="civStat">
                                                 <option selected disabled>Select Option</option>
                                                 <option value="S">Single</option>
                                                 <option value="M">Married</option>
@@ -133,13 +136,17 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control input" id="nationality" name="nationality" required/>
+                                            <select class="form-select input" id="formSelect" name="nationality" required>
+                                                <option selected disabled>Select Option</option>
+                                                <option value="Filipino">Filipino</option>
+                                                <option value="Non-Filipino">Non-Filipino</option>
+                                            </select>
                                             <label for="nationality" class="form-label fs-6">Nationality</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control input" id="religion" name="religion" required/>
+                                            <input type="text" class="form-control input" id="formText" name="religion" required/>
                                             <label for="religion" class="form-label fs-6">Religion</label>
                                         </div>
                                     </div>
@@ -148,7 +155,7 @@
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-lg-12">
                                         <div class="form-floating">
-                                        <select class="form-select input" name="program" id="program">
+                                        <select class="form-select input" name="program" id="formSelect">
                                             <option selected disabled>Select Program</option>
                                             <?php
                                             include('functions/php/config.php');
@@ -170,20 +177,20 @@
                                     <div class="col-lg-4">
                                         <div class="form-floating">
                                             <input type="number" class="form-control input" id="yrReg" name="yrReg" maxlength="4" 
-                                                    min="2016" max="2099" step="1" value="2022" required/>
+                                                    min="2016" max="2099" step="1" value="2021" required/>
                                             <label for="yrReg" class="form-label fs-6">Year Started</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
                                             <input type="number" class="form-control input" id="yrLvl" name="yrLvl" maxlength="1" 
-                                                    min="1" max="4" step="1" value="1" required/>
+                                                    min="2" max="4" step="1" value="2" required/>
                                             <label for="yrLvl" class="form-label fs-6">Year Level</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <select class="form-select input fs-6" name="status" id="status">
+                                            <select class="form-select input fs-6" name="status" id="formSelect">
                                                 <option selected disabled>Select Option</option>
                                                 <option value="R">Regular</option>
                                                 <option value="X">Irregular</option>
@@ -196,9 +203,18 @@
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control input" id="idStud" 
+                                            <input type="text" class="form-control input" id="studId" 
                                             name="idStud" maxlength="8" required/>
-                                            <label for="idStud" class="form-label fs-6">Student ID</label>
+                                            <label for="idStud" class="form-label fs-6">Student Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row py-2 gap-2 gap-lg-0">
+                                    <div class="col-lg-12">
+                                        <h6>Input Student ID</h6>
+                                        <div class="input-group mb-3">
+                                            <input type="file" class="form-control" id="inputGroupFile01" name="validator">
                                         </div>
                                     </div>
                                 </div>

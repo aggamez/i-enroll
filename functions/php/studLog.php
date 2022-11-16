@@ -7,14 +7,16 @@
     $user = $_POST['username'];
     $pass = $_POST['password'];
 
-    $query = $con -> query("SELECT `idStud`, `password` from `user-student` WHERE `idStud` = '$user'") or die($con -> error);
+    $query = $con -> query("SELECT `idStud`, `password`, `validation` FROM `user-student` WHERE `idStud` = '$user'") or die($con -> error);
     $data = $query -> fetch_assoc();
 
     $userChk = $data['idStud'];
     $passChk = $data['password'];
+    $valid = $data['validation'];
 
     if($user == $userChk){
         if($pass == $passChk){
+            if($valid == "T"){
             $_SESSION['studUser'] = $data['idStud'];
 
             $codeQuery = $con -> query("SELECT * from `enroll-codes` WHERE (`idStud` = '$user' AND `year` = '$currYear' AND `semester` = '$currSem')") or die($con -> error);
@@ -34,11 +36,32 @@
             endif;
 
             header("location:../../studEnroll.php");
+            } else{
+                echo "<script>
+                window.alert('Your account is not yet validated. Contact Admissions Office for concern.');
+                </script>";
+                header("location:../../studLogin.php");
+            }
         } else{
+            echo "<script>
+                window.alert('Wrong Password!');
+                </script>";
             header("location:../../studLogin.php");
         }
     } else{
+        echo "<script>
+                window.alert('Student ID invalid!');
+                </script>";
         header("location:../../studLogin.php");
     }
+    
 
 ?>
+
+<!doctype html>
+<html>
+    <head>
+    </head>
+    <body>
+    </body>
+</html>

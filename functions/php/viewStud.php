@@ -130,6 +130,7 @@
                     <div class="form-floating">
                         <select class="form-select input fs-6" name="status" id="status" disabled>
                             <option selected disabled>Select Option</option>
+                            <option value="N" <?php if("N" == $row['status']) echo 'selected="selected" disabled'; ?>>New</option>
                             <option value="R" <?php if("R" == $row['status']) echo 'selected="selected"'; ?>>Regular</option>
                             <option value="X" <?php if("X" == $row['status']) echo 'selected="selected"'; ?>>Irregular</option>
                         </select>

@@ -13,6 +13,7 @@
 
         <script src="lib/js/bootstrap.bundle.min.js"></script>
         <script src="lib/js/jquery-3.6.1.min.js"></script>
+        <script src="functions/js/formValidate.js"></script>
 
     </head>
 
@@ -53,28 +54,30 @@
                     <div class="container w-75 my-auto my-lg-0 p-3 p-lg-5 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5">
                         <h1 class="text-dark fs-3 fs-lg-1">Student Register</h1>
                         <form
-                                    class=""
+                                    name="newStud"
+                                    onsubmit="return validateForm()"
                                     method="post" 
+                                    enctype="multipart/form-data"
                                     action="functions/php/addStudent.php">
                             <div class="text-dark fs-4">
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" id="fName" name="fName" class="form-control form-control-lg input"
+                                            <input type="text" id="formText" name="fName" class="form-control form-control-lg input"
                                             placeholder="First Name" required />
                                             <label class="form-label fs-6" for="fName">First Name</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" id="midName" name="mName" class="form-control form-control-lg input"
+                                            <input type="text" id="formText" name="mName" class="form-control form-control-lg input"
                                             placeholder="Middle Name" required />
                                             <label class="form-label fs-6" for="lastName">Middle Name</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating ">
-                                            <input type="text" id="lName" name="lName" class="form-control form-control-lg input"
+                                            <input type="text" id="formText" name="lName" class="form-control form-control-lg input"
                                             placeholder="Last Name" required />
                                             <label class="form-label fs-6" for="lName">Last Name</label>
                                         </div>
@@ -84,7 +87,7 @@
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-lg-12">
                                         <div class="form-floating">
-                                            <input type="text" id="address" name="address" class="form-control form-control-lg input"
+                                            <input type="text" id="formText" name="address" class="form-control form-control-lg input"
                                             placeholder="First Name" required />
                                             <label class="form-label fs-6" for="address">Address</label>
                                         </div>
@@ -102,7 +105,7 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <select class="form-select input fs-6" name="sex" id="sex" required>
+                                            <select class="form-select input fs-6" name="sex" required>
                                             <option selected disabled>Select Option</option>
                                             <option value="M">Male</option>
                                             <option value="F">Female</option>
@@ -134,13 +137,17 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control input" id="nationality" name="nationality" required/>
+                                            <select class="form-select input" id="nationality" name="nationality" required>
+                                                <option selected disabled>Select Option</option>
+                                                <option value="Filipino">Filipino</option>
+                                                <option value="Non-Filipino">Non-Filipino</option>
+                                            </select>
                                             <label for="nationality" class="form-label fs-6">Nationality</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control input" id="religion" name="religion" required/>
+                                            <input type="text" class="form-control input" id="formText" name="religion" required/>
                                             <label for="religion" class="form-label fs-6">Religion</label>
                                         </div>
                                     </div>
@@ -167,7 +174,17 @@
                                     </div>
                                 </div>
 
+
                                 <div class="row py-2 gap-2 gap-lg-0">
+                                    <div class="col-lg-12">
+                                        <h6>Input Valid IDs / Documents</h6>
+                                        <div class="input-group mb-3">
+                                            <input type="file" class="form-control" id="inputGroupFile01" name="validator">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row py-2 gap-2 gap-lg-0 visually-hidden">
                                     <div class="col-lg-4 visually-hidden">
                                         <div class="form-floating">
                                             <input type="number" class="form-control input" id="yrReg" name="yrReg" maxlength="4" 
@@ -192,7 +209,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
 
                                 <div class="row p-2 gap-2 gap-lg-0">
                                     <div class="form-check">
