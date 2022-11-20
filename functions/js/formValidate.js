@@ -14,7 +14,7 @@ function validateForm(){
     var number = document.querySelector("#contactNo").value;
     
     if(number == ''){
-        alert("No Contact Number Input");
+        alert("No Contact Number Input");w
         status = false;
     }else{
         if(number.substring(0,2) != "09"){

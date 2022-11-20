@@ -140,9 +140,14 @@
                             <td class=""><?php echo $srow['year']; ?></td>
                             <td class=""><?php echo $srow['semester']; ?></td>
                             <td class="mx-auto text-center">
-                                <form>
-                                    <a href="#" class="mx-1 clear text-muted view" data-id="<?php echo $row['id']; ?>"
-                                        data-bs-toggle="modal" data-bs-target="#view-curr" id="<?php echo $row['id']; ?>">
+                                <form
+                                    class=""
+                                    target="_blank"
+                                    method="post" 
+                                    action="viewForm.php">
+                                    <input type="text" id="enrollCode" name="enrollCode" class="form-control form-control-lg input visually-hidden"
+                                                value="<?php echo $srow['enrollCode']; ?>" readonly />
+                                    <a href="javascript:$('form').submit()" class="mx-1 clear text-muted view">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
                                 </form>

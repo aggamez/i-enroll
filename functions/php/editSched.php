@@ -45,6 +45,7 @@
                                     <th>Days</th>
                                     <th>Time Start</th>
                                     <th>Time End</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,16 +57,32 @@
                                     value="<?php echo $rows['section']; ?>" readonly/>
                                 </td>
                                 <td class="">
-                                    <?php echo $rows['studLimit']; ?>
+                                        <input type="number" class="form-control input" name="schedRow[<?php echo $counter; ?>][studLimit]" maxlength="2" 
+                                                        min="1" max="40" step="1" value="<?php echo $rows['studLimit']; ?>"/>
                                 </td>
                                 <td class="">
-                                    <?php echo $rows['professor']; ?>
+                                    <select class="form-select input" name="schedRow[<?php echo $counter; ?>][faculty]">
+                                        <option selected disabled>Faculty Member</option>
+                                        <?php
+                                        
+                                        $queryfac = "SELECT * FROM `user-faculty`";
+                                        $resultfac = $con->query($queryfac);
+
+                                        while ($rowfac = $resultfac -> fetch_assoc()): ?>
+                                        <option value="<?php echo $rowfac['idFaculty']?>" <?php if ($rows['faculty'] == $rowfac['idFaculty']) echo 'selected="selected"'; ?>> <?php echo $fullName = "(". $rowfac['curriculum']. ")" . " " . $rowfac['fName'] . ' ' . substr($rowfac['mName'],0,1) . ' ' . $rowfac['lName'];?></option>
+
+                                        <?php endwhile?>
+                                    </select>
                                 </td>
                                 <td class="">
-                                    <?php echo $rows['rmAssign']; ?>
+                                    <input type="text" class="form-control input" 
+                                    name="schedRow[<?php echo $counter; ?>][room]" 
+                                    value="<?php echo $rows['room']; ?>"/>
                                 </td>
                                 <td class="">
-                                    <?php echo $rows['days']; ?>
+                                    <input type="text" class="form-control input" 
+                                    name="schedRow[<?php echo $counter; ?>][days]" 
+                                    value="<?php echo $rows['days']; ?>"/>
                                 </td>
                                 <td class="text-center">
                                     <input  type="time" class="form-control input" name="schedRow[<?php echo $counter; ?>][timeIni]" maxlength="4" 
@@ -74,6 +91,10 @@
                                 <td class="text-center">
                                 <input  type="time" class="form-control input" name="schedRow[<?php echo $counter; ?>][timeEnd]" maxlength="4" 
                                         min="00:00" max="24:00" value="<?php echo $rows['timeEnd']; ?>"  required/>       
+                                </td>
+                                <td class="text-center">
+                                    <input type="text" class="form-control" 
+                                    value="<?php echo $rows['idSub'];?>" name="schedRow[<?php echo $counter; ?>][idSub]" placeholder="idSub" readonly>
                                 </td>
                             </tr>
                         <?php $counter++; endwhile; ?>
@@ -85,10 +106,7 @@
                     </div>
                     <?php endif; ?>
                 <div class="row">
-                    <div class="form-floating">
-                            <input type="text" class="form-control visually-hidden" 
-                            value="<?php echo $rows['idSub'];?>" name="idSub" placeholder="idSub">
-                    </div>
+                    
                     <button class="btn btn-success" type="submit" name="editSchedules">Edit Schedules</button>
                 </div>
             </div>
