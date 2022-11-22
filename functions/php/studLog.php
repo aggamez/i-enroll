@@ -35,7 +35,7 @@
                 endif;
             endif;
 
-            header("location:../../studEnroll.php");
+            header("location:../../studGrades.php");
             } else{
                 echo "<script>
                 window.alert('Your account is not yet validated. Contact Admissions Office for concern.');

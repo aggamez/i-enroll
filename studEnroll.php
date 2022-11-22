@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <?php 
         session_start();
@@ -7,6 +7,7 @@
         }
 
         include('functions/php/config.php');
+
 
         $idStud = $_SESSION['studUser'];
         $enrollCode = $_SESSION['enrollCode'];
@@ -24,10 +25,18 @@
 
         <script src="lib/js/bootstrap.bundle.min.js"></script>
         <script src="lib/js/jquery-3.6.1.min.js"></script>
-
     </head>
 
     <body class="h-auto">
+        <?php
+            if($enrollState != true){
+                echo "<script type='text/javascript'>";
+                echo "alert('Enrollment Phase Inactive!');";
+                echo "window.location.href='studGrades.php';";
+                echo "</script>";
+            }
+        ?>
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-maroon sticky-top px-4">
             <div class="container-fluid">
                 <div class="d-flex flex-row align-items-center">
@@ -41,9 +50,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarText">
                     <div class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2 d-flex flex-row justify-content-center align-items-center">
-                            <a class="nav-link" href="functions/php/studGrades.php">Grades</a>
-                            <a class="nav-link" href="functions/php/studForms.php">Forms</a>
-                            <a class="nav-link" href="functions/php/studEnroll.php">Enroll</a>
+                            <a class="nav-link" href="studGrades.php">Grades</a>
+                            <a class="nav-link" href="studForms.php">Forms</a>
+                            <a class="nav-link" href="studEnroll.php">Enroll</a>
                             <a class="nav-link" 
                                 data-id="<?php echo $idStud;?>" id="<?php echo $idStud; ?>"
                                 data-bs-toggle="modal" data-bs-target="#change"
@@ -313,7 +322,7 @@
             <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
         </div>
 
-            <div class="modal fade" id="change" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade change" id="change" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -327,47 +336,6 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="select" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Select Section</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="enroll" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Enroll</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="quickenroll" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Quick Enroll</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <script type="text/javascript">
                 $(document).ready(function() {
@@ -380,45 +348,6 @@
                             success: function(response){
                                 $('.modal-body').html(response);
                                 $('#change').modal('show');
-                            }
-                        });
-                    });
-
-                    $('.select').click(function() {
-                        var uid = $(this).data('id');
-                        $.ajax({
-                            url: 'functions/php/selectSect.php',
-                            type: 'post',
-                            data: {uid: uid},
-                            success: function(response){
-                                $('.modal-body').html(response);
-                                $('#select').modal('show');
-                            }
-                        });
-                    });
-
-                    $('.enroll').click(function() {
-                        var uid = $(this).data('id');
-                        $.ajax({
-                            url: 'functions/php/enrollSect.php',
-                            type: 'post',
-                            data: {uid: uid},
-                            success: function(response){
-                                $('.modal-body').html(response);
-                                $('#enroll').modal('show');
-                            }
-                        });
-                    });
-
-                    $('.quickenroll').click(function() {
-                        var uid = $(this).data('id');
-                        $.ajax({
-                            url: 'functions/php/quickEnroll.php',
-                            type: 'post',
-                            data: {uid: uid},
-                            success: function(response){
-                                $('.modal-body').html(response);
-                                $('#quickenroll').modal('show');
                             }
                         });
                     });

@@ -21,14 +21,31 @@
                             <label class="form-label fs-6" for="oldPass">Old Password</label>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-floating">
+                            <input type="text" name="type" class="form-control form-control-lg input"
+                            placeholder="ID Number" 
+                            value="<?php 
+                            if      (isset($_SESSION['studUser'])){
+                                    echo 'student';} 
+                            elseif  (isset($_SESSION['faculUser'])){
+                                    echo 'faculty';}
+                            ?>" 
+                            readonly/>
+                            <label class="form-label fs-6" for="type">Type</label>
+                        </div>
+                    </div>
                     <div class="col-8">
                         <div class="form-floating">
                             <input type="pass" id="newPass" name="newPass" class="form-control form-control-lg input"
                             placeholder="New Password"/>
-                            <label class="form-label fs-6" for="lastName">newPass</label>
+                            <label class="form-label fs-6" for="newPass">New Password</label>
                         </div>
                     </div>
-                    <button class="btn btn-success" type="submit">Change Password</button>
+                </div>
+                <button class="btn btn-success" type="submit">Change Password</button>
                 </div>
             </div>
         </form>

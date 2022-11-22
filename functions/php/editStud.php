@@ -139,7 +139,7 @@
                     <div class="form-floating">
                         <select class="form-select input fs-6" name="status" id="status">
                             <option selected disabled>Select Option</option> 
-                            <option value="N" <?php if("N" == $row['status']) echo 'selected="selected" disabled'; ?>>New</option>
+                            <option value="N" <?php if("N" == $row['status']) echo 'selected="selected"'; ?>>New</option>
                             <option value="R" <?php if("R" == $row['status']) echo 'selected="selected"'; ?>>Regular</option>
                             <option value="X" <?php if("X" == $row['status']) echo 'selected="selected"'; ?>>Irregular</option>
                         </select>
@@ -172,6 +172,19 @@
                         <input type="text" id="email" name="email" class="form-control form-control-lg input"
                         placeholder="Email" value="<?php echo $row['email']?>" />
                         <label class="form-label fs-6" for="email">Email</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-2 gap-2 gap-lg-0">
+                <div class="col-lg-12">
+                    <div class="form-floating">
+                        <select class="form-select input fs-6" name="validation" id="validation">
+                            <option selected disabled>Select Option</option> 
+                            <option value="F" <?php if("F" == $row['validation']) echo 'selected="selected"'; ?>>Invalid</option>
+                            <option value="T" <?php if("T" == $row['validation']) echo 'selected="selected"'; ?>>Valid</option>
+                        </select>
+                        <label for="validation" class="form-label fs-6">Validation Status</label>
                     </div>
                 </div>
             </div>

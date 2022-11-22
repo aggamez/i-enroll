@@ -20,6 +20,7 @@
     $password = $_POST['password'];
     $email = $_POST['email'];
     $status = $_POST['status'];
+    $validation = $_POST['validation'];
 
     $query =    "UPDATE `user-student` 
     
@@ -28,7 +29,7 @@
                 `civStat` = '$civStat', `contactNo` = '$contactNo',`religion` = '$religion', 
                 `religion` = '$religion', `program` = '$program',`yrLvl` = '$yrLvl',
                 `yrReg` = '$yrReg',`password` = '$password', `email` = '$email',
-                `status` = '$status'
+                `status` = '$status', `validation` = '$validation'
 
                 WHERE id = $id;";
 

@@ -2,11 +2,13 @@
 <html>
     <?php 
         session_start();
-        if(empty($_SESSION['idFaculty'])){
+        if(empty($_SESSION['faculUser'])){
             header("Location:facultyLogin.php");
         }
 
         include('functions/php/config.php');
+
+        $idFac = $_SESSION['faculUser'];
 
     ?>
 
@@ -35,13 +37,14 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
-                        <li class="nav-item">
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link fs-5" href="functions/php/faculOut.php">Log-out</a>
-                        </li>
-                    </ul>
+                    <div class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2 d-flex flex-row justify-content-center align-items-center">
+                            <a class="nav-link" href="faculSects.php">Sections</a>
+                            <a class="nav-link" href="faculProxy.php">Enroll</a>
+                            <a class="nav-link change" 
+                                data-id="<?php echo $idFac?>" id="<?php echo $idFac?>"
+                                data-bs-toggle="modal" data-bs-target="#change">Change <br> Password</a>
+                            <a class="nav-link" href="functions/php/faculOut.php">Log-out</a>
+                    </div>
                     <span class="navbar-text d-none">
                     </span>
                 </div>
@@ -115,19 +118,33 @@
         </div>
 
         <div class="modal fade" id="grade" data-bs-backdrop="static" data-bs-keyboard="false" 
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Grade Student</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="change" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Grade Student</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Change Password</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         
                     </div>
-                    </div>
                 </div>
             </div>
+        </div>
 
             <script type="text/javascript">
                 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
@@ -143,6 +160,19 @@
                             success: function(response){
                                 $('.modal-body').html(response);
                                 $('#grade').modal('show');
+                            }
+                        });
+                    });
+
+                    $('.change').click(function() {
+                        var uid = $(this).data('id');
+                        $.ajax({
+                            url: 'functions/php/changePass.php',
+                            type: 'post',
+                            data: {uid: uid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#change').modal('show');
                             }
                         });
                     });

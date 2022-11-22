@@ -11,8 +11,8 @@
     $passChk = $data['password'];
     if($user == $userChk){
         if($pass == $passChk){
-            $_SESSION['idFaculty'] = $data['idFaculty'];
-            header("location:../../faculDash.php");
+            $_SESSION['faculUser'] = $data['idFaculty'];
+            header("location:../../faculSects.php");
         } else{
             header("location:../../faculLogin.php");
         }
