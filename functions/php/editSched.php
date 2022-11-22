@@ -30,12 +30,12 @@
                 </div>
             </div>
         
-            <div class="container gap-2 d-flex flex-column align-items-center overflow-auto" style="max-height: 30rem;">
+            <div class="container gap-2 d-flex flex-column align-items-center overflow-lg-none overflow-auto" style="max-height: 30rem;">
                 <h4>Course Schedules</h4>
                 <?php 
                 $counter = 1;
                 if(mysqli_num_rows($schedQuery) > 0): ?>
-                    <table class="table table-striped table-bordered w-100">
+                    <table class="table table-striped table-bordered w-100 ">
                             <thead class="fs-6">
                                 <tr>
                                     <th>Section</th>
@@ -45,7 +45,7 @@
                                     <th>Days</th>
                                     <th>Time Start</th>
                                     <th>Time End</th>
-                                    <th></th>
+                                    <th class="visually-hidden"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,7 +92,7 @@
                                 <input  type="time" class="form-control input" name="schedRow[<?php echo $counter; ?>][timeEnd]" maxlength="4" 
                                         min="00:00" max="24:00" value="<?php echo $rows['timeEnd']; ?>"  required/>       
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center visually-hidden">
                                     <input type="text" class="form-control" 
                                     value="<?php echo $rows['idSub'];?>" name="schedRow[<?php echo $counter; ?>][idSub]" placeholder="idSub" readonly>
                                 </td>

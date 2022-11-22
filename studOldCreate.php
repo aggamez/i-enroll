@@ -34,24 +34,15 @@
                             <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="home.php">Home</a>
                             </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="about.php">About</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="contact.php">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="enroll.php">Enroll Now!</a>
-                            </li>
                         </ul>
                         <span class="navbar-text d-none">
                         </span>
                 </div>
             </nav>
 
-            <div class="min-vh-100 text-white" style="background-image: url('assets/img/bg2.png'); ">
-                <div class="bg-overlay d-flex justify-content-center align-items-center">
-                    <div class="container w-75 p-3 p-lg-5 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5">
+            <div class="bg  min-vh-100 h-auto vw-100 text-white" style="background-image: url('assets/img/bg2.png');">
+                <div class="h-100 w-100 d-flex flex-column justify-content-center align-items-center">
+                    <div class="container p-3 p-lg-5 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5">
                         <h1 class="text-dark fs-3 fs-lg-1">Student Register</h1>
                         <form
                                     name="oldStud"
@@ -209,6 +200,16 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row py-2 gap-2 gap-lg-0">
+                                        <div class="col-lg-12">
+                                            <div class="form-floating">
+                                                <input type="text" id="formText" name="email" class="form-control form-control-lg input"
+                                                placeholder="Email" required />
+                                                <label class="form-label fs-6" for="email">Email</label>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 <div class="row py-2 gap-2 gap-lg-0">
                                     <div class="col-lg-12">

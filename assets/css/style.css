@@ -24,7 +24,11 @@ body::-webkit-scrollbar{
 }
 
 .bg-maroon{
-    background-color: #800000;
+    background-color: #800000 !important;
+}
+
+.bd-maroon{
+    border-color: #800000 !important;
 }
 
 .navbar{
@@ -36,18 +40,12 @@ body::-webkit-scrollbar{
 .bg{
     background-position: center;
     background-size: cover;
-    content: '';
-    height: 85vh;
-    width: auto;
-    position: relative;
     font-size: 2rem;
 }
 
+
 .bg-overlay{
     background-color: rgba(0, 0, 0, 0.5);
-    height: 100%;
-    width: 100%;
-    position: absolute;
 }
 
 header{
@@ -67,3 +65,20 @@ h1{
 .clear{
     text-decoration: none;
 }
+
+.wrapper{
+}
+
+.divider{ 
+    opacity: 100%;
+    border-radius: 10px;
+}
+
+.patt{
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+}
+
+
+
+

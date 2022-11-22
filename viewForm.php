@@ -24,8 +24,8 @@
     </head>
 
     <body>
-        <div class="d-flex my-1" id="document">
-            <div class="container container-fluid border border-dark border-2"> <!-- upper part -->
+        <div class="d-flex align-items-center justify-content-center my-1" id="document">
+            <div class="container container-fluid border border-dark border-2 mt-5 mx-2"> <!-- upper part -->
                 <div class="d-flex flex-row align-items-center justify-content-center gap-5 py-2">
                     <img src="assets/img/taguig-logo.png" alt="" srcset="" style="height: 6rem;">
                     <div class="d-flex flex-column align-items-center justify-content-center">
@@ -49,7 +49,7 @@
                         $studData = $studQuery -> fetch_assoc();
                     ?>
 
-                    <h6 class="pb-1">Student No.: <?php echo $studData['idStud']?></h6>
+                    <h6 class="pb-1 fs-4">Student No.: <?php echo $studData['idStud']?></h6>
                     
                     <h6>Name: <?php echo $studData['lName'] . ", " . $studData['fName'] . " " . $studData['mName']?></h6>
                     
@@ -82,7 +82,7 @@
 
                     <h5 class=""><b>Enrolled Courses</b></h5>
 
-                    <table class="table table-striped table-bordered w-100 text-center">
+                    <table class="table table-bordered w-100 text-center">
                         <thead class="fs-6">
                             <tr>
                                 <th>Subject Code</th>

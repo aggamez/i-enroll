@@ -75,18 +75,12 @@
 
                                 ?>
                                 <div class="">
-                                    <select class="form-select input fs-6" name="acadRow[<?php echo $counter; ?>][status]" 
-                                    <?php   if($yr < $yrLvl):
-                                            else:
-                                                if($currSem < $sem):
-                                                    echo 'disabled';
-                                                endif;
-                                            endif; ?>>
+                                    <select class="form-select input fs-6" name="acadRow[<?php echo $counter; ?>][status]" >
                                         <option disabled>Select Option</option>
                                         <option value="O" <?php if("O" == $studStat) echo 'selected="selected"'; ?>>Open</option>
                                         <option value="P" <?php if("P" == $studStat) echo 'selected="selected"'; ?>>Passed</option>
-                                        <option value="R" <?php if("R" == $studStat) echo 'selected="selected"'; ?> disabled>Registered</option>
-                                        <option value="E" <?php if("E" == $studStat) echo 'selected="selected"'; ?> disabled>Enrolled</option>
+                                        <option value="R" <?php if("R" == $studStat) echo 'selected="selected"'; ?>>Registered</option>
+                                        <option value="E" <?php if("E" == $studStat) echo 'selected="selected"'; ?>>Enrolled</option>
                                     </select>
                                 </div>
                             </td>

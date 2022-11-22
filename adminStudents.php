@@ -208,7 +208,7 @@
                                     id="<?php echo $row['id']; ?>">
                                     <i class="bi bi-eye-fill"></i>
                                 </a>
-                                <a href="<?php echo $filename?>" class="mx-1 clear text-muted" 
+                                <a href="<?php echo $filename?>" class="mx-1 clear maroon" 
                                     data-bs-toggle="tooltip" target=”_blank”
                                     data-bs-placement="top" data-bs-title="View Student Valid Document">
                                     <i class="bi bi-eye-fill"></i>

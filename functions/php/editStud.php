@@ -170,7 +170,7 @@
                 <div class="col-lg-12">
                     <div class="form-floating">
                         <input type="text" id="email" name="email" class="form-control form-control-lg input"
-                        placeholder="Email" value="<?php echo $row['email']?>" readonly />
+                        placeholder="Email" value="<?php echo $row['email']?>" />
                         <label class="form-label fs-6" for="email">Email</label>
                     </div>
                 </div>

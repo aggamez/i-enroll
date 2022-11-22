@@ -20,6 +20,7 @@
     $religion = $_POST['religion'];
     $program = $_POST['program'];
     $status = $_POST['status'];
+    $email = $_POST['email'];
     
     
 
@@ -34,8 +35,6 @@
     }
     
     $password = generateRandomString(8);
-    $emailParse = str_replace(' ', '', strtolower($lName . '.' . $fName));
-    $email = $emailParse . "@tcu.edu.ph";
 
     $uploadOk = 1;
     $target_dir = "../../extfiles/validator/";

@@ -33,15 +33,6 @@
                             <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="home.php">Home</a>
                             </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="about.php">About</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="contact.php">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="enroll.php">Enroll Now!</a>
-                            </li>
                         </ul>
                         <span class="navbar-text d-none">
                         </span>
@@ -49,9 +40,9 @@
                 </div>
             </nav>
 
-            <div class="bg text-white" style="background-image: url('assets/img/bg2.png'); ">
-                <div class="bg-overlay d-flex justify-content-center align-items-center">
-                    <div class="container w-50 w-lg-25 p-5 p-lg-10 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5 opacity-25">
+            <div class="bg min-vh-100 vw-100 text-white d-flex flex-column justify-content-center align-items-center" style="background-image: url('assets/img/bg2.png');">
+                <div class="h-100 w-100 d-flex flex-column justify-content-center align-items-center">
+                    <div class="container w-100 w-lg-25 p-5 p-lg-10 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5 opacity-25">
                         <h1 class="text-dark fs-3 fs-lg-1">Student Log-in</h1>
                         <hr class="text-dark border border-dark border-1 w-80 fs-1">
                         <div>

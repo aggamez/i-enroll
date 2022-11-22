@@ -33,8 +33,8 @@
                             <tr>
                                 <td class=""><?php echo $rows['section']; ?></td>
                                 <td class=""><?php echo $rows['studLimit']; ?></td>
-                                <td class=""><?php echo $rows['professor']; ?></td>
-                                <td class=""><?php echo $rows['rmAssign']; ?></td>
+                                <td class=""><?php echo $rows['faculty']; ?></td>
+                                <td class=""><?php echo $rows['room']; ?></td>
                                 <td class=""><?php echo $rows['days']; ?></td>
                                 <td class="text-center"><?php echo $rows['timeIni']; ?></td>
                                 <td class="text-center"><?php echo $rows['timeEnd']; ?></td>

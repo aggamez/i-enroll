@@ -80,7 +80,7 @@
                                             <?php   if($yr < $yrLvl):
                                             else:
                                                 if($currSem < $sem):
-                                                    echo 'disabled';
+                                                    echo 'readonly';
                                                 endif;
                                             endif; ?>/>
                                 </div>

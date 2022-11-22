@@ -52,7 +52,7 @@
             <div class="d-flex flex-column justify-content-between
                             align-items-start gap-2 mt-5">
                     <div class="w-100 d-flex flex-row justify-content-start align-items-start pb-0 border-bottom border-3 border-dark">
-                        <h2 class="fs-3 text-dark"> Student Grading </h2>
+                        <h2 class="fs-3 text-dark"> Proxy Student Grading </h2>
                     </div>
                     <?php
                         include('functions/php/config.php');
@@ -65,6 +65,7 @@
                             <table id="" class="table table-striped table-bordered fs-5">
                                         <thead>
                                             <tr>
+                                                <th>Student ID</th>
                                                 <th>Full Name</th>
                                                 <th>Program</th>
                                                 <th>Year Level</th>
@@ -79,6 +80,7 @@
                         
                         ?>
                         <tr>
+                            <td class=""><?php echo $row['idStud']; ?></td>
                             <td class=""><?php echo $fullName; ?></td>
                             <td class=""><?php echo $row['program']; ?></td>
                             <td class=""><?php echo $row['yrLvl']; ?></td>

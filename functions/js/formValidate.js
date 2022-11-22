@@ -1,7 +1,7 @@
 function validateForm(){
     var status = true;
 
-    const regex = /^[\w\-_.,\s]+$/;
+    const regex = /^[\w\-_.,@\s]+$/;
     var inputs = document.querySelectorAll("#formText");
     for (var i=0; i<inputs.length; i++){
         if (inputs[i].value == "" || !regex.test(inputs[i].value)){

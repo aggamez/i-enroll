@@ -40,21 +40,26 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
-                        <li class="nav-item">
+                    <div class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2 d-flex flex-row justify-content-center align-items-center">
+                            <a class="nav-link" href="functions/php/studGrades.php">Grades</a>
+                            <a class="nav-link" href="functions/php/studForms.php">Forms</a>
+                            <a class="nav-link" href="functions/php/studEnroll.php">Enroll</a>
+                            <a class="nav-link" 
+                                data-id="<?php echo $idStud;?>" id="<?php echo $idStud; ?>"
+                                data-bs-toggle="modal" data-bs-target="#change"
+                            >Change <br> Password</a>
                             <a class="nav-link" href="functions/php/studOut.php">Log-out</a>
-                        </li>
-                    </ul>
+                    </div>
                     <span class="navbar-text d-none">
                     </span>
                 </div>
             </div>
         </nav>
             
-        <div class="bg d-flex flex-column mt-auto p-3 gap-5 h-auto min-vh-lg-100 w-100 overflow-auto" style="margin-bottom: 5vh;">
-            <h1 class="fs-1 text-dark ms-5"> Enrollment: <b>Semester <?php echo $currSem ;?></b> </h1>  
-            <div class="d-flex flex-column flex-lg-row justify-content-between w-100">
-                <div class="container gap-2 d-flex flex-column w-75">
+        <div class="bg d-flex flex-column mt-auto p-3 gap-5 h-auto min-vh-lg-100 w-100 overflow-auto px-5" style="margin-bottom: 5vh;">
+            <h1 class="fs-1 text-dark"> Enrollment: <b>Semester <?php echo $currSem ;?></b> </h1>  
+            <div class="gap-5 d-flex flex-column flex-lg-row justify-content-between w-100">
+                <div class="gap-2 d-flex flex-grow-1 flex-column w-lg-75">
                     <div class="h-auto border border-dark p-2">
                         <div class="row">
                             <div class="col-12">
@@ -99,12 +104,17 @@
                         <div class="row">
                             <div class="col-12 d-flex flex-row justify-content-between align-items-center">
                                 <h2><b>Registered Courses: </b></h2>
-                                <?php if($studData['status'] == 'R' || $studData['status'] == 'N'): ?>
-                                    <a  class="btn btn-md btn-secondary text-white text-center quickenroll" data-id="<?php echo $enrollCode; ?>"
-                                        data-bs-toggle="modal" data-bs-target="#quickenroll" >
-                                        <i class="bi bi-eye-fill"></i>
-                                        <b>Quick-Enroll</b>
-                                    </a>
+                                <?php 
+                                $checkQuery = "SELECT * FROM `student-enrollment` WHERE `enrollCode` = '$enrollCode'";
+                                $checkRes = $con->query($checkQuery);
+                                if(mysqli_num_rows($checkRes) <= 0):
+                                    if($studData['status'] == 'R' || $studData['status'] == 'N'): ?>
+                                        <a  class="btn btn-md btn-secondary text-white text-center quickenroll" data-id="<?php echo $enrollCode; ?>"
+                                            data-bs-toggle="modal" data-bs-target="#quickenroll" >
+                                            <i class="bi bi-eye-fill"></i>
+                                            <b>Quick-Enroll</b>
+                                        </a>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -166,7 +176,7 @@
                     
                 </div>
 
-                <div class="container gap-2 d-flex flex-column w-25">
+                <div class="gap-2 d-flex flex-column w-lg-25">
                     <?php
                     for ($yr = 1; $yr <= 4; $yr++) {
                         for ($sem = 1; $sem <= 2; $sem++) { 

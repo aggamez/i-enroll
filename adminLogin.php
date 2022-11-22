@@ -25,8 +25,8 @@
                 </div>
             </nav>
 
-            <div class="bg text-white" style="background-image: url('assets/img/bg2.png');">
-                <div class="bg-overlay d-flex justify-content-center align-items-center">
+            <div class="bg min-vh-100 vw-100 text-white d-flex flex-column justify-content-center align-items-center" style="background-image: url('assets/img/bg2.png');">
+                <div class="h-100 w-100 d-flex flex-column justify-content-center align-items-center">
                     <div class="container container-lg w-50 w-lg-25 p-5 p-lg-10 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5 opacity-25">
                         <h1 class="text-dark fs-2">Admin Log-in</h1>
                         <hr class="text-dark border border-dark border-1 w-80 fs-1">
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="footer d-flex justify-content-center align-items-center sticky-bottom bg-dark">
+            <div class="footer d-flex justify-content-center align-items-center fixed-bottom bg-dark">
                 <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
             </div>
     </body>
