@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2022 at 01:57 AM
+-- Generation Time: Nov 23, 2022 at 10:24 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -31,15 +31,16 @@ CREATE TABLE `curriculums` (
   `id` int(11) NOT NULL,
   `idCurr` varchar(10) NOT NULL,
   `idCourse` varchar(10) NOT NULL,
-  `nameCurr` text NOT NULL
+  `nameCurr` text NOT NULL,
+  `department` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `curriculums`
 --
 
-INSERT INTO `curriculums` (`id`, `idCurr`, `idCourse`, `nameCurr`) VALUES
-(3, 'BSCS', 'CS', 'Bachelor of Science in Computer Science (2020)');
+INSERT INTO `curriculums` (`id`, `idCurr`, `idCourse`, `nameCurr`, `department`) VALUES
+(3, 'BSCS', 'CS', 'Bachelor of Science in Computer Science (2020)', 'CICT');
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,8 @@ CREATE TABLE `departments` (
 
 INSERT INTO `departments` (`id`, `idDept`, `nameDept`) VALUES
 (1, 'CAS', 'College of Arts and Sciences'),
-(2, 'CICT', 'College of Information & Communication Technology');
+(2, 'CICT', 'College of Information & Communication Technology'),
+(3, 'CENG', 'College of Engineering');
 
 -- --------------------------------------------------------
 
@@ -80,8 +82,7 @@ CREATE TABLE `enroll-codes` (
 --
 
 INSERT INTO `enroll-codes` (`id`, `enrollCode`, `idStud`, `year`, `semester`) VALUES
-(6, 'fnIrzuuabdOetzcrOgWj4PPN0vuWE8', '21-01244', '2022', 1),
-(7, 'i7A9az0fwsTRAPkhxSasXXReAnwp6z', '22-00001', '2022', 1);
+(1, 'aEQIZibD2ctpilapCTeBzyKBJOKMWP', '22-00000', '2022', 1);
 
 -- --------------------------------------------------------
 
@@ -231,7 +232,29 @@ INSERT INTO `logs` (`id`, `idLog`, `date`, `source`, `action`, `target`) VALUES
 (126, '26f57268fb2d2e07328977514b52f5e0847582d69b388e49bdd532f75cf156e6', '2022-11-11 02:21:51', 'SYSTEM', 'ADD STUDENT', '22-00001'),
 (127, 'd1eec5994f187a4bd4fcc60d094b5434d3113cb1913b2503e372eb172f18d3a3', '2022-11-11 08:42:43', 'SYSTEM', 'ADD STUDENT', '22-00001'),
 (128, 'ea726529f942e98276db16d790674a7e61a762e585ca6abe62790a75d157c529', '2022-11-11 08:45:06', 'admin2022init', 'REMOVE SCHEDULE', 'AL101'),
-(129, 'e3ed2dc89bafffac4c97944c51b546b78f710f3da95804decd752b19640eac4a', '2022-11-11 08:45:22', 'admin2022init', 'ADD SECTION', 'CS1A');
+(129, 'e3ed2dc89bafffac4c97944c51b546b78f710f3da95804decd752b19640eac4a', '2022-11-11 08:45:22', 'admin2022init', 'ADD SECTION', 'CS1A'),
+(130, 'f712be43ae552e91af72827c55ce394d14515dfc4e6afaf7b672d27e4a5e2fa0', '2022-11-11 09:22:13', 'admin2022init', 'ADD SECTION', 'Test1'),
+(131, 'f02bc42715f874e71b19f963e476b4c34af616056718564a90a4d8175552ea44', '2022-11-11 09:31:37', 'SYSTEM', 'ADD STUDENT', '22-00002'),
+(132, '408a7fd1432deed0395841d83e16c26500deeb14fcd1a8e3bb2988220c826002', '2022-11-11 09:34:11', 'SYSTEM', 'ADD STUDENT', '22-00003'),
+(133, 'd0b3b80aec4f60d976da59a8d6f8656e02d5ff01178e367560d5a9e1895e81d9', '2022-11-15 13:31:28', 'SYSTEM', 'ADD STUDENT', '21-04454'),
+(134, 'dfbf22a92e75e71aead37fa9442f85274e000480c01acd161ecd9ac34f99ada5', '2022-11-15 13:34:15', 'SYSTEM', 'ADD STUDENT', '21-04455'),
+(135, 'f37fe5a6d4a39a26e64ecf82d686c7012ed56001bd28723f70144db207463dac', '2022-11-15 13:34:34', 'SYSTEM', 'ADD STUDENT', '21-04452'),
+(136, '3d0dcc14a2e43bdf822c116fd389a6df7056e0d9b3710ff129b2ee3130fc4f26', '2022-11-15 13:35:17', 'SYSTEM', 'ADD STUDENT', '21-04451'),
+(137, '4c279730d5890ab444eb1882b549768a8bdb2a58e95562befc8f968b0b01099c', '2022-11-15 13:35:57', 'SYSTEM', 'ADD STUDENT', '21-04450'),
+(138, '4b3ed58c029fe3894017e1fa6fc6c01bb4b990a8680e5d7e290989666155c6f6', '2022-11-15 13:38:46', 'SYSTEM', 'ADD STUDENT', '21-04416'),
+(139, 'bc3e0aacb910c24cb245d9577f22be59516862035935a56fc9d06e9dfa78d435', '2022-11-15 13:39:20', 'SYSTEM', 'ADD STUDENT', '20-21214'),
+(140, '9a46a54a0cd0f4606c874d8fa04811fee73bfff480e76a82d512fc83c8aa2c12', '2022-11-15 13:40:06', 'SYSTEM', 'ADD STUDENT', '20-21212'),
+(141, 'c10c67788d4c325838f9289d52e128a0e5a73e349bce71bcab169cae0fa9e14e', '2022-11-15 13:40:42', 'SYSTEM', 'ADD STUDENT', '20-21211'),
+(142, 'b54485be5203508a7097c57c8f6eb9e1c21740ae3f541182c8dbd52011a268dd', '2022-11-15 13:41:21', 'SYSTEM', 'ADD STUDENT', '20-55521'),
+(143, '1520a6e5e1222ca02488565fc9cb72dc5f8f10a62446a41c25db3ff85e3bc54c', '2022-11-15 13:46:17', 'SYSTEM', 'ADD STUDENT', ' '),
+(144, 'aa8e2a1f70455b8459881e87e26a99a95cf657ec441974e5f31aad6213e7f0e4', '2022-11-15 13:48:29', 'SYSTEM', 'ADD STUDENT', '20-11235'),
+(145, '89c823aea49ff1e92a882d74476556b2b71cfcc6c1f42022f4f8e152f83415a5', '2022-11-15 13:53:04', 'SYSTEM', 'ADD STUDENT', '20-11234'),
+(146, '26ea44504fd7b7438a6eab06155eee2b185f2e736e09c127ba7d21bffb023d76', '2022-11-15 14:01:41', 'SYSTEM', 'ADD STUDENT', '21-12154'),
+(147, 'ff11da0745c70a216d89f07bd32270f036a53ec7a326bb84524102054761ee1e', '2022-11-15 15:43:08', 'SYSTEM', 'ADD STUDENT', '22-00001'),
+(148, '1e82992710377ee83311f72d88ec14c4b94ac8e96ac31465a7b3e1d193a3bb72', '2022-11-15 15:48:02', 'SYSTEM', 'ADD STUDENT', '22-00000'),
+(149, 'd1f3f2f17e81a892e53152c7e825d64e18de50e799ef00edf2a6eda2417b5e79', '2022-11-23 07:25:58', '22-00000', 'CHANGE PASSWORD', '22-00000'),
+(150, 'bed8bfff8d25621368d46fe54c8e77cacbef70819376c851b08ee6afdd11b890', '2022-11-23 07:27:06', '22-00000', 'CHANGE PASSWORD', '22-00000'),
+(151, 'c1f3000b33f4135666276ba018d26c6d741ec132be23fa93126a971991b24545', '2022-11-23 07:37:03', 'tomagan.ariel', 'CHANGE PASSWORD', 'tomagan.ariel');
 
 -- --------------------------------------------------------
 
@@ -244,8 +267,8 @@ CREATE TABLE `schedule` (
   `idSub` varchar(10) NOT NULL,
   `section` varchar(15) NOT NULL,
   `studLimit` int(11) NOT NULL,
-  `professor` varchar(150) DEFAULT NULL,
-  `rmAssign` varchar(50) DEFAULT NULL,
+  `faculty` varchar(150) DEFAULT NULL,
+  `room` varchar(50) DEFAULT NULL,
   `days` varchar(50) DEFAULT NULL,
   `timeIni` varchar(5) DEFAULT NULL,
   `timeEnd` varchar(5) DEFAULT NULL
@@ -255,17 +278,18 @@ CREATE TABLE `schedule` (
 -- Dumping data for table `schedule`
 --
 
-INSERT INTO `schedule` (`id`, `idSub`, `section`, `studLimit`, `professor`, `rmAssign`, `days`, `timeIni`, `timeEnd`) VALUES
-(10, 'CC101', 'CS1A', 15, '', '331', 'MON', '10:00', '12:00'),
-(11, 'CC102', 'CS1A', 15, '', '323', 'TUE,THU', '10:00', '12:00'),
-(12, 'NSTP1', 'CS1A', 15, '', 'CA4', 'SUN', '10:00', '12:00'),
-(13, 'PE1', 'CS1A', 15, '', 'GYMA', 'SUN', '10:00', '12:00'),
-(15, 'DS101', 'CS1A', 15, '', '331', 'MON,WED,FRI', '10:00', '12:00'),
+INSERT INTO `schedule` (`id`, `idSub`, `section`, `studLimit`, `faculty`, `room`, `days`, `timeIni`, `timeEnd`) VALUES
+(10, 'CC101', 'CS1A', 15, 'vinalon.haidee', '331', 'MON,WED', '10:00', '12:00'),
+(11, 'CC102', 'CS1A', 15, 'vinalon.haidee', '331', 'MON,FRI', '10:00', '12:00'),
+(12, 'NSTP1', 'CS1A', 15, 'vinalon.haidee', '331', 'MON', '10:00', '12:00'),
+(13, 'PE1', 'CS1A', 15, 'vinalon.haidee', '331', 'MON', '10:00', '12:00'),
+(15, 'DS101', 'CS1A', 15, 'vinalon.haidee', '331', 'MON', '10:00', '12:00'),
 (18, 'PE1', 'CS1B', 15, 'calderon.joelvilzon', 'GYMB', 'SUN', '10:00', '12:00'),
-(19, 'GE10', 'CS1A', 15, 'calderon.joelvilzon', '', '', '', ''),
-(20, 'GE2', 'CS1A', 15, 'cruz.mark', '', '', '', ''),
-(21, 'GE1', 'CS1A', 15, 'calderon.joelvilzon', '', '', '', ''),
-(22, 'AL101', 'CS1A', 15, 'tomagan.ariel', '', '', '', '');
+(19, 'GE10', 'CS1A', 15, 'vinalon.haidee', '331', 'MON', '10:00', '12:00'),
+(20, 'GE2', 'CS1A', 15, 'vinalon.haidee', '331', 'MON', '10:00', '12:00'),
+(21, 'GE1', 'CS1A', 15, 'vinalon.haidee', '331', 'MON', '10:00', '12:00'),
+(22, 'AL101', 'CS1A', 15, 'vinalon.haidee', '331', 'MON', '10:00', '12:00'),
+(23, 'AL101', 'Test1', 1, 'tomagan.ariel', '331', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -309,122 +333,64 @@ CREATE TABLE `student-academics` (
 --
 
 INSERT INTO `student-academics` (`id`, `idStud`, `idSub`, `units`, `grade`, `status`) VALUES
-(639, '21-01244', 'CC101', 3, '3.00', 'P'),
-(640, '21-01244', 'CC102', 3, '3.00', 'P'),
-(641, '21-01244', 'DS101', 3, '3.00', 'P'),
-(642, '21-01244', 'AL101', 3, '3.00', 'P'),
-(643, '21-01244', 'GE1', 3, '3.00', 'P'),
-(644, '21-01244', 'GE2', 3, '3.00', 'P'),
-(645, '21-01244', 'GE10', 3, '3.00', 'P'),
-(646, '21-01244', 'PE1', 2, '3.00', 'P'),
-(647, '21-01244', 'NSTP1', 3, '3.00', 'P'),
-(648, '21-01244', 'CC103', 3, '3.00', 'P'),
-(649, '21-01244', 'CC104', 3, '3.00', 'P'),
-(650, '21-01244', 'CC105', 3, '3.00', 'P'),
-(651, '21-01244', 'DS102', 3, '3.00', 'P'),
-(652, '21-01244', 'GE3', 3, '3.00', 'P'),
-(653, '21-01244', 'GE4', 3, '3.00', 'P'),
-(654, '21-01244', 'PE2', 2, '3.00', 'P'),
-(655, '21-01244', 'GE11', 3, '3.00', 'P'),
-(656, '21-01244', 'NSTP2', 3, '5.00', 'O'),
-(657, '21-01244', 'CC106', 3, '3.00', 'P'),
-(658, '21-01244', 'SDF104', 3, '3.00', 'P'),
-(659, '21-01244', 'AL102', 3, '3.00', 'P'),
-(660, '21-01244', 'NC101', 3, '3.00', 'P'),
-(661, '21-01244', 'GE5', 3, '3.00', 'P'),
-(662, '21-01244', 'GE6', 3, '3.00', 'P'),
-(663, '21-01244', 'GEE22', 3, '3.00', 'P'),
-(664, '21-01244', 'IT100', 3, '3.00', 'P'),
-(665, '21-01244', 'PE3', 2, '3.00', 'P'),
-(666, '21-01244', 'AR101', 3, '0.00', 'P'),
-(667, '21-01244', 'OS101', 3, '0.00', 'P'),
-(668, '21-01244', 'PL101', 3, '0.00', 'P'),
-(669, '21-01244', 'HCI101', 3, '3.00', 'P'),
-(670, '21-01244', 'AL103', 3, '0.00', 'P'),
-(671, '21-01244', 'GE7', 3, '0.00', 'P'),
-(672, '21-01244', 'GE8', 3, '0.00', 'P'),
-(673, '21-01244', 'GEE32', 3, '0.00', 'P'),
-(674, '21-01244', 'PE4', 2, '0.00', 'P'),
-(675, '21-01244', 'IAS101', 3, '3.00', 'O'),
-(676, '21-01244', 'SE101', 3, '3.00', 'O'),
-(677, '21-01244', 'ELEC1', 3, '3.00', 'O'),
-(678, '21-01244', 'CC107', 3, '3.00', 'O'),
-(679, '21-01244', 'DS103', 3, '3.00', 'O'),
-(680, '21-01244', 'GE9', 3, '3.00', 'O'),
-(681, '21-01244', 'IT101', 3, '3.00', 'O'),
-(682, '21-01244', 'GEE13', 3, '3.00', 'O'),
-(683, '21-01244', 'ELEC2', 3, '3.00', 'O'),
-(684, '21-01244', 'SE102', 3, '3.00', 'O'),
-(685, '21-01244', 'THS101', 3, '3.00', 'O'),
-(686, '21-01244', 'ELEC3', 3, '3.00', 'O'),
-(687, '21-01244', 'CC108', 3, '3.00', 'O'),
-(688, '21-01244', 'OS102', 3, '3.00', 'O'),
-(689, '21-01244', 'SDF105', 3, '3.00', 'O'),
-(690, '21-01244', 'SP101', 3, '3.00', 'O'),
-(691, '21-01244', 'THS102', 6, '3.00', 'O'),
-(692, '21-01244', 'ELEC 4', 3, '3.00', 'O'),
-(693, '21-01244', 'ELEC 5', 3, '3.00', 'O'),
-(694, '21-01244', 'HCI102', 6, '3.00', 'O'),
-(695, '21-01244', 'IT102', 3, '3.00', 'O'),
-(696, '21-01244', 'PRC101', 3, '3.00', 'O'),
-(929, '22-00001', 'CC101', 3, '4.00', 'E'),
-(930, '22-00001', 'CC102', 3, '4.00', 'E'),
-(931, '22-00001', 'DS101', 3, '4.00', 'E'),
-(932, '22-00001', 'AL101', 3, '4.00', 'E'),
-(933, '22-00001', 'GE1', 3, '4.00', 'E'),
-(934, '22-00001', 'GE2', 3, '4.00', 'E'),
-(935, '22-00001', 'GE10', 3, '4.00', 'E'),
-(936, '22-00001', 'PE1', 2, '4.00', 'E'),
-(937, '22-00001', 'NSTP1', 3, '4.00', 'E'),
-(938, '22-00001', 'CC103', 3, '4.00', 'O'),
-(939, '22-00001', 'CC104', 3, '4.00', 'O'),
-(940, '22-00001', 'CC105', 3, '4.00', 'O'),
-(941, '22-00001', 'DS102', 3, '4.00', 'O'),
-(942, '22-00001', 'GE3', 3, '4.00', 'O'),
-(943, '22-00001', 'GE4', 3, '4.00', 'O'),
-(944, '22-00001', 'PE2', 2, '4.00', 'O'),
-(945, '22-00001', 'GE11', 3, '4.00', 'O'),
-(946, '22-00001', 'NSTP2', 3, '4.00', 'O'),
-(947, '22-00001', 'CC106', 3, '4.00', 'O'),
-(948, '22-00001', 'SDF104', 3, '4.00', 'O'),
-(949, '22-00001', 'AL102', 3, '4.00', 'O'),
-(950, '22-00001', 'NC101', 3, '4.00', 'O'),
-(951, '22-00001', 'GE5', 3, '4.00', 'O'),
-(952, '22-00001', 'GE6', 3, '4.00', 'O'),
-(953, '22-00001', 'GEE22', 3, '4.00', 'O'),
-(954, '22-00001', 'IT100', 3, '4.00', 'O'),
-(955, '22-00001', 'PE3', 2, '4.00', 'O'),
-(956, '22-00001', 'AR101', 3, '4.00', 'O'),
-(957, '22-00001', 'OS101', 3, '4.00', 'O'),
-(958, '22-00001', 'PL101', 3, '4.00', 'O'),
-(959, '22-00001', 'HCI101', 3, '4.00', 'O'),
-(960, '22-00001', 'AL103', 3, '4.00', 'O'),
-(961, '22-00001', 'GE7', 3, '4.00', 'O'),
-(962, '22-00001', 'GE8', 3, '4.00', 'O'),
-(963, '22-00001', 'GEE32', 3, '4.00', 'O'),
-(964, '22-00001', 'PE4', 2, '4.00', 'O'),
-(965, '22-00001', 'IAS101', 3, '4.00', 'O'),
-(966, '22-00001', 'SE101', 3, '4.00', 'O'),
-(967, '22-00001', 'ELEC1', 3, '4.00', 'O'),
-(968, '22-00001', 'CC107', 3, '4.00', 'O'),
-(969, '22-00001', 'DS103', 3, '4.00', 'O'),
-(970, '22-00001', 'GE9', 3, '4.00', 'O'),
-(971, '22-00001', 'IT101', 3, '4.00', 'O'),
-(972, '22-00001', 'GEE13', 3, '4.00', 'O'),
-(973, '22-00001', 'ELEC2', 3, '4.00', 'O'),
-(974, '22-00001', 'SE102', 3, '4.00', 'O'),
-(975, '22-00001', 'THS101', 3, '4.00', 'O'),
-(976, '22-00001', 'ELEC3', 3, '4.00', 'O'),
-(977, '22-00001', 'CC108', 3, '4.00', 'O'),
-(978, '22-00001', 'OS102', 3, '4.00', 'O'),
-(979, '22-00001', 'SDF105', 3, '4.00', 'O'),
-(980, '22-00001', 'SP101', 3, '4.00', 'O'),
-(981, '22-00001', 'THS102', 6, '4.00', 'O'),
-(982, '22-00001', 'ELEC 4', 3, '4.00', 'O'),
-(983, '22-00001', 'ELEC 5', 3, '4.00', 'O'),
-(984, '22-00001', 'HCI102', 6, '4.00', 'O'),
-(985, '22-00001', 'IT102', 3, '4.00', 'O'),
-(986, '22-00001', 'PRC101', 3, '4.00', 'O');
+(59, '22-00000', 'CC101', 3, '4.00', 'O'),
+(60, '22-00000', 'CC102', 3, '4.00', 'E'),
+(61, '22-00000', 'DS101', 3, '4.00', 'E'),
+(62, '22-00000', 'AL101', 3, '4.00', 'E'),
+(63, '22-00000', 'GE1', 3, '4.00', 'E'),
+(64, '22-00000', 'GE2', 3, '4.00', 'E'),
+(65, '22-00000', 'GE10', 3, '4.00', 'E'),
+(66, '22-00000', 'PE1', 2, '4.00', 'E'),
+(67, '22-00000', 'NSTP1', 3, '4.00', 'E'),
+(68, '22-00000', 'CC103', 3, '4.00', 'O'),
+(69, '22-00000', 'CC104', 3, '4.00', 'O'),
+(70, '22-00000', 'CC105', 3, '4.00', 'O'),
+(71, '22-00000', 'DS102', 3, '4.00', 'O'),
+(72, '22-00000', 'GE3', 3, '4.00', 'O'),
+(73, '22-00000', 'GE4', 3, '4.00', 'O'),
+(74, '22-00000', 'PE2', 2, '4.00', 'O'),
+(75, '22-00000', 'GE11', 3, '4.00', 'O'),
+(76, '22-00000', 'NSTP2', 3, '4.00', 'O'),
+(77, '22-00000', 'CC106', 3, '4.00', 'O'),
+(78, '22-00000', 'SDF104', 3, '4.00', 'O'),
+(79, '22-00000', 'AL102', 3, '4.00', 'O'),
+(80, '22-00000', 'NC101', 3, '4.00', 'O'),
+(81, '22-00000', 'GE5', 3, '4.00', 'O'),
+(82, '22-00000', 'GE6', 3, '4.00', 'O'),
+(83, '22-00000', 'GEE22', 3, '4.00', 'O'),
+(84, '22-00000', 'IT100', 3, '4.00', 'O'),
+(85, '22-00000', 'PE3', 2, '4.00', 'O'),
+(86, '22-00000', 'AR101', 3, '4.00', 'O'),
+(87, '22-00000', 'OS101', 3, '4.00', 'O'),
+(88, '22-00000', 'PL101', 3, '4.00', 'O'),
+(89, '22-00000', 'HCI101', 3, '4.00', 'O'),
+(90, '22-00000', 'AL103', 3, '4.00', 'O'),
+(91, '22-00000', 'GE7', 3, '4.00', 'O'),
+(92, '22-00000', 'GE8', 3, '4.00', 'O'),
+(93, '22-00000', 'GEE32', 3, '4.00', 'O'),
+(94, '22-00000', 'PE4', 2, '4.00', 'O'),
+(95, '22-00000', 'IAS101', 3, '4.00', 'O'),
+(96, '22-00000', 'SE101', 3, '4.00', 'O'),
+(97, '22-00000', 'ELEC1', 3, '4.00', 'O'),
+(98, '22-00000', 'CC107', 3, '4.00', 'O'),
+(99, '22-00000', 'DS103', 3, '4.00', 'O'),
+(100, '22-00000', 'GE9', 3, '4.00', 'O'),
+(101, '22-00000', 'IT101', 3, '4.00', 'O'),
+(102, '22-00000', 'GEE13', 3, '4.00', 'O'),
+(103, '22-00000', 'ELEC2', 3, '4.00', 'O'),
+(104, '22-00000', 'SE102', 3, '4.00', 'O'),
+(105, '22-00000', 'THS101', 3, '4.00', 'O'),
+(106, '22-00000', 'ELEC3', 3, '4.00', 'O'),
+(107, '22-00000', 'CC108', 3, '4.00', 'O'),
+(108, '22-00000', 'OS102', 3, '4.00', 'O'),
+(109, '22-00000', 'SDF105', 3, '4.00', 'O'),
+(110, '22-00000', 'SP101', 3, '4.00', 'O'),
+(111, '22-00000', 'THS102', 6, '4.00', 'O'),
+(112, '22-00000', 'ELEC 4', 3, '4.00', 'O'),
+(113, '22-00000', 'ELEC 5', 3, '4.00', 'O'),
+(114, '22-00000', 'HCI102', 6, '4.00', 'O'),
+(115, '22-00000', 'IT102', 3, '4.00', 'O'),
+(116, '22-00000', 'PRC101', 3, '4.00', 'O');
 
 -- --------------------------------------------------------
 
@@ -445,15 +411,15 @@ CREATE TABLE `student-enrollment` (
 --
 
 INSERT INTO `student-enrollment` (`id`, `enrollCode`, `idStud`, `idSub`, `section`) VALUES
-(67, 'i7A9az0fwsTRAPkhxSasXXReAnwp6z', '22-00001', 'CC101', 'CS1A'),
-(68, 'i7A9az0fwsTRAPkhxSasXXReAnwp6z', '22-00001', 'CC102', 'CS1A'),
-(69, 'i7A9az0fwsTRAPkhxSasXXReAnwp6z', '22-00001', 'DS101', 'CS1A'),
-(70, 'i7A9az0fwsTRAPkhxSasXXReAnwp6z', '22-00001', 'AL101', 'CS1A'),
-(71, 'i7A9az0fwsTRAPkhxSasXXReAnwp6z', '22-00001', 'GE1', 'CS1A'),
-(72, 'i7A9az0fwsTRAPkhxSasXXReAnwp6z', '22-00001', 'GE2', 'CS1A'),
-(73, 'i7A9az0fwsTRAPkhxSasXXReAnwp6z', '22-00001', 'GE10', 'CS1A'),
-(74, 'i7A9az0fwsTRAPkhxSasXXReAnwp6z', '22-00001', 'PE1', 'CS1A'),
-(75, 'i7A9az0fwsTRAPkhxSasXXReAnwp6z', '22-00001', 'NSTP1', 'CS1A');
+(1, 'aEQIZibD2ctpilapCTeBzyKBJOKMWP', '22-00000', 'CC101', 'CS1A'),
+(2, 'aEQIZibD2ctpilapCTeBzyKBJOKMWP', '22-00000', 'CC102', 'CS1A'),
+(3, 'aEQIZibD2ctpilapCTeBzyKBJOKMWP', '22-00000', 'DS101', 'CS1A'),
+(4, 'aEQIZibD2ctpilapCTeBzyKBJOKMWP', '22-00000', 'AL101', 'CS1A'),
+(5, 'aEQIZibD2ctpilapCTeBzyKBJOKMWP', '22-00000', 'GE1', 'CS1A'),
+(6, 'aEQIZibD2ctpilapCTeBzyKBJOKMWP', '22-00000', 'GE2', 'CS1A'),
+(7, 'aEQIZibD2ctpilapCTeBzyKBJOKMWP', '22-00000', 'GE10', 'CS1A'),
+(8, 'aEQIZibD2ctpilapCTeBzyKBJOKMWP', '22-00000', 'PE1', 'CS1A'),
+(9, 'aEQIZibD2ctpilapCTeBzyKBJOKMWP', '22-00000', 'NSTP1', 'CS1A');
 
 -- --------------------------------------------------------
 
@@ -541,6 +507,51 @@ INSERT INTO `subject` (`id`, `idSub`, `name`, `unitLec`, `unitLab`, `unitTot`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `survey`
+--
+
+CREATE TABLE `survey` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `yrLvl` tinyint(4) NOT NULL,
+  `section` varchar(50) NOT NULL,
+  `label` tinyint(4) NOT NULL,
+  `a11` int(11) NOT NULL,
+  `a12` int(11) NOT NULL,
+  `a13` int(11) NOT NULL,
+  `a14` int(11) NOT NULL,
+  `a15` int(11) NOT NULL,
+  `a1t` int(11) NOT NULL,
+  `a21` int(11) NOT NULL,
+  `a22` int(11) NOT NULL,
+  `a23` int(11) NOT NULL,
+  `a24` int(11) NOT NULL,
+  `a2t` int(11) NOT NULL,
+  `a31` int(11) NOT NULL,
+  `a32` int(11) NOT NULL,
+  `a33` int(11) NOT NULL,
+  `a3t` int(11) NOT NULL,
+  `a41` int(11) NOT NULL,
+  `a42` int(11) NOT NULL,
+  `a43` int(11) NOT NULL,
+  `a4t` int(11) NOT NULL,
+  `a51` int(11) NOT NULL,
+  `a52` int(11) NOT NULL,
+  `a53` int(11) NOT NULL,
+  `a5t` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `survey`
+--
+
+INSERT INTO `survey` (`id`, `name`, `yrLvl`, `section`, `label`, `a11`, `a12`, `a13`, `a14`, `a15`, `a1t`, `a21`, `a22`, `a23`, `a24`, `a2t`, `a31`, `a32`, `a33`, `a3t`, `a41`, `a42`, `a43`, `a4t`, `a51`, `a52`, `a53`, `a5t`) VALUES
+(1, 'Andre Gianne Gamez', 4, 'CS1A', 1, 1, 2, 3, 4, 5, 15, 1, 2, 3, 4, 10, 1, 3, 5, 9, 1, 3, 5, 9, 1, 3, 5, 9),
+(2, 'John Mark Santos', 4, 'CS1A', 0, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 4, 1, 1, 1, 3, 1, 1, 1, 3, 1, 1, 1, 3);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user-admin`
 --
 
@@ -585,7 +596,7 @@ CREATE TABLE `user-faculty` (
 --
 
 INSERT INTO `user-faculty` (`id`, `idFaculty`, `fName`, `mName`, `lName`, `department`, `curriculum`, `password`, `email`) VALUES
-(6, 'tomagan.ariel', 'Ariel', '', 'Tomagan', 'CICT', 'BSCS', 'fac1', 'tomagan.ariel@tcu.edu.ph'),
+(6, 'tomagan.ariel', 'Ariel', '', 'Tomagan', 'CICT', 'BSCS', 'facc', 'tomagan.ariel@tcu.edu.ph'),
 (7, 'vinalon.haidee', 'Haidee', 'Argana', 'Vinalon', 'CICT', 'BSCS', 'fac2', 'vinalon.haidee@tcu.edu.ph'),
 (8, 'nuez.jeric', 'Jeric', '', 'Nuez', 'CICT', 'BSCS', 'fac3', 'nuez.jeric@tcu.edu.ph'),
 (9, 'pineda.arlene', 'Arlene', '', 'Pineda', 'CICT', 'BSCS', 'fac4', 'pineda.arlene@tcu.edu.ph'),
@@ -616,16 +627,16 @@ CREATE TABLE `user-student` (
   `yrLvl` tinyint(1) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `status` varchar(1) NOT NULL
+  `status` varchar(1) NOT NULL,
+  `validation` varchar(1) NOT NULL DEFAULT 'F'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user-student`
 --
 
-INSERT INTO `user-student` (`id`, `idStud`, `fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrReg`, `yrLvl`, `password`, `email`, `status`) VALUES
-(24, '21-01244', 'John Marc', 'Gutierrez', 'Cruz', '2714 Street, City', '2001-01-21', 'M', 'S', '09494942316', 'Filipino', 'Christian', 'BSCS', 2021, 2, 'tMxIELok', 'cruz.johnmarc@tcu.edu.ph', 'X'),
-(29, '22-00001', 'John Lord', 'Carilao', 'Casta', '415 Block Address St, City', '2001-01-01', 'M', 'S', '09496118215', 'Filipino', 'Christian', 'BSCS', 2022, 1, 'IGuLxnSQ', 'casta.johnlord@tcu.edu.ph', 'N');
+INSERT INTO `user-student` (`id`, `idStud`, `fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrReg`, `yrLvl`, `password`, `email`, `status`, `validation`) VALUES
+(3, '22-00000', 'John Marc', 'Damien', 'Cruz', '2714 Street, City', '2001-01-01', 'M', 'S', '09496118215', 'Filipino', 'Christian', 'BSCS', 2022, 1, 'LALALALA', 'cruz.johnmarca@tcu.edu.ph', 'N', 'T');
 
 --
 -- Indexes for dumped tables
@@ -692,6 +703,12 @@ ALTER TABLE `subject`
   ADD UNIQUE KEY `idSub` (`idSub`);
 
 --
+-- Indexes for table `survey`
+--
+ALTER TABLE `survey`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user-admin`
 --
 ALTER TABLE `user-admin`
@@ -712,7 +729,7 @@ ALTER TABLE `user-faculty`
 --
 ALTER TABLE `user-student`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `idStud` (`idStud`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -728,25 +745,25 @@ ALTER TABLE `curriculums`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `enroll-codes`
 --
 ALTER TABLE `enroll-codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `sections`
@@ -758,13 +775,13 @@ ALTER TABLE `sections`
 -- AUTO_INCREMENT for table `student-academics`
 --
 ALTER TABLE `student-academics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=987;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `student-enrollment`
 --
 ALTER TABLE `student-enrollment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `subject`
@@ -788,7 +805,7 @@ ALTER TABLE `user-faculty`
 -- AUTO_INCREMENT for table `user-student`
 --
 ALTER TABLE `user-student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
