@@ -79,9 +79,6 @@
                                             min="1.00" max="5.00" step="0.25" value="<?php echo $studGrade?>" required
                                             <?php   if($yr < $yrLvl):
                                             else:
-                                                if($currSem < $sem):
-                                                    echo 'readonly';
-                                                endif;
                                             endif; ?>/>
                                 </div>
                             </td>

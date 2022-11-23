@@ -3,12 +3,12 @@
   <?php
       include "config.php";
 
-      $idStud = $_POST['idStud'];
+      $idSub = $_POST['idSub'];
       $gradeRow = array();
       $gradeRow = $_POST['gradeRow'];
       foreach($gradeRow as $row){
         $status;
-        $idSub = $row['idSub'];
+        $idStud = $row['idStud'];
         $grade = $row['grade'];
         if($grade <= 3.0):
           $status = 'P';
@@ -26,6 +26,6 @@
         $result = $con->query($query);
 
       }
-      header("location:../../faculProxy.php");
+      header("location:../../faculSects.php");
   ?>
 </html>

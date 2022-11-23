@@ -39,7 +39,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <div class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2 d-flex flex-row justify-content-center align-items-center">
                             <a class="nav-link" href="faculSects.php">Sections</a>
-                            <a class="nav-link" href="faculProxy.php">Enroll</a>
+                            <a class="nav-link" href="faculProxy.php">Proxy <br> Grading</a>
                             <a class="nav-link change" 
                                 data-id="<?php echo $idFac?>" id="<?php echo $idFac?>"
                                 data-bs-toggle="modal" data-bs-target="#change">Change <br> Password</a>

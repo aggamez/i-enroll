@@ -78,11 +78,11 @@
                             corresponding column.
                         </p>
                         <ul class="d-flex flex-column flex-lg-row fw-bold fs-6 gap-2 gap-lg-5">
-                            <li class="list-group-item border border-0">1 - Excellent</li>
-                            <li class="list-group-item border border-0">2 - Very Good</li>
+                            <li class="list-group-item border border-0">5 - Excellent</li>
+                            <li class="list-group-item border border-0">4 - Very Good</li>
                             <li class="list-group-item border border-0">3 - Satisfactory</li>
-                            <li class="list-group-item border border-0">4 - Fair</li>
-                            <li class="list-group-item border border-0">5 - Poor</li>
+                            <li class="list-group-item border border-0">2 - Fair</li>
+                            <li class="list-group-item border border-0">1 - Poor</li>
                         </ul>
                         </div>
                     </div>

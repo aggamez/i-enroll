@@ -39,7 +39,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <div class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2 d-flex flex-row justify-content-center align-items-center">
                             <a class="nav-link" href="faculSects.php">Sections</a>
-                            <a class="nav-link" href="faculProxy.php">Enroll</a>
+                            <a class="nav-link" href="faculProxy.php">Proxy <br> Grading</a>
                             <a class="nav-link change" 
                                 data-id="<?php echo $idFac?>" id="<?php echo $idFac?>"
                                 data-bs-toggle="modal" data-bs-target="#change">Change <br> Password</a>
@@ -55,12 +55,12 @@
             <div class="d-flex flex-column justify-content-between
                             align-items-start gap-2 mt-5">
                     <div class="w-100 d-flex flex-row justify-content-start align-items-start pb-0 border-bottom border-3 border-dark">
-                        <h2 class="fs-3 text-dark"> Proxy Student Grading </h2>
+                        <h2 class="fs-3 text-dark"> Sections Handled </h2>
                     </div>
                     <?php
                         include('functions/php/config.php');
                         
-                        $query = "SELECT * FROM `user-student`";
+                        $query = "SELECT * FROM `schedule` WHERE `faculty` = '$idFac'";
                         $result = $con->query($query);
 
 
@@ -68,31 +68,31 @@
                             <table id="" class="table table-striped table-bordered fs-5">
                                         <thead>
                                             <tr>
-                                                <th>Student ID</th>
-                                                <th>Full Name</th>
-                                                <th>Program</th>
-                                                <th>Year Level</th>
+                                                <th>Course ID</th>
+                                                <th>Course Name</th>
+                                                <th>Section</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                     
                     <?php while ($row = $result -> fetch_assoc()): 
-                        
-                        $fullName = $row['fName'] . ' ' . substr($row['mName'],0,1) . '. ' . $row['lName'];
-                        
+                        $idSub = $row['idSub'];
+                        $section = $row['section'];
+                        $secQue = "SELECT * FROM `subject` WHERE `idSub` = '$idSub'";
+                        $secRes = $con->query($secQue);
+                        $secVal = $secRes -> fetch_assoc();
                         ?>
                         <tr>
-                            <td class=""><?php echo $row['idStud']; ?></td>
-                            <td class=""><?php echo $fullName; ?></td>
-                            <td class=""><?php echo $row['program']; ?></td>
-                            <td class=""><?php echo $row['yrLvl']; ?></td>
+                            <td class=""><?php echo $row['idSub']; ?></td>
+                            <td class=""><?php echo $secVal['name']; ?></td>
+                            <td class=""><?php echo $row['section']; ?></td>
                             <td class="mx-auto text-center">
                                 <a href="#grade=<?php echo $row['id'];?>" class="mx-1 clear text-primary grade" 
-                                    data-id="<?php echo $row['id']; ?>"
+                                    data-id="<?php echo $idSub; ?>, <?php echo $section; ?>"
                                     data-bs-toggle="tooltip" data-bs-target="#grade" 
                                     data-bs-placement="top" data-bs-title="Edit Student Academic Data"
-                                    id="<?php echo $row['id']; ?>">
+                                    id="<?php echo $row['id'];?>">
                                     <i class="bi bi-file-code-fill"></i>
                                     <b>Start Grading</b>
                                 </a>
@@ -154,7 +154,7 @@
                     $('.grade').click(function() {
                         var uid = $(this).data('id');
                         $.ajax({
-                            url: 'functions/php/gradeStud.php',
+                            url: 'functions/php/gradeSect.php',
                             type: 'post',
                             data: {uid: uid},
                             success: function(response){

@@ -12,5 +12,5 @@
 
 	$currSem = 1;
 	$currYear = 2022;
-	$enrollState = false;
+	$enrollState = true;
 ?>

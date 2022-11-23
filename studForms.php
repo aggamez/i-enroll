@@ -44,8 +44,8 @@
                             <a class="nav-link" href="studGrades.php">Grades</a>
                             <a class="nav-link" href="studForms.php">Forms</a>
                             <a class="nav-link" href="studEnroll.php">Enroll</a>
-                            <a class="nav-link" 
-                                data-id="" id=""
+                            <a class="nav-link change" 
+                                data-id="<?php echo $idStud?>" id="<?php echo $idStud?>"
                                 data-bs-toggle="modal" data-bs-target="#change"
                             >Change <br> Password</a>
                             <a class="nav-link" href="functions/php/studOut.php">Log-out</a>
