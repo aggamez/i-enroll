@@ -21,7 +21,7 @@
 
     </head>
 
-    <body class="overflow-lg-none">
+    <body class="">
         <nav class="navbar navbar-expand-lg navbar-light bg-maroon px-4">
             <div class="container-fluid">
                     <div class="d-flex flex-row align-items-center">
@@ -136,8 +136,8 @@
             
         <div class="content">
             <div class="h-100 d-flex flex-row">
-                <div class="ps-3 bg-maroon">
-                    <div class="h-100 d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
+                <div class="ps-3 bg-maroon d-none d-lg-block">
+                    <div class="h-100 d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white" style="width: 365px;">
                     <ul class="navbar-nav d-flex flex-column justify-content-start flex-grow-1 pe-3 text-white">
                         <li class="nav-item">
                             <a class="nav-link d-flex flex-row align-items-center text-white gap-2 active" href="adminDash.php"> 
@@ -235,18 +235,18 @@
                     </div>
                 </div>
 
-                <div class=""> <!-- Content Area -->
-                    Content area...
+                <div class="w-100 d-flex flex-column overflow-scroll p-3 px-lg-5" style="">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <h1 class="fs-1 text-dark"> Admin Dashboard </h1>  
+                    </div>
                 </div>
 
             </div>
         </div>
 
-            <div class="footer d-flex justify-content-center align-items-center bg-dark">
-                <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
-            </div>
-
-            
+        <div class="footer d-flex justify-content-center align-items-center bg-dark">
+            <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
+        </div>
     </body>
 
 </html>
