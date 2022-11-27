@@ -6,7 +6,7 @@
             header("Location:studLogin.php");
         }
 
-        include('functions/php/config.php');
+        include_once('functions/php/config.php');
 
 
         $idStud = $_SESSION['studUser'];
@@ -118,7 +118,7 @@
                                 $checkRes = $con->query($checkQuery);
                                 if(mysqli_num_rows($checkRes) <= 0):
                                     if($studData['status'] == 'R' || $studData['status'] == 'N'): ?>
-                                        <a  class="btn btn-md btn-secondary text-white text-center quickenroll" data-id="<?php echo $enrollCode; ?>"
+                                        <a  class="btn btn-md btn-secondary text-white text-center quickenroll" data-id="<?php echo $enrollCode;?>"
                                             data-bs-toggle="modal" data-bs-target="#quickenroll" >
                                             <i class="bi bi-eye-fill"></i>
                                             <b>Quick-Enroll</b>
@@ -322,7 +322,49 @@
             <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
         </div>
 
-            <div class="modal fade change" id="change" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="select" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Select Section</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="enroll" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Enroll</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="quickenroll" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Quick Enroll</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="change" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -336,9 +378,47 @@
                 </div>
             </div>
 
-
             <script type="text/javascript">
                 $(document).ready(function() {
+                    $('.select').click(function() {
+                        var uid = $(this).data('id');
+                        $.ajax({
+                            url: 'functions/php/selectSect.php',
+                            type: 'post',
+                            data: {uid: uid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#select').modal('show');
+                            }
+                        });
+                    });
+
+                    $('.enroll').click(function() {
+                        var uid = $(this).data('id');
+                        $.ajax({
+                            url: 'functions/php/enrollSect.php',
+                            type: 'post',
+                            data: {uid: uid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#enroll').modal('show');
+                            }
+                        });
+                    });
+
+                    $('.quickenroll').click(function() {
+                        var uid = $(this).data('id');
+                        $.ajax({
+                            url: 'functions/php/quickEnroll.php',
+                            type: 'post',
+                            data: {uid: uid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#quickenroll').modal('show');
+                            }
+                        });
+                    });
+
                     $('.change').click(function() {
                         var uid = $(this).data('id');
                         $.ajax({

@@ -14,7 +14,7 @@
 
 
 
-    $query = "INSERT INTO `schedule` (`idSub`, `section`, `professor`, `studLimit`, `rmAssign`, `days`, `timeIni`, `timeEnd`) VALUES ('$idSub', '$section', '$idFaculty', '$studLimit', '$rmAssign', '$days', '$timeIni', '$timeEnd')";
+    $query = "INSERT INTO `schedule` (`idSub`, `section`, `faculty`, `studLimit`, `room`, `days`, `timeIni`, `timeEnd`) VALUES ('$idSub', '$section', '$idFaculty', '$studLimit', '$rmAssign', '$days', '$timeIni', '$timeEnd')";
 
     $result = $con->query($query);
 

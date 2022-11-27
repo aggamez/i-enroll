@@ -103,18 +103,6 @@
                         <div class="row">
                             <div class="col-12 d-flex flex-row justify-content-between align-items-center">
                                 <h2><b>Course Grades: </b></h2>
-                                <?php 
-                                $checkQuery = "SELECT * FROM `student-enrollment` WHERE `enrollCode` = '$enrollCode'";
-                                $checkRes = $con->query($checkQuery);
-                                if(mysqli_num_rows($checkRes) <= 0):
-                                    if($studData['status'] == 'R' || $studData['status'] == 'N'): ?>
-                                        <a  class="btn btn-md btn-secondary text-white text-center quickenroll" data-id="<?php echo $enrollCode; ?>"
-                                            data-bs-toggle="modal" data-bs-target="#quickenroll" >
-                                            <i class="bi bi-eye-fill"></i>
-                                            <b>Quick-Enroll</b>
-                                        </a>
-                                    <?php endif; ?>
-                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="" style="max-height: 22rem;">
