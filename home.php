@@ -27,25 +27,25 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarText">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
-                            <li class="nav-item">
-                            <a class="nav-link active" href="#home">Home</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="#enroll">Enroll Now!</a>
-                            </li>
-                        </ul>
-                        <span class="navbar-text d-none">
-                        </span>
-                    </div>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
+                        <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#enroll">Enroll Now!</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text d-none">
+                    </span>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
             <div class="wrapper">
                 <div class="bg min-vh-100 vw-100 text-white" style="background-image: url('assets/img/bg.png');" id="home">

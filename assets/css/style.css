@@ -3,10 +3,21 @@
 body{
     overflow: auto;
     scrollbar-width: none;
+    margin: 0;
+    padding: 0;
 }
 
 body::-webkit-scrollbar{
     display: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+    text-decoration: none;
 }
 
 .logo{
@@ -33,7 +44,6 @@ body::-webkit-scrollbar{
 
 .navbar{
     min-height: 10vh;
-    max-height: auto;
     width:  100vw;
 }
 
@@ -77,6 +87,11 @@ h1{
 .patt{
     margin-top: 6vh;
     margin-bottom: 6vh;
+}
+
+.content{
+    height: 85vh;
+    width: 100vw;
 }
 
 

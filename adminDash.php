@@ -93,22 +93,23 @@
                                     <h6 class="fs-4">Log-out</h6>
                                 </a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
             </div>          
         </nav>
             
-            <div class="bg d-flex flex-row justify-content-center align-items-center" style="">
+            <div class="min-vh-100 d-flex flex-row justify-content-center align-items-center" style="">
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <h1 class="fs-1 text-dark"> Admin Dashboard </h1>  
                 </div>
             </div>
 
-            <div class="footer d-flex justify-content-center align-items-center sticky-bottom bg-dark">
+            <div class="footer d-flex justify-content-center align-items-center fixed-bottom bg-dark">
                 <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
             </div>
+
+            
     </body>
 
 </html>
