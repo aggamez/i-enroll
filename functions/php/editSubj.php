@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-12">
                         <div class="form-floating">
                             <select class="form-select input" name="program" id="program" >
                                 <option selected disabled>Curriculum</option>
@@ -37,21 +37,11 @@
                                     $resultb = $con->query($queryb);
 
                                     while ($rowb = $resultb -> fetch_assoc()): ?>
-                                    <option value="<?php echo $rowb['subCode']?>" <?php if($rowb['subCode'] == $row['program']) echo 'selected="selected"'; ?>><?php echo $rowb['name']?></option>
+                                    <option value="<?php echo $rowb['idCourse']?>" <?php if($rowb['idCourse'] == $row['program']) echo 'selected="selected"'; ?>><?php echo $rowb['nameCurr']?></option>
 
                                     <?php endwhile?>
                                 </select>
                             <label for="program" class="form-label fs-6">Curriculum</label>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-floating">
-                            <select class="form-select input fs-6" name="type" id="type">
-                                <option selected disabled>Select Option</option>
-                                <option value="P" <?php if("P" == $row['type']) echo 'selected="selected"'; ?>>Program Major / Elective</option>
-                                <option value="M" <?php if("M" == $row['type']) echo 'selected="selected"'; ?>>Minor / General Elective</option>
-                            </select>
-                            <label for="type" class="form-label fs-6">Type of Course</label>
                         </div>
                     </div>
                 </div>

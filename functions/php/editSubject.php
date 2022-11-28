@@ -11,7 +11,6 @@
     $semester = $_POST['semester'];
     $unitLec = $_POST['unitLec'];
     $unitLab = $_POST['unitLab'];
-    $type = $_POST['type'];
     $unitTot = $unitLec + $unitLab;
     $prerequisite = $_POST['prerequisite'];
 
@@ -19,7 +18,7 @@
 
                 SET `idSub` = '$idSub', `name` = '$name',`semester` = '$semester', `year` = '$year', 
                 `unitLec` = '$unitLec', `unitLab` = '$unitLab', `unitTot` = '$unitTot',
-                `program` = '$program', `type` = '$type', `prerequisite` = '$prerequisite'
+                `program` = '$program', `prerequisite` = '$prerequisite'
 
                 WHERE `id` = '$id';";
 

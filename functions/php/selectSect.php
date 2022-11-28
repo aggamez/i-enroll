@@ -45,7 +45,7 @@
                                         $limitQuery = $con -> query("SELECT `studLimit` FROM `schedule` WHERE `section` = '$sect' AND `idSub` = '$id'") or die($con -> error);
                                         $limitData = $limitQuery -> fetch_assoc();
                                         if($countData['studCount'] < $limitData['studLimit']):
-                                            $enrollQuery = $con -> query("SELECT * from `student-enrollment` WHERE `section` = '$sect' AND `enrollCode` = '$enrollCode'") or die($con -> error);
+                                            $enrollQuery = $con -> query("SELECT * from `student-enrollment` WHERE `section` = '$sect' AND `enrollCode` = '$enrollCode' AND `idSub` = '$id'") or die($con -> error);
                                             if(mysqli_num_rows($enrollQuery) > 0): ?>
                                             <form   action="functions/php/functionSections.php" 
                                                     method="post">

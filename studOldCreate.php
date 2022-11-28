@@ -48,6 +48,7 @@
                                     name="oldStud"
                                     onsubmit="return validateForm()"
                                     method="post" 
+                                    enctype="multipart/form-data"
                                     action="functions/php/addStudent.php">
                             <div class="text-dark fs-4">
                                 <div class="row py-2 gap-2 gap-lg-0">

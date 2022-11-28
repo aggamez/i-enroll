@@ -69,7 +69,7 @@
     if ($uploadOk == 0) {
         echo "<script>
         window.alert('Sorry, file upload failed.');
-        window.location.href = '../../enroll.php';
+        window.location.href = '../../home.php';
         </script>";
     // if everything is ok, try to upload file
     } else {
@@ -113,7 +113,7 @@
                 $statQuery = "INSERT INTO `student-academics` (`idStud`, `idSub`, `units`, `status`) VALUES ('$idStud', '$course', '$units', '$subStatus')";
                 $acadQuery = $con->query($statQuery);
             }
-        } else {header("location:../../enroll.php");}
+        } else {header("location:../../home.php");}
             ?>
 
             <!doctype html>
