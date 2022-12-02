@@ -25,7 +25,9 @@
                         <tr>
                             <th>Student ID</th>
                             <th>Student Name</th>
-                            <th>Grade</th>
+                            <th>Midterm</th>
+                            <th>Tentative</th>
+                            <th>Final</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,8 +49,20 @@
                             <td class=""><?php echo $name; ?></td>
                             <td class="">
                                 <div class="">
+                                    <input type="number" class="form-control input" name="gradeRow[<?php echo $counter; ?>][midGrade]" maxlength="3" 
+                                            min="1.00" max="5.00" step="0.25" value="<?php echo $grdVal['midGrade']?>" required>
+                                </div>
+                            </td>
+                            <td class="">
+                                <div class="">
+                                    <input type="number" class="form-control input" name="gradeRow[<?php echo $counter; ?>][tntGrade]" maxlength="3" 
+                                            min="1.00" max="5.00" step="0.25" value="<?php echo $grdVal['tntGrade']?>" required>
+                                </div>
+                            </td>
+                            <td class="">
+                                <div class="">
                                     <input type="number" class="form-control input" name="gradeRow[<?php echo $counter; ?>][grade]" maxlength="3" 
-                                            min="1.00" max="5.00" step="0.25" value="<?php echo $grade?>" required>
+                                            min="1.00" max="5.00" step="0.25" value="<?php echo $grdVal['grade']?>" required>
                                 </div>
                             </td>
                         </tr>

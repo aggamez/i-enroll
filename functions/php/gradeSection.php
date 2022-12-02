@@ -9,6 +9,8 @@
       foreach($gradeRow as $row){
         $status;
         $idStud = $row['idStud'];
+        $midGrade = $row['midGrade'];
+        $tntGrade = $row['tntGrade'];
         $grade = $row['grade'];
         if($grade <= 3.0):
           $status = 'P';
@@ -19,7 +21,11 @@
 
         $query = "UPDATE `student-academics` 
       
-        SET `grade` = '$grade', `status` = '$status'
+        SET `midGrade` = '$midGrade',
+        SET `tntGrade` = '$tntGrade',
+        SET `grade` = '$grade', 
+      
+        `status` = '$status'
 
         WHERE `idStud` = '$idStud' AND `idSub` = '$idSub';";
 

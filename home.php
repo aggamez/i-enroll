@@ -130,10 +130,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex flex-column flex-lg-grow-1 ms-lg-5 mt-lg-5">
-                                <h1 class="text-dark text-center text-lg-start fs-1">Take the Evaluation Form of the Enrollment System!</h1>
-                                <a class="en nav-link border border-1 border-white rounded-pill w-auto text-white text-center my-5 " href="evaluate.php">Evaluate Now!</a>
-                            </div>
                         </div>
                     </div>
                 </div>

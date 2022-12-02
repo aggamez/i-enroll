@@ -116,7 +116,7 @@
                                         for ($sem = 1; $sem <= 2; $sem++) { ?>
                                             <h4>Year <?php echo $yr?>, Semester <?php echo $sem?></h4>
                                             <?php
-                                                $querys = "SELECT * FROM `subject` WHERE `year` = '$yr' AND `semester` = '$sem'";
+                                                $querys = "SELECT * FROM `subject` WHERE `year` = '$yr' AND `semester` = '$sem' AND `program` = '$code'";
                                                 $results = $con->query($querys);
 
                                                 if(mysqli_num_rows($results) > 0): ?>
