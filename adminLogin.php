@@ -52,6 +52,10 @@
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                 <label class="form-check-label text-dark fs-5" for="exampleCheck1">Verify log-in</label>
                             </div>
+                            <div class="alert alert-danger border border-danger border-end-0 border-top-0 border-bottom-0 border-4" role="danger">
+                                <p class="fs-6 text-dark p-0 m-0"><i class="bi bi-exclamation-octagon">
+                                </i> Never share your password irresponsibly!</p>
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                         </div>
@@ -60,7 +64,7 @@
             </div>
 
             <div class="footer d-flex justify-content-center align-items-center fixed-bottom bg-dark">
-                <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
+                <h1 class="text-white fs-6"> ©2022 Taguig City University. All Rights Reserved.</h1>
             </div>
     </body>
 

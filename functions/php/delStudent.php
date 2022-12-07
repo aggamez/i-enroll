@@ -16,8 +16,8 @@
     $result = $con->query($query);
 
 	if($result){
-		header("location:../../adminStudents.php");
+		header("location:../../adminDash.php");
 	}else{
-		header("location:../../adminStudents.php");
+		header("location:../../adminDash.php");
 	}
 ?>

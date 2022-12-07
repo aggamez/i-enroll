@@ -2,6 +2,7 @@
     session_start();
     include "config.php";
     $id = $_POST['id'];
+    $idStud = $_POST['idStud'];
     
     $fName = $_POST['fName'];
     $mName = $_POST['mName'];
@@ -22,13 +23,17 @@
     $status = $_POST['status'];
     $validation = $_POST['validation'];
 
+    $enCont = dataEncrypt($idStud, $contactNo);
+    $enPass = dataEncrypt($idStud, $password);
+    $enEmail = dataEncrypt($idStud, $email);
+
     $query =    "UPDATE `user-student` 
     
                 SET `fName` = '$fName', `mName` = '$mName',`lName` = '$lName', 
                 `address` = '$address', `birthdate` = '$birthdate',`sex` = '$sex', 
-                `civStat` = '$civStat', `contactNo` = '$contactNo',`religion` = '$religion', 
+                `civStat` = '$civStat', `contactNo` = '$enCont',`religion` = '$religion', 
                 `religion` = '$religion', `program` = '$program',`yrLvl` = '$yrLvl',
-                `yrReg` = '$yrReg',`password` = '$password', `email` = '$email',
+                `yrReg` = '$yrReg',`password` = '$enPass', `email` = '$enEmail',
                 `status` = '$status', `validation` = '$validation'
 
                 WHERE id = $id;";
@@ -36,8 +41,8 @@
     $result = $con->query($query);
 
     if($result){
-		header("location:../../adminStudents.php");
+		header("location:../../adminDash.php");
 	}else{
-		header("location:../../adminStudents.php");
+		header("location:../../adminDash.php");
 	}
 ?>

@@ -6,19 +6,22 @@
     $type = $_POST['type'];
     $oldPass = $_POST['oldPass'];
     $newPass = $_POST['newPass'];
+    
 
     if ($type == 'student'){
         $query = $con -> query("SELECT * from `user-student` WHERE `idStud` = '$id'") or die($con -> error);
         $data = $query -> fetch_assoc();
 
         $userChk = $data['idStud'];
-        $passChk = $data['password'];
+        $passChk = dataDecrypt($userChk, $data['password']);
+
+        $enPass = dataEncrypt($userChk, $newPass);
 
         if($id == $userChk){
             if($oldPass == $passChk){
                 $query = "UPDATE `user-student` 
     
-                        SET `password` = '$newPass'
+                        SET `password` = '$enPass'
         
                         WHERE `idStud` = '$id';";
 

@@ -78,7 +78,8 @@
             <div class="row py-2 gap-2 gap-lg-0">
                 <div class="col-lg-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control input" id="contactNo" name="contactNo" maxlength="11" value="<?php echo $row['contactNo']?>" readonly/>
+                        <input type="text" class="form-control input" id="contactNo" name="contactNo" maxlength="11" 
+                        value="<?php echo dataDecrypt($row['idStud'],$row['contactNo']);?>" readonly/>
                         <label for="contactNo" class="form-label fs-6">Contact #</label>
                     </div>
                 </div>
@@ -120,8 +121,8 @@
             <div class="row py-2 gap-2 gap-lg-0">
                 <div class="col-lg-6">
                     <div class="form-floating">
-                        <input type="password" id="pasword" name="password" class="form-control form-control-lg input"
-                        placeholder="password" value="<?php echo $row['password']?>" readonly />
+                        <input type="text" id="pasword" name="password" class="form-control form-control-lg input"
+                        placeholder="password" value="<?php echo dataDecrypt($row['idStud'],$row['password']);?>" readonly />
                         <label class="form-label fs-6" for="password">Password</label>
                     </div>
                 </div>
@@ -161,7 +162,7 @@
                 <div class="col-lg-12">
                     <div class="form-floating">
                         <input type="text" id="email" name="email" class="form-control form-control-lg input"
-                        placeholder="Email" value="<?php echo $row['email']?>" readonly />
+                        placeholder="Email" value="<?php echo dataDecrypt($row['idStud'],$row['email']);?>" readonly />
                         <label class="form-label fs-6" for="email">Email</label>
                     </div>
                 </div>

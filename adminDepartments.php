@@ -55,68 +55,79 @@
                                 </a>
 
                                 <ul class="collapse w-100 m-0 gap-2 fs-5" id="mobile-collapse">
-                                        <li class="">
-                                            <a class="text-white text-decoration-none d-flex flex-row 
-                                            align-items-center gap-2" href="adminDepartments.php">
-                                            <i class="bi bi-list-columns-reverse"></i>Colleges / Departments</a>
-                                        </li>
-                                        <li class="text-white">
-                                            <a class="text-white text-decoration-none d-flex flex-row 
-                                            align-items-center gap-2" href="adminCurriculum.php">
-                                            <i class="bi bi-list-ul"></i>Curriculums</a>
-                                        </li>
-                                        <li class="">
-                                            <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminSubjects.php">
-                                            <i class="bi bi-list-columns-reverse"></i>Subjects</a>
-                                        </li>
+                                    <li class="">
+                                        <a class="nav-item text-white text-decoration-none d-flex flex-row 
+                                        align-items-center gap-2" href="adminDepartments.php">
+                                        <i class="bi bi-list-columns-reverse"></i>Colleges / Departments</a>
+                                    </li>
+                                    <li class="">
+                                        <a class="nav-item text-white text-decoration-none d-flex flex-row 
+                                        align-items-center gap-2" href="adminCurriculum.php">
+                                        <i class="bi bi-list-ul"></i>Curriculums</a>
+                                    </li>
+                                    <li class="">
+                                        <a class="nav-item text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminSubjects.php">
+                                        <i class="bi bi-list-columns-reverse"></i>Subjects</a>
+                                    </li>
 
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
 
-                                        <li>
-                                            <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminSections.php">
-                                            <i class="bi bi-clipboard-fill"></i>Section Management</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminSchedules.php">
-                                            <i class="bi bi-clipboard-fill"></i>Schedule Management</a>
-                                        </li>
+                                    <li>
+                                        <a class="nav-item text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminSections.php">
+                                        <i class="bi bi-clipboard-fill"></i>Section Management</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-item text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminSchedules.php">
+                                        <i class="bi bi-clipboard-fill"></i>Schedule Management</a>
+                                    </li>
 
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
 
-                                        <li>
-                                            <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminStudents.php">
-                                            <i class="bi bi-file-earmark-person-fill"></i> Student Users</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminEnrollments.php">
-                                            <i class="bi bi-person-circle"></i> Enrollment Forms</a>
-                                        </li>
-                                        
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
+                                    <li>
+                                        Student Users
+                                    </li>
+                                    <li>
+                                        <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminStudentsReg.php">
+                                        <i class="bi bi-file-earmark-person-fill"></i> Regular / New Students</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminStudentsIrr.php">
+                                        <i class="bi bi-file-earmark-person-fill"></i> Irregular Students</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminEnrollments.php">
+                                        <i class="bi bi-person-circle"></i> Enrollment Forms</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
 
-                                        <li>
-                                            <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2 " href="adminAccounts.php">
-                                            <i class="bi bi-person-circle"></i> Admin Users</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminFaculty.php">
-                                            <i class="bi bi-person-video3"></i> Faculty Users</a>
-                                        </li>
+                                    <li>
+                                        <a class="nav-item text-white text-decoration-none d-flex flex-row align-items-center gap-2 " href="adminAccounts.php">
+                                        <i class="bi bi-person-circle"></i> Admin Users</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-item text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminFaculty.php">
+                                        <i class="bi bi-person-video3"></i> Faculty Users</a>
+                                    </li>
 
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
 
-                                        <li>
-                                            <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminLogs.php">
-                                            <i class="bi bi-file-earmark-person-fill"></i> System Logs</a>
-                                        </li>
+                                    <li>
+                                        <a class="nav-item text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminLogs.php">
+                                        <i class="bi bi-file-earmark-person-fill"></i> System Logs</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-item text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminConf.php">
+                                        <i class="bi bi-file-earmark-person-fill"></i> System Configuration</a>
+                                    </li>
                                 </ul>
                                 </li>
 
@@ -178,8 +189,15 @@
                         </li>
 
                         <li>
-                            <a class="nav-item text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminStudents.php">
-                            <i class="bi bi-file-earmark-person-fill"></i> Student Users</a>
+                            Student Users
+                        </li>
+                        <li>
+                            <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminStudentsReg.php">
+                            <i class="bi bi-file-earmark-person-fill"></i> Regular / New Students</a>
+                        </li>
+                        <li>
+                            <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminStudentsIrr.php">
+                            <i class="bi bi-file-earmark-person-fill"></i> Irregular Students</a>
                         </li>
                         <li>
                             <a class="text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminEnrollments.php">
@@ -206,6 +224,10 @@
                         <li>
                             <a class="nav-item text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminLogs.php">
                             <i class="bi bi-file-earmark-person-fill"></i> System Logs</a>
+                        </li>
+                        <li>
+                            <a class="nav-item text-white text-decoration-none d-flex flex-row align-items-center gap-2" href="adminConf.php">
+                            <i class="bi bi-file-earmark-person-fill"></i> System Configuration</a>
                         </li>
 
                             <li class="nav-item mt-auto">
@@ -318,7 +340,7 @@
         </div>
 
         <div class="footer d-flex justify-content-center align-items-center bg-dark">
-            <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
+            <h1 class="text-white fs-6"> ©2022 Taguig City University. All Rights Reserved.</h1>
         </div>
 
             <div class="modal fade" id="view-dept" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

@@ -36,6 +36,11 @@
     
     $password = generateRandomString(8);
 
+
+    $enCont = dataEncrypt($idStud, $contactNo);
+    $enPass = dataEncrypt($idStud, $password);
+    $enEmail = dataEncrypt($idStud, $email);
+
     $uploadOk = 1;
     $target_dir = "../../extfiles/validator/";
     $target_file = $target_dir . basename($_FILES["validator"]["name"]);
@@ -74,7 +79,7 @@
     // if everything is ok, try to upload file
     } else {
         $query =   "INSERT INTO `user-student` (`idStud`, `fName`, `mName`, `lName`, `address`, `birthdate`, `sex`, `civStat`, `contactNo`, `nationality`, `religion`, `program`, `yrReg`, `yrLvl`, `password`, `email`, `status`) 
-                    VALUES ('$idStud', '$fName', '$mName', '$lName', '$address', '$birthdate', '$sex', '$civStat', '$contactNo', '$nationality', '$religion', '$program', '$yrReg', '$yrLvl', '$password', '$email', '$status')";
+                    VALUES ('$idStud', '$fName', '$mName', '$lName', '$address', '$birthdate', '$sex', '$civStat', '$enCont', '$nationality', '$religion', '$program', '$yrReg', '$yrLvl', '$enPass', '$enEmail', '$status')";
 
         $result = $con->query($query);
 

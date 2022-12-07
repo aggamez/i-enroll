@@ -319,7 +319,7 @@
             </div>
 
         <div class="footer d-flex justify-content-center align-items-center fixed-bottom bg-dark mt-auto">
-            <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
+            <h1 class="text-white fs-6"> ©2022 Taguig City University. All Rights Reserved.</h1>
         </div>
 
             <div class="modal fade" id="select" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

@@ -1,4 +1,20 @@
-<?php
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> i-Enroll System </title>
+        
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
+
+        <script src="lib/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/js/jquery-3.6.1.min.js"></script>
+        <script src="functions/js/formValidate.js"></script>
+    </head>
+
+    <body>
+
+    <?php
     session_start();
     include "config.php";
     include_once "funcs.php";
@@ -11,7 +27,8 @@
     $data = $query -> fetch_assoc();
 
     $userChk = $data['idStud'];
-    $passChk = $data['password'];
+    $chkEnPass = $data['password'];
+    $passChk = dataDecrypt($userChk, $chkEnPass);
     $valid = $data['validation'];
 
     if($user == $userChk){
@@ -28,6 +45,9 @@
                 $enrollCode = generateRandomString(30);
                 $checkQuery = $con -> query("SELECT * from `enroll-codes` WHERE `enrollCode` = '$enrollCode'") or die($con -> error);
                 if(mysqli_num_rows($codeQuery) > 0):
+                    echo '<script type="text/javascript">';
+                    echo 'alert("Logged in!")';
+                    echo '</script>";';
                     header("location:../../studLogin.php");
                 else:
                     $_SESSION['enrollCode'] = $enrollCode;
@@ -37,31 +57,25 @@
 
             header("location:../../studGrades.php");
             } else{
-                echo "<script>
-                window.alert('Your account is not yet validated. Contact Admissions Office for concern.');
+                echo "<script type='text/javascript'>
+                alert('Your account is not yet validated. Contact Admissions Office for concern.');
                 </script>";
                 header("location:../../studLogin.php");
             }
         } else{
-            echo "<script>
-                window.alert('Wrong Password!');
+            echo "<script type='text/javascript'>
+                alert('Wrong Password!');
                 </script>";
             header("location:../../studLogin.php");
         }
     } else{
-        echo "<script>
-                window.alert('Student ID invalid!');
+        echo "<script type='text/javascript'>
+                alert('Student ID invalid!');
                 </script>";
         header("location:../../studLogin.php");
     }
     
+    ?>
 
-?>
-
-<!doctype html>
-<html>
-    <head>
-    </head>
-    <body>
     </body>
 </html>

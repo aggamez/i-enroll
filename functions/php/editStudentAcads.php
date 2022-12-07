@@ -20,6 +20,6 @@
         $result = $con->query($query);
 
       }
-      header("location:../../adminStudents.php");
+      header("location:../../adminDash.php");
   ?>
 </html>

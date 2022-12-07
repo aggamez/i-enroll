@@ -53,4 +53,35 @@ function convertNumberToWord($num = false) {
     return implode($words);
 }
 
+
+
+function dataEncrypt($id, $message){
+    $cipher = 'aes-256-cbc';
+    $iv = str_repeat("0", openssl_cipher_iv_length($cipher));
+
+    $option = 0;
+
+    $info = $message;
+    $secret = $id;
+
+    $encrypted = openssl_encrypt($info, $cipher, $secret, $option, $iv);
+
+    return $encrypted;
+}
+
+function dataDecrypt($id, $message){
+    $cipher = 'aes-256-cbc';
+    $iv = str_repeat("0", openssl_cipher_iv_length($cipher));
+
+    $option = 0;
+
+    $info = $message;
+    $secret = $id;
+
+    $encrypted = openssl_decrypt($info, $cipher, $secret, $option, $iv);
+
+    return $encrypted;
+}
+
+
 ?>

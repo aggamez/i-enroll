@@ -40,11 +40,20 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label text-dark fs-2">Password</label>
-                                <input type="password" class="form-control" name="password" id="password">
+                                <div class="input-group" id="apassword">
+                                    <input type="password" class="form-control" name="password" id="password">
+                                    <div class="input-group-text text-black">
+                                        <a href="" class="text-dark"><i class="bi bi-eye-fill" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-3 form-check justify-content-center">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                 <label class="form-check-label text-dark fs-5" for="exampleCheck1">Verify log-in</label>
+                            </div>
+                            <div class="alert alert-danger border border-danger border-end-0 border-top-0 border-bottom-0 border-4" role="danger">
+                                <p class="fs-6 text-dark p-0 m-0"><i class="bi bi-exclamation-octagon">
+                                </i> Never share your information to others!</p>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -54,8 +63,25 @@
             </div>
 
             <div class="footer d-flex justify-content-center align-items-center fixed-bottom bg-dark">
-                <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
+                <h1 class="text-white fs-6"> ©2022 Taguig City University. All Rights Reserved.</h1>
             </div>
     </body>
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#apassword a").on('click', function(event) {
+                event.preventDefault();
+                if($('#apassword input').attr("type") == "text"){
+                    $('#apassword input').attr('type', 'password');
+                    $('#apassword i').addClass( "bi bi-eye-slash-fill" );
+                    $('#apassword i').removeClass( "fa-eye" );
+                }else if($('#apassword input').attr("type") == "password"){
+                    $('#apassword input').attr('type', 'text');
+                    $('#apassword i').removeClass( "bi bi-eye-slash-fill" );
+                    $('#apassword i').addClass( "bi bi-eye-fill" );
+                }
+            });
+        });
+    </script>
+    
 </html>

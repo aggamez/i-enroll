@@ -10,6 +10,19 @@
         <form 
             action="functions/php/editStudent.php" 
             method="post">
+
+            <div class="row py-2 gap-2 gap-lg-0">
+                <div class="col-lg-12">
+                    <div class="form-floating">
+                        <select class="form-select input fs-6 border border-success" name="validation" id="validation">
+                            <option class="bg-white" selected disabled>Select Option</option> 
+                            <option class="bg-white" value="F" <?php if("F" == $row['validation']) echo 'selected="selected"'; ?>>Fail</option>
+                            <option class="bg-white" value="T" <?php if("T" == $row['validation']) echo 'selected="selected"'; ?>>Pass</option>
+                        </select>
+                        <label for="validation" class="form-label fs-6">Validation Status</label>
+                    </div>
+                </div>
+            </div>
             <div class="row py-2 gap-2 gap-lg-0">
                 <div class="col-lg-4">
                     <div class="form-floating">
@@ -81,7 +94,8 @@
             <div class="row py-2 gap-2 gap-lg-0">
                 <div class="col-lg-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control input" id="contactNo" name="contactNo" maxlength="11" value="<?php echo $row['contactNo']?>" />
+                        <input type="text" class="form-control input" id="contactNo" name="contactNo" 
+                        maxlength="11" value="<?php echo dataDecrypt($row['idStud'],$row['contactNo']);?>" />
                         <label for="contactNo" class="form-label fs-6">Contact #</label>
                     </div>
                 </div>
@@ -130,8 +144,8 @@
             <div class="row py-2 gap-2 gap-lg-0">
                 <div class="col-lg-6">
                     <div class="form-floating">
-                        <input type="password" id="pasword" name="password" class="form-control form-control-lg input"
-                        placeholder="password" value="<?php echo $row['password']?>"  />
+                        <input type="text" id="pasword" name="password" class="form-control form-control-lg input"
+                        placeholder="password" value="<?php echo dataDecrypt($row['idStud'], $row['password'])?>"  />
                         <label class="form-label fs-6" for="password">Password</label>
                     </div>
                 </div>
@@ -170,29 +184,20 @@
                 <div class="col-lg-12">
                     <div class="form-floating">
                         <input type="text" id="email" name="email" class="form-control form-control-lg input"
-                        placeholder="Email" value="<?php echo $row['email']?>" />
+                        placeholder="Email" value="<?php echo dataDecrypt($row['idStud'], $row['email'])?>" />
                         <label class="form-label fs-6" for="email">Email</label>
                     </div>
                 </div>
             </div>
 
-            <div class="row py-2 gap-2 gap-lg-0">
-                <div class="col-lg-12">
-                    <div class="form-floating">
-                        <select class="form-select input fs-6" name="validation" id="validation">
-                            <option selected disabled>Select Option</option> 
-                            <option value="F" <?php if("F" == $row['validation']) echo 'selected="selected"'; ?>>Invalid</option>
-                            <option value="T" <?php if("T" == $row['validation']) echo 'selected="selected"'; ?>>Valid</option>
-                        </select>
-                        <label for="validation" class="form-label fs-6">Validation Status</label>
-                    </div>
-                </div>
-            </div>
+            
             
             <div class="row">
                 <div class="form-floating">
                         <input type="text" class="form-control visually-hidden" 
                         value="<?php echo $row['id']?>" name="id" placeholder="id">
+                        <input type="text" class="form-control visually-hidden" 
+                        value="<?php echo $row['idStud']?>" name="idStud" placeholder="idStud">
                 </div>
                 <button class="btn btn-success" type="submit" name="editStudent">Edit Student Data</button>
             </div>

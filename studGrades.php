@@ -107,8 +107,11 @@
                         </div>
                         <div class="" style="max-height: 22rem;">
                             <?php
+                            $code = $studData['program'];
                             $query = $con -> query("SELECT * from `curriculums` WHERE `idCurr` = '$code'") or die($con -> error);
-                            while($row = $query -> fetch_assoc()) { ?>
+                            while($row = $query -> fetch_assoc()) { 
+                                $subCode = $row['idCourse'];
+                                ?>
 
                             <div class="container gap-2 d-flex flex-column align-items-center overflow-auto" style="max-height: 30rem;">
                                 <?php
@@ -116,7 +119,7 @@
                                         for ($sem = 1; $sem <= 2; $sem++) { ?>
                                             <h4>Year <?php echo $yr?>, Semester <?php echo $sem?></h4>
                                             <?php
-                                                $querys = "SELECT * FROM `subject` WHERE `year` = '$yr' AND `semester` = '$sem' AND `program` = '$code'";
+                                                $querys = "SELECT * FROM `subject` WHERE `year` = '$yr' AND `semester` = '$sem' AND `program` = '$subCode'";
                                                 $results = $con->query($querys);
 
                                                 if(mysqli_num_rows($results) > 0): ?>
@@ -158,7 +161,7 @@
         </div>
 
         <div class="footer d-flex justify-content-center align-items-center fixed-bottom bg-dark mt-auto">
-            <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
+            <h1 class="text-white fs-6"> ©2022 Taguig City University. All Rights Reserved.</h1>
         </div>
 
             <div class="modal fade" id="change" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

@@ -40,12 +40,13 @@
                 </div>
             </nav>
 
-            <div class="bg  min-vh-100 h-auto vw-100 text-white" style="background-image: url('assets/img/bg2.png');">
+            <div class="bg min-vh-100 h-auto vw-100 text-white pb-5" style="background-image: url('assets/img/bg2.png');">
                 <div class="h-100 w-100 d-flex flex-column justify-content-center align-items-center">
                     <div class="container p-3 p-lg-5 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5">
-                        <h1 class="text-dark fs-3 fs-lg-1">Student Register</h1>
+                        <h1 class="text-dark fs-3 fs-lg-1">Old Student Registration</h1>
                         <form
                                     name="oldStud"
+                                    id="oldStud"
                                     onsubmit="return validateForm()"
                                     method="post" 
                                     enctype="multipart/form-data"
@@ -228,17 +229,49 @@
                                         <label class="form-check-label" for="exampleCheck1">My info is correct and would like to register.</label>
                                     </div>
                                 </div>
-
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#disclaimer">Submit</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <div class="footer d-flex justify-content-center align-items-center sticky-bottom bg-dark">
-                <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
+            <div class="footer d-flex justify-content-center align-items-center fixed-bottom bg-dark">
+                <h1 class="text-white fs-6"> ©2022 Taguig City University. All Rights Reserved.</h1>
+            </div>
+            
+            <div class="modal fade" id="disclaimer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="disclaimer" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-dark" id="staticBackdropLabel">Data Privacy Disclaimer</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="text-center"><b>Data Privacy Disclaimer</b></h6>
+                        <span> 
+                            By filling up on this form, you are letting the researchers use your data
+                            for the use of the system. This data is for educational use only and will
+                            not be used by any other means. Any data that is misused shall be reported
+                            and will be acted upon immediately.
+                        </span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="#" id="submit" class="btn btn-success success">Submit</a>
+                    </div>
+                    </div>
+                </div>
             </div>
     </body>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#submit').click(function(){
+                alert('Submitting Info');
+                $('#oldStud').submit();
+            });
+        });
+    </script>
 
 </html>

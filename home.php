@@ -193,7 +193,7 @@
             </div>
 
             <div class="footer d-flex justify-content-center align-items-center fixed-bottom bg-dark">
-                <h1 class="text-white fs-5"> ©2022 Taguig City University. All Rights Reserved.</h1>
+                <h1 class="text-white fs-6"> ©2022 Taguig City University. All Rights Reserved.</h1>
             </div>
     </body>
 
