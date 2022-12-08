@@ -45,34 +45,25 @@
                 $enrollCode = generateRandomString(30);
                 $checkQuery = $con -> query("SELECT * from `enroll-codes` WHERE `enrollCode` = '$enrollCode'") or die($con -> error);
                 if(mysqli_num_rows($codeQuery) > 0):
-                    echo '<script type="text/javascript">';
-                    echo 'alert("Logged in!")';
-                    echo '</script>";';
-                    header("location:../../studLogin.php");
                 else:
                     $_SESSION['enrollCode'] = $enrollCode;
                     $codeIn = $con -> query("INSERT INTO `enroll-codes` (`enrollCode`, `idStud`, `year`, `semester`) VALUES ('$enrollCode', '$user', '$currYear', '$currSem')") or die($con -> error);
                 endif;
             endif;
 
-            header("location:../../studGrades.php");
+            echo '<script>alert("Logged In!");</script>';
+            echo "<script>window.location.href='../../studGrades.php';</script>";
             } else{
-                echo "<script type='text/javascript'>
-                alert('Your account is not yet validated. Contact Admissions Office for concern.');
-                </script>";
-                header("location:../../studLogin.php");
+                echo '<script>alert("Student not Validated! Contact Registrars Office for validation!");</script>';
+                echo "<script>window.location.href='../../studLogin.php';</script>";
             }
         } else{
-            echo "<script type='text/javascript'>
-                alert('Wrong Password!');
-                </script>";
-            header("location:../../studLogin.php");
+            echo '<script>alert("Wrong Password!")</script>';
+            echo "<script>window.location.href='../../studLogin.php';</script>";
         }
     } else{
-        echo "<script type='text/javascript'>
-                alert('Student ID invalid!');
-                </script>";
-        header("location:../../studLogin.php");
+        echo '<script>alert("No User Data!")</script>';
+        echo "<script>window.location.href='../../studLogin.php';</script>";
     }
     
     ?>

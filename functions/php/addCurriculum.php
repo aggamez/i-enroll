@@ -5,8 +5,9 @@
     $idCurr = $_POST['idCurr'];
     $idCourse = $_POST['idCourse'];
     $nameCurr = $_POST['nameCurr'];
+    $department = $_POST['department'];
 
-    $query = "INSERT INTO `curriculums` (`idCurr`, `idCourse`, `nameCurr`) VALUES ('$idCurr', '$idCourse', '$nameCurr')";
+    $query = "INSERT INTO `curriculums` (`idCurr`, `idCourse`, `nameCurr`, `department`) VALUES ('$idCurr', '$idCourse', '$nameCurr', '$department')";
 
     $result = $con->query($query);
 

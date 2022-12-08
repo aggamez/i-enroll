@@ -29,7 +29,7 @@
 
     <body class="h-auto">
         <?php
-            if($enrollState != true){
+            if($enrollState != 'true'){
                 echo "<script type='text/javascript'>";
                 echo "alert('Enrollment Phase Inactive!');";
                 echo "window.location.href='studGrades.php';";

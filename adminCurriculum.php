@@ -282,6 +282,25 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <select class="form-select input" name="department" id="department" required>
+                                                    <option selected disabled>Department</option>
+                                                    <?php
+                                                    include('functions/php/config.php');
+                                                    
+                                                    $query = "SELECT * FROM `departments`";
+                                                    $result = $con->query($query);
+
+                                                    while ($row = $result -> fetch_assoc()): ?>
+                                                    <option value="<?php echo $row['idDept'];?>"><?php echo $row['nameDept'];?></option>
+                                                    <?php endwhile?>
+                                                </select>
+                                                <label for="department" class="form-label fs-6">Department</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <button type="submit" class="btn btn-success mt-2 ms-auto">Submit</button>
                                 </div>
                             </form>

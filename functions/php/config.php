@@ -10,7 +10,9 @@
 	$tz = 'Asia/Manila';
 	date_default_timezone_set('Asia/Manila');
 
-	$currSem = 1;
-	$currYear = 2022;
-	$enrollState = true;
+	$xml=simplexml_load_file(__DIR__ . '/configure.xml') or die("Error: Cannot create object");
+
+	$currSem = $xml -> sem;
+	$currYear = $xml -> year;
+	$enrollState = $xml -> active;
 ?>
