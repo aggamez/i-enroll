@@ -213,7 +213,7 @@
                             
                                     <div class="collapse" id="<?php echo $divId?>">
                                         <?php
-                                            $querys = "SELECT * FROM `subject` WHERE `year` = '$yr' AND `semester` = '$sem'";
+                                            $querys = "SELECT * FROM `subject` WHERE `year` = '$yr' AND `semester` = '$sem' AND `program` = '$code'";
                                             $results = $con->query($querys);
                                             
                                             if(mysqli_num_rows($results) > 0): ?>

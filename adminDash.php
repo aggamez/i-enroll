@@ -246,24 +246,52 @@
                         <h1 class="fs-1 text-dark"> Admin Dashboard </h1>  
 
                         <div class="d-flex gap-5">
-                            <div class="card">
-                                <div class="card-body">
-                                    This is some text within a card body.
+                            <div class="card bg-maroon">
+                                <div class="card-body text-white">
+                                    <?php 
+                                        $studQuery = $con -> query("SELECT COUNT(*) as `count` from `user-student` WHERE `validation` = 'T'") or die($con -> error);
+                                        $studRes = $studQuery -> fetch_assoc();
+                                        $studcount = $studRes['count'];
+
+                                        echo $studcount;
+                                    ?>
+                                    Students Registered
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    This is some text within a card body.
+                            <div class="card bg-maroon">
+                                <div class="card-body text-white">
+                                    <?php 
+                                        $facQuery = $con -> query("SELECT COUNT(*) as `count` from `user-faculty`") or die($con -> error);
+                                        $facRes = $facQuery -> fetch_assoc();
+                                        $faccount = $facRes['count'];
+
+                                        echo $faccount;
+                                    ?>
+                                    Faculty Members
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    This is some text within a card body.
+                            <div class="card bg-maroon">
+                                <div class="card-body text-white">
+                                    <?php 
+                                        $currQuery = $con -> query("SELECT COUNT(*) as `count` from `curriculums`") or die($con -> error);
+                                        $currRes = $currQuery -> fetch_assoc();
+                                        $currcount = $currRes['count'];
+
+                                        echo $currcount;
+                                    ?>
+                                    Programs
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    This is some text within a card body.
+                            <div class="card bg-maroon">
+                                <div class="card-body text-white">
+                                    <?php 
+                                        $sectQuery = $con -> query("SELECT COUNT(*) as `count` from `sections`") or die($con -> error);
+                                        $sectRes = $sectQuery -> fetch_assoc();
+                                        $sectcount = $sectRes['count'];
+
+                                        echo $sectcount;
+                                    ?>
+                                    Sections
                                 </div>
                             </div>
                         </div>
