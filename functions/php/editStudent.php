@@ -21,7 +21,7 @@
     $password = $_POST['password'];
     $email = $_POST['email'];
     $status = $_POST['status'];
-    $validation = $_POST['validation'];
+    # $validation = $_POST['validation'];
 
     $enCont = dataEncrypt($idStud, $contactNo);
     $enPass = dataEncrypt($idStud, $password);
@@ -34,7 +34,7 @@
                 `civStat` = '$civStat', `contactNo` = '$enCont',`religion` = '$religion', 
                 `religion` = '$religion', `program` = '$program',`yrLvl` = '$yrLvl',
                 `yrReg` = '$yrReg',`password` = '$enPass', `email` = '$enEmail',
-                `status` = '$status', `validation` = '$validation'
+                `status` = '$status' #, `validation` = '$validation'
 
                 WHERE id = $id;";
 

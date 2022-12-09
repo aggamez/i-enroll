@@ -361,7 +361,7 @@
                                     id="<?php echo $row['id']; ?>">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <a href="#editacads=<?php echo $row['id'];?>" class="mx-1 clear text-primary editAcads" 
+                                <a href="#editacads=<?php echo $row['id'];?>" class="mx-1 clear text-primary editAcads visually-hidden d-none" 
                                     data-id="<?php echo $row['id']; ?>"
                                     data-bs-toggle="tooltip" data-bs-target="#edit-acads" 
                                     data-bs-placement="top" data-bs-title="Edit Student Academic Data"
@@ -375,6 +375,20 @@
                                     id="<?php echo $row['id']; ?>">
                                     <i class="bi bi-trash-fill"></i>
                                 </a>
+                                <?php if($row['validation'] != 'T'): ?>
+                                    <form
+                                    class=""
+                                    method="post" 
+                                    action="functions/php/validStudent.php">
+                                    <input type="text" name="idStud" class="form-control input visually-hidden"
+                                                value="<?php echo $row['idStud']; ?>" readonly />
+                                    <a href="javascript:$('form').submit()" class="mx-1 text-success"
+                                        data-bs-toggle="tooltip" 
+                                        data-bs-placement="top" data-bs-title="Validate Student">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </a>
+                                    </form>
+                                <?php endif ?>
                             </td>
                         </tr>
                     <?php endwhile ?>

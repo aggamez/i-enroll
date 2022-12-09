@@ -10,19 +10,7 @@
         <form 
             action="functions/php/editStudent.php" 
             method="post">
-
-            <div class="row py-2 gap-2 gap-lg-0">
-                <div class="col-lg-12">
-                    <div class="form-floating">
-                        <select class="form-select input fs-6 border border-success" name="validation" id="validation">
-                            <option class="bg-white" selected disabled>Select Option</option> 
-                            <option class="bg-white" value="F" <?php if("F" == $row['validation']) echo 'selected="selected"'; ?>>Fail</option>
-                            <option class="bg-white" value="T" <?php if("T" == $row['validation']) echo 'selected="selected"'; ?>>Pass</option>
-                        </select>
-                        <label for="validation" class="form-label fs-6">Validation Status</label>
-                    </div>
-                </div>
-            </div>
+            
             <div class="row py-2 gap-2 gap-lg-0">
                 <div class="col-lg-4">
                     <div class="form-floating">
