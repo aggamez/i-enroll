@@ -38,18 +38,30 @@ use function PHPSTORM_META\type;
         $courIns = $con -> query($courQuery) or die($con -> error);
         while($courData = $courIns -> fetch_assoc()):
             $idSub = $courData['idSub'];
-            $addQuery = "INSERT INTO `student-enrollment` (`enrollCode`, `idStud`, `idSub`, `section`) VALUES ('$enrollCode', '$idStud', '$idSub', '$section')";
-            $addIns = $con -> query($addQuery) or die($con -> error);
-            if($addIns):
-                $statQuery = "UPDATE `student-academics` SET `status` = 'R' WHERE `idStud` = '$idStud' AND `idSub` = '$idSub'";
-                $statEdit = $con -> query($statQuery) or die($con -> error);
-                if($statEdit):
-                    header("location:../../studEnroll.php");
+            $secQuery = "SELECT * FROM `schedule` WHERE `idSub` = '$idSub' AND `section` = '$section'";
+            $secIns = $con -> query($secQuery) or die($con -> error);
+            $secData = $secIns -> fetch_assoc();
+            $secCount = $secData['studLimit'];
+            $countQuery = "SELECT COUNT(*) AS `count` FROM `student-enrollment` WHERE `idStud` = '$idStud' AND `idSub` = '$idSub'";
+            $countRes = $con -> query($countQuery) or die($con -> error);
+            $countData = $countRes -> fetch_assoc();
+            $studCount = $countData['count'];
+            if($studCount <= $secCount):
+                $addQuery = "INSERT INTO `student-enrollment` (`enrollCode`, `idStud`, `idSub`, `section`) VALUES ('$enrollCode', '$idStud', '$idSub', '$section')";
+                $addIns = $con -> query($addQuery) or die($con -> error);
+                if($addIns):
+                    $statQuery = "UPDATE `student-academics` SET `status` = 'R' WHERE `idStud` = '$idStud' AND `idSub` = '$idSub'";
+                    $statEdit = $con -> query($statQuery) or die($con -> error);
+                    if($statEdit):
+                        header("location:../../studEnroll.php");
+                    else:
+                        header("location:../../studEnroll.php");
+                    endif;
                 else:
                     header("location:../../studEnroll.php");
                 endif;
             else:
-                header("location:../../studEnroll.php");
+                echo '<script>alert("Section is Full! Proceed to Manual Enrollment!");</script>';
             endif;
         endwhile;
 
@@ -60,34 +72,12 @@ use function PHPSTORM_META\type;
             $idSub = $courData['idSub'];
             $statQuery = "UPDATE `student-academics` SET `status` = 'E' WHERE `idStud` = '$idStud' AND `idSub` = '$idSub'";
             $statEdit = $con -> query($statQuery) or die($con -> error);
-            if($statEdit):?>
-                <!doctype html>
-                <html>
-                    <head>
-                    <title> i-Enroll System </title>
-
-                    <link rel="stylesheet" href="../../assets/css/style.css">
-                    <link rel="stylesheet" href="../../lib/css/bootstrap.min.css">
-                    <link rel="stylesheet" href="../../lib/css/bootstrap-icons-1.9.1/bootstrap-icons.css">
-
-                    <script src="../../lib/js/bootstrap.bundle.min.js"></script>
-                    <script src="../../lib/js/jquery-3.6.1.min.js"></script>
-                    </head>
-                    <body class="">
-                        <div class="d-flex flex-column align-items-center justify-content-center gap-2 min-vh-100 w-100" >
-                            <h3>Successfully Enrolled. You may request Registration Form at the Admin/Registrar.</h3>
-                            <h4>Enroll Code: <?php echo $enrollCode?></h4>
-                            
-                            <a class="btn btn-lg btn-success py-1 px-2" href="studOut.php">
-                            Proceed to Log-Out
-                            </a>
-                        </div>
-                    </body>
-                </html>
-            <?php 
+            if($statEdit):
             else:
             endif;
         endwhile;
+        echo '<script>alert("Enrollment Completed! Check your CoE at your forms page.");</script>';
+        echo "<script>window.location.href='../../studEnroll.php';</script>";
 
     elseif($type == "change"):
         $section = $_POST['section'];

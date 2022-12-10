@@ -342,6 +342,7 @@
                             align-items-start gap-2 mt-5 w-100">
                     <div class="w-100 d-flex flex-row justify-content-start align-items-start pb-0 border-bottom border-3 border-dark">
                         <h2 class="fs-3 text-dark"> Subject List </h2>
+                        <input class="py-1 px-2 ms-auto" id="subjSearch" type="text" placeholder="Search..">
                     </div>
                     <div class="w-100 d-flex flex-row justify-content-center align-items-center pb-0 border-bottom border-3 border-dark overflow-auto"
                             style="max-height: 35rem;">
@@ -367,7 +368,7 @@
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="subjTable">
                         
                         <?php while ($row = $result -> fetch_assoc()): ?>
                             <tr>
@@ -496,6 +497,13 @@
                                 $('.modal-body').html(response);
                                 $('#del-subj').modal('show');
                             }
+                        });
+                    });
+
+                    $("#subjSearch").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                        $("#subjTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                         });
                     });
                 });

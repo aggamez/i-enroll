@@ -14,6 +14,12 @@
 
         $studQuery = $con -> query("SELECT * from `user-student` WHERE `idStud` = '$idStud'") or die($con -> error);
         $studData = $studQuery -> fetch_assoc();
+
+        $code = $studData['program'];
+        $progQuery= $con -> query("SELECT `nameCurr`, `idCourse` from `curriculums` WHERE `idCurr` = '$code'") or die($con -> error);
+        $progData = $progQuery -> fetch_assoc();
+
+        $idCour = $progData['idCourse'];
     ?>
 
     <head>
@@ -78,10 +84,6 @@
                         <div class="row">
                             <div class="col-12">
                                 <h5><b>Program: </b> <?php 
-                                    
-                                    $code = $studData['program'];
-                                    $progQuery= $con -> query("SELECT `nameCurr` from `curriculums` WHERE `idCurr` = '$code'") or die($con -> error);
-                                    $progData = $progQuery -> fetch_assoc();
 
                                     echo $progData['nameCurr'];
                                 ?></h5>
@@ -213,7 +215,7 @@
                             
                                     <div class="collapse" id="<?php echo $divId?>">
                                         <?php
-                                            $querys = "SELECT * FROM `subject` WHERE `year` = '$yr' AND `semester` = '$sem' AND `program` = '$code'";
+                                            $querys = "SELECT * FROM `subject` WHERE `year` = '$yr' AND `semester` = '$sem' AND `program` = '$idCour'";
                                             $results = $con->query($querys);
                                             
                                             if(mysqli_num_rows($results) > 0): ?>

@@ -128,9 +128,8 @@
                                                         <tr>
                                                             <th>Subject ID</th>
                                                             <th>Subject Name</th>
-                                                            <th>Curriculum</th>
-                                                            <th>Total Units</th>
-                                                            <th>Grade</th>
+                                                            <th class="text-center">Total Units</th>
+                                                            <th class="text-center">Grade</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -144,9 +143,16 @@
                                             <tr>
                                                 <td class=""><?php echo $rows['idSub']; ?></td>
                                                 <td class=""><?php echo $rows['name']; ?></td>
-                                                <td class=""><?php echo $rows['program']; ?></td>
                                                 <td class="fw-bold text-center"><?php echo $rows['unitTot']; ?></td>
-                                                <td class=""><?php echo $gradeVal['grade']; ?></td>
+                                                <td class="text-center">   <?php   
+                                                                            if($gradeVal['grade'] == '4.00'):
+                                                                                echo '-';
+                                                                            elseif ($gradeVal['grade'] == '4.25'):
+                                                                                echo 'INC';
+                                                                            else:
+                                                                                echo $gradeVal['grade']; 
+                                                                            endif;?>
+                                                </td>
                                             </tr>
                                         <?php endwhile ?>
                                             </tbody>

@@ -12,18 +12,12 @@
         method="post">
 
         <div class="container gap-2 d-flex flex-column align-items-center overflow-auto" style="max-height: 30rem;">
-            <h3>Students Enrolled</h3>
+            <div class="w-100 d-flex flex-row justify-content-between">
+                <h3>Students Enrolled</h3>
+                <input class="py-1 px-2 ms-auto" id="studSearch" type="text" placeholder="Search..">
+            </div>
 
-    <?php   $query = $con -> query("SELECT * from `student-enrollment` WHERE `idSub` = '$idSub' AND `section` = '$section'") or die($con -> error);
-            while($row = $query -> fetch_assoc()) { ?>
-   
-            <?php
-                $idStud = $row['idStud'];
-                $querys = "SELECT * FROM `user-student` WHERE `idStud` = '$idStud'";
-                $results = $con->query($querys);
-
-                if(mysqli_num_rows($results) > 0): ?>
-                <table class="table table-striped table-bordered w-100">
+            <table class="table table-striped table-bordered w-100">
                     <thead class="fs-6">
                         <tr>
                             <th>Student ID</th>
@@ -33,16 +27,21 @@
                             <th>Final</th>
                         </tr>
                     </thead>
-                    <tbody>
-                    
-                    <?php 
-                        $counter = 1;
-                        while ($rows = $results -> fetch_assoc()): 
-                            $name = $rows['lName'] . ", " . $rows['fName'] . " " . $rows['mName'];
-                            $grdQue = "SELECT * FROM `student-academics` WHERE `idStud` = '$idStud' AND `idSub` = '$idSub'";
-                            $grdRes = $con->query($grdQue);
-                            $grdVal = $grdRes -> fetch_assoc();
-                            $grade = $grdVal['grade'];?>
+                    <tbody id="studTable">
+            
+
+    <?php   $query = $con -> query("SELECT * from `student-enrollment` WHERE `idSub` = '$idSub' AND `section` = '$section'") or die($con -> error);
+            $counter = 1;
+            while($row = $query -> fetch_assoc()): 
+                $idStud = $row['idStud'];
+                $querys = "SELECT * FROM `user-student` WHERE `idStud` = '$idStud'";
+                $results = $con->query($querys);       
+                while ($rows = $results -> fetch_assoc()): 
+                    $name = $rows['lName'] . ", " . $rows['fName'] . " " . $rows['mName'];
+                    $grdQue = "SELECT * FROM `student-academics` WHERE `idStud` = '$idStud' AND `idSub` = '$idSub'";
+                    $grdRes = $con->query($grdQue);
+                    $grdVal = $grdRes -> fetch_assoc();
+                    $grade = $grdVal['grade'];?>
                         <tr>
                             <td class="">
                                 <input type="text" class="form-control input" 
@@ -70,12 +69,9 @@
                             </td>
                         </tr>
                     <?php $counter++; endwhile; ?>
-                        </tbody>
-                    </table>
-                <?php endif; ?>
-            
-            <?php }?>
-            
+                <?php endwhile; ?>
+                </tbody>
+            </table>    
         </div>
         <div class="row">
             <div class="form-floating">
@@ -85,4 +81,15 @@
             <button class="btn btn-success" type="submit" name="gradeStudent">Grade Student</button>
         </div>
     </form>
+
+    <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#studSearch").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                        $("#studTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
+                    });
+                });
+    </script>
 <?php ?>

@@ -311,6 +311,7 @@
                             align-items-start gap-2 mt-5">
                     <div class="w-100 d-flex flex-row justify-content-start align-items-start pb-0 border-bottom border-3 border-dark">
                         <h2 class="fs-3 text-dark"> Students List (Irregular) </h2>
+                        <input class="py-1 px-2 ms-auto" id="studSearch" type="text" placeholder="Search..">
                     </div>
                     <?php
                         include('functions/php/config.php');
@@ -329,7 +330,7 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="studTable">
                     
                     <?php while ($row = $result -> fetch_assoc()): 
                         
@@ -525,6 +526,13 @@
                                 $('.modal-body').html(response);
                                 $('#del-stud').modal('show');
                             }
+                        });
+                    });
+                    
+                    $("#studSearch").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                        $("#studTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                         });
                     });
                 });
