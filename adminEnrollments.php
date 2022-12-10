@@ -36,21 +36,21 @@
                         <ul class="h-100 navbar-nav d-flex flex-column justify-content-start flex-grow-1 pe-3 text-white d-lg-none">
                             <li class="nav-item">
                                 <a class="nav-link d-flex flex-row align-items-center text-white gap-2 active" href="adminDash.php"> 
-                                    <i class="bi bi-house-fill fs-4"></i> 
-                                    <h6 class="fs-4">Dashboard</h6>
+                                    <i class="bi bi-house-fill fs-6"></i> 
+                                    <h6 class="fs-6">Dashboard</h6>
                                 </a>
                             </li>
 
                             <li class="nav-item">
 
                                 <a 
-                                class="nav-link text-white fs-4 d-flex flex-row justify-content-end 
+                                class="nav-link text-white fs-6 d-flex flex-row justify-content-end 
                                 align-items-center gap-2" 
                                 href="#mobile-collapse" role="button" data-bs-toggle="collapse" 
                                 aria-expanded="false">
                                     <div class="d-flex flex-row justify-content-start align-items-center me-auto gap-2">
                                         <i class="bi bi-gear-fill"></i>
-                                        <h6 class="fs-4 align-items-center">Management</h6>
+                                        <h6 class="fs-6 align-items-center">Management</h6>
                                     </div>
                                 </a>
 
@@ -132,9 +132,9 @@
                                 </li>
 
                                 <li class="nav-item mt-auto">
-                                    <a class="nav-link d-flex flex-row align-items-center text-white gap-2 fs-4" aria-current="page" href="functions/php/adminOut.php"> 
+                                    <a class="nav-link d-flex flex-row align-items-center text-white gap-2 fs-6" aria-current="page" href="functions/php/adminOut.php"> 
                                         <i class="bi bi-box-arrow-right"></i>
-                                        <h6 class="fs-4">Log-out</h6>
+                                        <h6 class="fs-6">Log-out</h6>
                                     </a>
                                 </li>
                             </ul>
@@ -148,11 +148,11 @@
             <div class="h-100 d-flex flex-row">
                 <div class="ps-3 bg-maroon d-none d-lg-block">
                     <div class="h-100 d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white" style="width: 365px;">
-                    <ul class="navbar-nav d-flex flex-column justify-content-start flex-grow-1 pe-3 text-white fs-4">
+                    <ul class="navbar-nav d-flex flex-column justify-content-start flex-grow-1 pe-3 text-white fs-6">
                         <li class="nav-item">
                             <a class="nav-link d-flex flex-row align-items-center text-white gap-2 active" href="adminDash.php"> 
-                                <i class="bi bi-house-fill fs-4"></i> 
-                                <h6 class="fs-4">Dashboard</h6>
+                                <i class="bi bi-house-fill fs-6"></i> 
+                                <h6 class="fs-6">Dashboard</h6>
                             </a>
                         </li>
 
@@ -231,9 +231,9 @@
                         </li>
 
                             <li class="nav-item mt-auto">
-                                <a class="nav-link d-flex flex-row align-items-center text-white gap-2 fs-4" aria-current="page" href="functions/php/adminOut.php"> 
+                                <a class="nav-link d-flex flex-row align-items-center text-white gap-2 fs-6" aria-current="page" href="functions/php/adminOut.php"> 
                                     <i class="bi bi-box-arrow-right"></i>
-                                    <h6 class="fs-4">Log-out</h6>
+                                    <h6 class="fs-6">Log-out</h6>
                                 </a>
                             </li>
                         </ul>
