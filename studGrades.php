@@ -13,6 +13,13 @@
 
         $studQuery = $con -> query("SELECT * from `user-student` WHERE `idStud` = '$idStud'") or die($con -> error);
         $studData = $studQuery -> fetch_assoc();
+
+        if($studData['status'] == 'R'):
+            echo '<script>alert("Upon Grade Evaluation, you are a regular student. Proceed to enrollment as usual.");</script>';
+        elseif($studData['status'] == 'X'):
+            echo '<script>alert("Upon Grade Evaluation, you are a irregular student. Proceed to enrollment with limited subjects.");</script>';
+        else:
+        endif;
     ?>
 
     <head>
