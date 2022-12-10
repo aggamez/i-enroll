@@ -241,8 +241,9 @@
                 </div>
 
                 <div class="w-100 d-flex flex-column overflow-scroll p-3 px-lg-5" style="">
-                <div class="d-flex flex-column justify-content-center align-items-start">
+                <div class="d-flex flex-row justify-content-between align-items-center border border-2 border-dark border-top-0 border-start-0 border-end-0">
                     <h1 class="fs-1 text-dark"> System-Generated Logs </h1>
+                    <input class="py-1 px-2 ms-auto" id="logSearch" type="text" placeholder="Search..">
                 </div>
 
                 <div class="d-flex flex-column justify-content-between
@@ -264,7 +265,7 @@
                                                 <th>Target</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="logTable">
                     
                     <?php while ($row = $result -> fetch_assoc()): ?>
                         <tr>
@@ -292,6 +293,17 @@
         <div class="footer d-flex justify-content-center align-items-center bg-dark">
             <h1 class="text-white fs-6"> ©2022 Taguig City University. All Rights Reserved.</h1>
         </div>
+
+        <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#logSearch").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                        $("#logTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
+                    });
+                });
+            </script>
     </body>
 
 </html>

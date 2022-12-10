@@ -12,8 +12,10 @@
         $grade = $row['grade'];
         if($grade <= 3.0):
           $status = 'P';
-        else:
+        elseif($grade == 5.00):
           $status = 'O';
+        else:
+          $status = 'E';
         endif;
 
 

@@ -12,9 +12,6 @@
 
     $query = $con -> query("SELECT * from `curriculums` WHERE `idCurr` = '$studProg'") or die($con -> error);
     while($row = $query -> fetch_assoc()) { ?>
-    <form 
-        action="functions/php/editStudentAcads.php" 
-        method="post">
         <div class="container gap-2 d-flex flex-column">
             <div class="row">
                 <div class="col-3">
@@ -37,7 +34,6 @@
         <div class="container gap-2 d-flex flex-column align-items-center overflow-auto" style="max-height: 30rem;">
             <h3>Curriculum Status</h3>
             <?php
-                $counter = 1;
                 for ($yr = 1; $yr <= $yrLvl; $yr++) {
                     for ($sem = 1; $sem <= 2; $sem++) { ?>
                         <h4>Year <?php echo $yr;?>, Semester <?php echo $sem;?></h4>
@@ -51,41 +47,27 @@
                                     <tr>
                                         <th>Course Code</th>
                                         <th>Course Name</th>
-                                        <th>Status</th>
+                                        <th class="text-center">Midterm Grade</th>
+                                        <th class="text-center">Tentative Grade</th>
+                                        <th class="text-center">Final Grade</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                     
                     <?php 
-                        while ($rows = $results -> fetch_assoc()): ?>
+                        while ($rows = $results -> fetch_assoc()): 
+                            $idSubs = $rows['idSub'];
+                            $statQuery = "SELECT * FROM `student-academics` WHERE `idStud` = '$idStud' AND `idSub` = '$idSubs'";
+                            $statData = $con->query($statQuery);
+                            $statResult = $statData -> fetch_assoc();?>
                         <tr>
-                            <td class="">
-                                <input type="text" class="form-control input" 
-                                    name="acadRow[<?php echo $counter; ?>][idSub]" 
-                                    value="<?php echo $rows['idSub']; ?>" readonly/>
-                            </td>
+                            <td class=""><?php echo $rows['idSub']; ?></td>
                             <td class=""><?php echo $rows['name']; ?></td>
-                            <td class="">
-                                <?php 
-                                    $idSubs = $rows['idSub'];
-                                    $statQuery = "SELECT * FROM `student-academics` WHERE `idStud` = '$idStud' AND `idSub` = '$idSubs'";
-                                    $statData = $con->query($statQuery);
-                                    $statResult = $statData -> fetch_assoc();
-                                    $studStat = $statResult['status'];
-
-                                ?>
-                                <div class="">
-                                    <select class="form-select input fs-6" name="acadRow[<?php echo $counter; ?>][status]" >
-                                        <option disabled>Select Option</option>
-                                        <option value="O" <?php if("O" == $studStat) echo 'selected="selected"'; ?>>Open</option>
-                                        <option value="P" <?php if("P" == $studStat) echo 'selected="selected"'; ?>>Passed</option>
-                                        <option value="R" <?php if("R" == $studStat) echo 'selected="selected"'; ?>>Registered</option>
-                                        <option value="E" <?php if("E" == $studStat) echo 'selected="selected"'; ?>>Enrolled</option>
-                                    </select>
-                                </div>
-                            </td>
+                            <td class="text-center"><?php echo $statResult['midGrade']?></td>
+                            <td class="text-center"><?php echo $statResult['tntGrade']?></td>
+                            <td class="text-center"><?php echo $statResult['grade']?></td>
                         </tr>
-                    <?php $counter++; endwhile; ?>
+                    <?php endwhile; ?>
                         </tbody>
                     </table>
                 <?php endif; ?>
@@ -93,12 +75,4 @@
             <?php } }?>
             
         </div>
-        <div class="row">
-            <div class="form-floating">
-                    <input type="text" class="form-control visually-hidden" 
-                    value="<?php echo $idStud;?>" name="idStud" placeholder="idStud">
-            </div>
-            <button class="btn btn-success" type="submit" name="editStudentAcads">Edit Student Academics</button>
-        </div>
-    </form>
 <?php } ?>

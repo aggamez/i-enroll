@@ -362,10 +362,10 @@
                                     id="<?php echo $row['id']; ?>">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <a href="#editacads=<?php echo $row['id'];?>" class="mx-1 clear text-primary editAcads visually-hidden d-none" 
+                                <a href="#viewacads=<?php echo $row['id'];?>" class="mx-1 clear text-primary viewAcads" 
                                     data-id="<?php echo $row['id']; ?>"
-                                    data-bs-toggle="tooltip" data-bs-target="#edit-acads" 
-                                    data-bs-placement="top" data-bs-title="Edit Student Academic Data"
+                                    data-bs-toggle="tooltip" data-bs-target="#view-acads" 
+                                    data-bs-placement="top" data-bs-title="View Student Academics"
                                     id="<?php echo $row['id']; ?>">
                                     <i class="bi bi-file-code-fill"></i>
                                 </a>
@@ -442,7 +442,7 @@
                 </div>
                 </div>
 
-                <div class="modal fade" id="edit-acads" data-bs-backdrop="static" data-bs-keyboard="false" 
+                <div class="modal fade" id="view-acads" data-bs-backdrop="static" data-bs-keyboard="false" 
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -503,15 +503,15 @@
                         });
                     });
 
-                    $('.editAcads').click(function() {
+                    $('.viewAcads').click(function() {
                         var uid = $(this).data('id');
                         $.ajax({
-                            url: 'functions/php/editStudAcads.php',
+                            url: 'functions/php/viewStudAcads.php',
                             type: 'post',
                             data: {uid: uid},
                             success: function(response){
                                 $('.modal-body').html(response);
-                                $('#edit-acads').modal('show');
+                                $('#view-acads').modal('show');
                             }
                         });
                     });

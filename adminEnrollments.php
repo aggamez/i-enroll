@@ -249,6 +249,7 @@
                             align-items-start gap-2 mt-5">
                     <div class="w-100 d-flex flex-row justify-content-start align-items-start pb-0 border-bottom border-3 border-dark">
                         <h2 class="fs-3 text-dark"> Forms List </h2>
+                        <input class="py-1 px-2 ms-auto" id="formSearch" type="text" placeholder="Search..">
                     </div>
                     <?php
                         include('functions/php/config.php');
@@ -267,7 +268,7 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="formTable">
                     
                     <?php while ($row = $result -> fetch_assoc()): 
                         $fulName = $row['fName'] . " " . $row['mName'] . " " . $row['lName'];
@@ -315,6 +316,17 @@
         <div class="footer d-flex justify-content-center align-items-center bg-dark">
             <h1 class="text-white fs-6"> ©2022 Taguig City University. All Rights Reserved.</h1>
         </div>
+
+        <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#formSearch").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                        $("#formTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
+                    });
+                });
+            </script>
     </body>
 
 </html>
