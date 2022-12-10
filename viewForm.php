@@ -1,6 +1,7 @@
 <!doctype html>
 <?php
     include('functions/php/config.php');
+    error_reporting(E_ALL ^ E_WARNING); 
 
     $enrollCode = $_POST['enrollCode'];
 
@@ -87,6 +88,7 @@
                             <tr>
                                 <th>Subject Code</th>
                                 <th>Title</th>
+                                <th>Section</th>
                                 <th>Units</th>
                                 <th>Schedule</th>
                                 <th>Room</th>
@@ -109,15 +111,30 @@
                             <tr>
                                 <td> <?php echo $enSubRes['idSub']; ?> </td>
                                 <td> <?php echo $enSubRes['name'];?> </td>
+                                <td> <?php echo $section?> </td>
                                 <td> <?php echo $enSubRes['unitTot']; ?> </td>
-                                <td> <?php echo $enSchedRes['days'] . " / " . $enSchedRes['timeIni'] . "-" . $enSchedRes['timeEnd']; ?> </td>
-                                <td> <?php echo $enSchedRes['room']; ?> </td>
+                                
+                                <td>    <?php 
+                                        if(is_null($enSchedRes['days']) || is_null($enSchedRes['timeIni']) || is_null($enSchedRes['timeEnd'])){
+                                            echo "TBA";
+                                        } else {
+                                            echo $enSchedRes['days'] . " / " . $enSchedRes['timeIni'] . "-" . $enSchedRes['timeEnd'];
+                                        }
+                                        ?> </td>
+                                
+                                <td>    <?php 
+                                        if(is_null($enSchedRes['room'])){
+                                            echo "TBA";
+                                        }else{
+                                            echo $enSchedRes['room']; 
+                                        }
+                                ?> </td>
                             </tr>
 
                         <?php endwhile ?>
 
                             <tr>
-                                <td colspan="2">Total Units</td>
+                                <td class="text-end" colspan="3"><b>Total Units</b></td>
                                 <td><?php echo $units; ?></td>
                                 <td colspan="2"></td>
                             </tr>

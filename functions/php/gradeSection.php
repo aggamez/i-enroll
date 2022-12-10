@@ -22,8 +22,8 @@
         $query = "UPDATE `student-academics` 
       
         SET `midGrade` = '$midGrade',
-        SET `tntGrade` = '$tntGrade',
-        SET `grade` = '$grade', 
+        `tntGrade` = '$tntGrade',
+        `grade` = '$grade', 
       
         `status` = '$status'
 

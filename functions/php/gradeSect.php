@@ -5,15 +5,18 @@
     $idArr = explode(", ", $id);
     $idSub = $idArr[0];
     $section = $idArr[1];
+    ?>
 
-    $query = $con -> query("SELECT * from `student-enrollment` WHERE `idSub` = '$idSub' AND `section` = '$section'") or die($con -> error);
-    while($row = $query -> fetch_assoc()) { ?>
     <form 
         action="functions/php/gradeSection.php" 
         method="post">
 
         <div class="container gap-2 d-flex flex-column align-items-center overflow-auto" style="max-height: 30rem;">
             <h3>Students Enrolled</h3>
+
+    <?php   $query = $con -> query("SELECT * from `student-enrollment` WHERE `idSub` = '$idSub' AND `section` = '$section'") or die($con -> error);
+            while($row = $query -> fetch_assoc()) { ?>
+   
             <?php
                 $idStud = $row['idStud'];
                 $querys = "SELECT * FROM `user-student` WHERE `idStud` = '$idStud'";

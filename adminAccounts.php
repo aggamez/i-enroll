@@ -148,7 +148,7 @@
             <div class="h-100 d-flex flex-row">
                 <div class="ps-3 bg-maroon d-none d-lg-block">
                     <div class="h-100 d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white" style="width: 365px;">
-                    <ul class="navbar-nav d-flex flex-column justify-content-start flex-grow-1 pe-3 text-white fs-4">
+                    <ul class="navbar-nav d-flex flex-column justify-content-start flex-grow-1 pe-3 text-white fs-5">
                         <li class="nav-item">
                             <a class="nav-link d-flex flex-row align-items-center text-white gap-2 active" href="adminDash.php"> 
                                 <i class="bi bi-house-fill fs-4"></i> 
@@ -158,7 +158,7 @@
 
                         <li class="">
                             <a class="nav-item text-white text-decoration-none d-flex flex-row 
-                            align-items-center gap-2" href="adminDepartments.php">
+                            align-items-center gap-2 " href="adminDepartments.php">
                             <i class="bi bi-list-columns-reverse"></i>Colleges / Departments</a>
                         </li>
                         <li class="">

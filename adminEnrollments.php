@@ -283,12 +283,13 @@
                             <td class="mx-auto text-center">
                                 <form
                                     class=""
+                                    id="<?php echo $srow['enrollCode']; ?>"
                                     target="_blank"
                                     method="post" 
                                     action="viewForm.php">
-                                    <input type="text" id="enrollCode" name="enrollCode" class="form-control form-control-lg input visually-hidden"
+                                    <input type="text" name="enrollCode" class="form-control form-control-lg input visually-hidden"
                                                 value="<?php echo $srow['enrollCode']; ?>" readonly />
-                                    <a href="javascript:$('form').submit()" class="mx-1 clear text-muted view">
+                                    <a href="javascript:$('#<?php echo $srow['enrollCode']; ?>').submit()" class="mx-1 clear text-muted view">
                                         <i class="bi bi-eye-fill"></i>
                                     </a>
                                 </form>

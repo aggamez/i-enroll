@@ -117,7 +117,7 @@
                                 $checkQuery = "SELECT * FROM `student-enrollment` WHERE `enrollCode` = '$enrollCode'";
                                 $checkRes = $con->query($checkQuery);
                                 if(mysqli_num_rows($checkRes) <= 0):
-                                    if($studData['status'] == 'R' || $studData['status'] == 'N'): ?>
+                                    if($studData['status'] == 'R' || ($studData['status'] == 'N' && $currSem == '1')): ?>
                                         <a  class="btn btn-md btn-secondary text-white text-center quickenroll" data-id="<?php echo $enrollCode;?>"
                                             data-bs-toggle="modal" data-bs-target="#quickenroll" >
                                             <i class="bi bi-eye-fill"></i>

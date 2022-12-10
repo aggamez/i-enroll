@@ -14,10 +14,10 @@
             $_SESSION['faculUser'] = $data['idFaculty'];
             header("location:../../faculSects.php");
         } else{
-            header("location:../../faculLogin.php");
+            header("location:../../facultyLogin.php");
         }
     } else{
-        header("location:../../faculLogin.php");
+        header("location:../../facultyLogin.php");
     }
 
 ?>
