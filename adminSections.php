@@ -262,8 +262,8 @@
                                         <div class="col-4">
                                             <div class="form-floating">
                                                 <div class="form-floating">
-                                                    <select class="form-select input" name="idCourse" id="idCourse">
-                                                    <option selected disabled>Select Curriculum</option>
+                                                    <select class="form-select input" name="idCourse" id="idCourse" required>
+                                                    <option value="" selected disabled>Select Curriculum</option>
                                                     <?php
                                                     $currQry = "SELECT * FROM `curriculums`;";
                                                     $currRes = $con->query($currQry);
@@ -286,8 +286,8 @@
                                         </div>
                                         <div class="col-4">
                                             <div class="form-floating">
-                                                <select class="form-select input" name="type" id="type">
-                                                <option selected disabled>Select Type</option>
+                                                <select class="form-select input" name="type" id="type" required>
+                                                <option value="" selected disabled>Select Type</option>
                                                 <option value="B">Block Section</option>
                                                 <option value="F">Free Section</option>
                                                 </select>

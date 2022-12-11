@@ -98,7 +98,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-floating">
                                             <select class="form-select input fs-6" id="formSelect" name="sex">
-                                            <option selected disabled>Select Option</option>
+                                            <option value="" selected disabled>Select Option</option>
                                             <option value="M">Male</option>
                                             <option value="F">Female</option>
                                             <option value="X">Prefer not to say</option>
@@ -109,7 +109,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-floating">
                                             <select class="form-select input fs-6" id="formSelect" name="civStat">
-                                                <option selected disabled>Select Option</option>
+                                                <option value="" selected disabled>Select Option</option>
                                                 <option value="S">Single</option>
                                                 <option value="M">Married</option>
                                                 <option value="X">Separated</option>
@@ -130,7 +130,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-floating">
                                             <select class="form-select input" id="formSelect" name="nationality" required>
-                                                <option selected disabled>Select Option</option>
+                                                <option value="" selected disabled>Select Option</option>
                                                 <option value="Filipino">Filipino</option>
                                                 <option value="Non-Filipino">Non-Filipino</option>
                                             </select>
@@ -149,7 +149,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-floating">
                                         <select class="form-select input" name="program" id="formSelect">
-                                            <option selected disabled>Select Program</option>
+                                            <option value="" selected disabled>Select Program</option>
                                             <?php
                                             include('functions/php/config.php');
                                             
@@ -184,7 +184,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-floating">
                                             <select class="form-select input fs-6" name="status" id="formSelect">
-                                                <option selected disabled>Select Option</option>
+                                                <option value="" selected disabled>Select Option</option>
                                                 <option value="R">Regular</option>
                                                 <option value="X">Irregular</option>
                                             </select>

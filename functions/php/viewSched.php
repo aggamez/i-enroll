@@ -41,6 +41,7 @@
                                     <th>Days</th>
                                     <th>Time Start</th>
                                     <th>Time End</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,6 +54,20 @@
                                 <td class=""><?php echo $rows['days']; ?></td>
                                 <td class="text-center"><?php echo $rows['timeIni']; ?></td>
                                 <td class="text-center"><?php echo $rows['timeEnd']; ?></td>
+                                <td class="text-center">
+                                    <form
+                                        id="<?php echo $rows['section']; ?>"
+                                        method="post" 
+                                        action="functions/php/delSchedule.php">
+                                    <input type="text" name="idSub" class="form-control input visually-hidden"
+                                            value="<?php echo $idSub; ?>" readonly />
+                                    <input type="text" name="section" class="form-control input visually-hidden"
+                                                value="<?php echo $rows['section']; ?>" readonly />
+                                    <a href="javascript:$('<?php echo '#' . $rows['section']; ?>').submit()" class="mx-1 text-danger">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </a>
+                                    </form>
+                                </td>
                             </tr>
                         <?php endwhile; ?>
                             </tbody>

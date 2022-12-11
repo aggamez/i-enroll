@@ -279,7 +279,7 @@
                                         <div class="col-12">
                                             <div class="form-floating">
                                                 <select class="form-select input" name="program" id="program" required>
-                                                    <option selected disabled>Curriculum</option>
+                                                    <option value="" selected disabled>Curriculum</option>
                                                     <?php
                                                     include('functions/php/config.php');
                                                     

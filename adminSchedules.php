@@ -262,7 +262,7 @@
                                         <div class="col-9">
                                             <div class="form-floating">
                                                 <select class="form-select input" name="idSub" id="idSub" required>
-                                                    <option selected disabled>Course</option>
+                                                    <option value="" selected disabled>Course</option>
                                                     <?php
                                                     include('functions/php/config.php');
                                                     
@@ -279,8 +279,8 @@
                                         </div>
                                         <div class="col-3">
                                             <div class="form-floating">
-                                                <select class="form-select input" name="section" id="section">
-                                                    <option selected disabled>Section</option>
+                                                <select class="form-select input" name="section" id="section" required>
+                                                    <option value="" selected disabled>Section</option>
                                                     <?php
                                                     
                                                     $querysec = "SELECT * FROM `sections`";
@@ -298,8 +298,8 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <div class="form-floating">
-                                                <select class="form-select input" name="idFac" id="idFac">
-                                                    <option selected disabled>Faculty Member</option>
+                                                <select class="form-select input" name="idFac" id="idFac" required>
+                                                    <option value="" selected disabled>Faculty Member</option>
                                                     <?php
                                                     
                                                     $queryfac = "SELECT * FROM `user-faculty`";
@@ -399,10 +399,6 @@
                                         data-bs-toggle="modal" data-bs-target="#edit-sched" id="<?php echo $row['id']; ?>">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
-                                    <a href="#" class="mx-1 clear text-danger delete" data-id="<?php echo $row['id']; ?>"
-                                        data-bs-toggle="modal" data-bs-target="#del-sched" id="<?php echo $row['id']; ?>">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </a>
                                 </td>
                             </tr>
                         <?php endwhile ?>
@@ -454,19 +450,7 @@
                 </div>
                 </div>
 
-                <div class="modal fade" id="del-sched" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Delete Schedule</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        
-                    </div>
-                    </div>
-                </div>
-                </div>
+                
 
             <script type="text/javascript">
                 $(document).ready(function() {
@@ -496,18 +480,7 @@
                         });
                     });
 
-                    $('.delete').click(function() {
-                        var uid = $(this).data('id');
-                        $.ajax({
-                            url: 'functions/php/delSched.php',
-                            type: 'post',
-                            data: {uid: uid},
-                            success: function(response){
-                                $('.modal-body').html(response);
-                                $('#del-sched').modal('show');
-                            }
-                        });
-                    });
+                    
 
                     $("#schedSearch").on("keyup", function() {
                         var value = $(this).val().toLowerCase();

@@ -286,7 +286,7 @@
                                         <div class="col-12">
                                             <div class="form-floating">
                                                 <select class="form-select input" name="department" id="department" required>
-                                                    <option selected disabled>Department</option>
+                                                    <option value="" selected disabled>Department</option>
                                                     <?php
                                                     include('functions/php/config.php');
                                                     

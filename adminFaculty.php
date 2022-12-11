@@ -286,8 +286,8 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="form-floating">
-                                                <select class="form-select input" name="department" id="department">
-                                                <option selected disabled>Select Department</option>
+                                                <select class="form-select input" name="department" id="department" required>
+                                                <option value="" selected disabled>Select Department</option>
                                                 <?php
                                                 include('functions/php/config.php');
                                                 
@@ -304,8 +304,8 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="form-floating">
-                                            <select class="form-select input" name="curriculum" id="curriculum">
-                                                <option selected disabled>Select Curriculum</option>
+                                            <select class="form-select input" name="curriculum" id="curriculum" required>
+                                                <option value="" selected disabled>Select Curriculum</option>
                                                 <?php
                                                 include('functions/php/config.php');
                                                 

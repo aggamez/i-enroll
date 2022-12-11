@@ -2,9 +2,10 @@
     session_start();
 	include('config.php');
     
-    $id = $_POST['idSub'];
+    $idSub = $_POST['idSub'];
+    $section = $_POST['section'];
 
-    $query = "DELETE FROM `schedule` WHERE `idSub` = '$id'";
+    $query = "DELETE FROM `schedule` WHERE `idSub` = '$idSub' AND `section` = '$section'";
 
     $result = $con->query($query);
 

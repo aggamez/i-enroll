@@ -12,7 +12,6 @@
     $timeEnd = $_POST["timeEnd"];
 
 
-
     $checkQuery = $con -> query("SELECT * FROM `schedule` WHERE `section` = '$section' and `idSub` = '$idSub'") or die($con -> error);
     if(mysqli_num_rows($checkQuery) > 0){
         echo '<script>alert("Section has Schedule!");</script>';
