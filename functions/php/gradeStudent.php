@@ -9,6 +9,8 @@
       foreach($gradeRow as $row){
         $status;
         $idSub = $row['idSub'];
+        $midGrade = $row['midGrade'];
+        $tntGrade = $row['tntGrade'];
         $grade = $row['grade'];
         if($grade <= 3.0):
           $status = 'P';
@@ -21,13 +23,17 @@
 
         $query = "UPDATE `student-academics` 
       
-        SET `grade` = '$grade', `status` = '$status'
+        SET `midGrade` = '$midGrade',
+        `tntGrade` = '$tntGrade',
+        `grade` = '$grade', 
+      
+        `status` = '$status'
 
         WHERE `idStud` = '$idStud' AND `idSub` = '$idSub';";
 
         $result = $con->query($query);
 
       }
-      header("location:../../faculProxy.php");
+      header("location:../../adminDash.php");
   ?>
 </html>

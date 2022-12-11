@@ -1,7 +1,7 @@
 <?php
     include('config.php');
     
-    $id = $_POST['id'];
+    $idAdmin = $_POST['idAdmin'];
     $fName = $_POST['fName'];
     $mName = $_POST['mName'];
     $lName = $_POST['lName'];
@@ -9,12 +9,15 @@
     $password = $_POST['password'];
     $email = $_POST['email'];
 
+    $encPass = dataEncrypt($idAdmin, $password);
+    $encEmail = dataEncrypt($idAdmin, $email);
+
     $query =    "UPDATE `user-admin` 
 
                 SET `fName` = '$fName', `mName` = '$mName',`lName` = '$lName', 
-                `username` = '$username',`password` = '$password', `email` = '$email'
+                `username` = '$username',`password` = '$encPass', `email` = '$encEmail'
 
-                WHERE id = $id;";
+                WHERE `idAdmin` = '$idAdmin';";
 
     $result = $con->query($query);
 

@@ -369,6 +369,13 @@
                                     id="<?php echo $row['id']; ?>">
                                     <i class="bi bi-file-code-fill"></i>
                                 </a>
+                                <a href="#gradestud=<?php echo $row['id'];?>" class="mx-1 clear text-success proxyGrade" 
+                                    data-id="<?php echo $row['id']; ?>"
+                                    data-bs-toggle="tooltip" data-bs-target="#proxy-grade" 
+                                    data-bs-placement="top" data-bs-title="Proxy Grading"
+                                    id="<?php echo $row['id']; ?>">
+                                    <i class="bi bi-file-code-fill"></i>
+                                </a>
                                 <a href="#del=<?php echo $row['id'] ?>" class="mx-1 clear text-danger delete" 
                                     data-id="<?php echo $row['id']; ?>"
                                     data-bs-toggle="tooltip" data-bs-target="#del-stud" 
@@ -470,7 +477,22 @@
                     </div>
                     </div>
                 </div>
-            </div>
+                </div>
+
+                <div class="modal fade" id="proxy-grade" data-bs-backdrop="static" data-bs-keyboard="false" 
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Proxy Grading</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
 
             <script type="text/javascript">
                 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
@@ -512,6 +534,19 @@
                             success: function(response){
                                 $('.modal-body').html(response);
                                 $('#edit-acads').modal('show');
+                            }
+                        });
+                    });
+
+                    $('.proxyGrade').click(function() {
+                        var uid = $(this).data('id');
+                        $.ajax({
+                            url: 'functions/php/gradeStud.php',
+                            type: 'post',
+                            data: {uid: uid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#proxy-grade').modal('show');
                             }
                         });
                     });

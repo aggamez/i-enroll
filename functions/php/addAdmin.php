@@ -9,9 +9,13 @@
     $password = $_POST['password'];
     $emailParse = str_replace(' ', '', strtolower($lName .'.'. $fName));
     $email = $emailParse . "@tcu.edu.ph";
+    $idAdmin = 'admin' . $currYear . $emailParse;
 
-    $query =    "INSERT INTO `user-admin` (`fName`, `mName`, `lName`, `username`, `password`, `email`) 
-                VALUES ('$fName', '$mName', '$lName', '$username', '$password', '$email')";
+    $encPass = dataEncrypt($idAdmin, $password);
+    $encEmail = dataEncrypt($idAdmin, $email);
+
+    $query =    "INSERT INTO `user-admin` (`idAdmin`, `fName`, `mName`, `lName`, `username`, `password`, `email`) 
+                VALUES ('$idAdmin', '$fName', '$mName', '$lName', '$username', '$encPass', '$encEmail')";
 
     $result = $con->query($query);
 

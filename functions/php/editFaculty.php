@@ -11,11 +11,14 @@
     $password = $_POST['password'];
     $email = $_POST['email'];
 
+    $encPass = dataEncrypt($idFaculty, $password);
+    $encEmail = dataEncrypt($idFaculty, $email);
+
     $query =    "UPDATE `user-faculty` 
 
                 SET `fName` = '$fName', `mName` = '$mName',`lName` = '$lName', 
                 `idFaculty` = '$idFaculty', `department` = '$department', `curriculum` = '$curriculum',
-                `password` = '$password', `email` = '$email'
+                `password` = '$encPass', `email` = '$encEmail'
 
                 WHERE id = $id;";
 

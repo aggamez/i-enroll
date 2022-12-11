@@ -36,7 +36,7 @@
                 <div class="col-12">
                     <div class="form-floating">
                         <input type="text" id="email" name="email" class="form-control form-control-lg input"
-                        placeholder="email" value="<?php echo $row['email'] ?>" readonly />
+                        placeholder="email" value="<?php echo dataDecrypt($row['idAdmin'], $row['email']) ?>" readonly />
                         <label class="form-label fs-6" for="email">E-Mail</label>
                     </div>
                 </div>
@@ -52,8 +52,8 @@
                 </div>
                 <div class="col-6">
                     <div class="form-floating">
-                        <input type="password" id="password" name="password" class="form-control form-control-lg input"
-                        placeholder="password" value="<?php echo $row['password'] ?>" readonly />
+                        <input type="text" id="password" name="password" class="form-control form-control-lg input"
+                        placeholder="password" value="<?php echo dataDecrypt($row['idAdmin'], $row['password']) ?>" readonly />
                         <label class="form-label fs-6" for="Password">Password</label>
                     </div>
                 </div>

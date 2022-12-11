@@ -46,18 +46,27 @@
                             $results = $con->query($querys);
 
                             if(mysqli_num_rows($results) > 0): ?>
+
                             <table class="table table-striped table-bordered w-100">
                                 <thead class="fs-6">
                                     <tr>
                                         <th>Course Code</th>
                                         <th>Course Name</th>
-                                        <th>Grade</th>
+                                        <th>Midterm</th>
+                                        <th>Tentative</th>
+                                        <th>Final</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                     
                     <?php 
-                        while ($rows = $results -> fetch_assoc()): ?>
+                        while ($rows = $results -> fetch_assoc()): 
+                            $idSubs = $rows['idSub'];
+                            $statQuery = "SELECT * FROM `student-academics` WHERE `idStud` = '$idStud' AND `idSub` = '$idSubs'";
+                            $statData = $con->query($statQuery);
+                            $statResult = $statData -> fetch_assoc();
+                            $studGrade = $statResult['grade'];
+                        ?>
                         <tr>
                             <td class="">
                                 <input type="text" class="form-control input" 
@@ -66,14 +75,24 @@
                             </td>
                             <td class=""><?php echo $rows['name']; ?></td>
                             <td class="">
-                                <?php 
-                                    $idSubs = $rows['idSub'];
-                                    $statQuery = "SELECT * FROM `student-academics` WHERE `idStud` = '$idStud' AND `idSub` = '$idSubs'";
-                                    $statData = $con->query($statQuery);
-                                    $statResult = $statData -> fetch_assoc();
-                                    $studGrade = $statResult['grade'];
-
-                                ?>
+                                <div class="">
+                                    <input type="number" class="form-control input" name="gradeRow[<?php echo $counter; ?>][midGrade]" maxlength="3" 
+                                            min="1.00" max="5.00" step="0.25" value="<?php echo $statResult['midGrade'];?>" required
+                                            <?php   if($yr < $yrLvl):
+                                            else:
+                                            endif; ?>/>
+                                </div>
+                            </td>
+                            <td class="">
+                                <div class="">
+                                    <input type="number" class="form-control input" name="gradeRow[<?php echo $counter; ?>][tntGrade]" maxlength="3" 
+                                            min="1.00" max="5.00" step="0.25" value="<?php echo $statResult['tntGrade']?>" required
+                                            <?php   if($yr < $yrLvl):
+                                            else:
+                                            endif; ?>/>
+                                </div>
+                            </td>
+                            <td class="">
                                 <div class="">
                                     <input type="number" class="form-control input" name="gradeRow[<?php echo $counter; ?>][grade]" maxlength="3" 
                                             min="1.00" max="5.00" step="0.25" value="<?php echo $studGrade?>" required

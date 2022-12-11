@@ -91,7 +91,7 @@
                     <div class="col-12">
                         <div class="form-floating">
                             <input type="password" id="password" name="password" class="form-control form-control-lg input"
-                            placeholder="password" value="<?php echo $row['password']?>"  />
+                            placeholder="password" value="<?php echo dataDecrypt($row['idFaculty'], $row['password'])?>"  />
                             <label class="form-label fs-6" for="Password">Password</label>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                     <div class="col-12">
                         <div class="form-floating">
                             <input type="email" id="email" name="email" class="form-control form-control-lg input"
-                            placeholder="email" value="<?php echo $row['email']?>"  />
+                            placeholder="email" value="<?php echo dataDecrypt($row['idFaculty'], $row['email'])?>"  />
                             <label class="form-label fs-6" for="email">Email</label>
                         </div>
                     </div>
