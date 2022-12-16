@@ -27,33 +27,16 @@
             <div class="bg min-vh-100 vw-100 text-white d-flex flex-column justify-content-center align-items-center" style="background-image: url('assets/img/bg2.png');">
                 <div class="h-100 w-100 d-flex flex-column justify-content-center align-items-center">
                     <div class="container container-lg w-50 w-lg-25 p-5 p-lg-10 d-flex flex-column justify-content-center align-items-center bg-white rounded rounded-5 opacity-25">
-                        <h1 class="text-dark fs-2">Faculty Log-in</h1>
+                        <h1 class="text-dark fs-2">Forgot Password</h1>
                         <hr class="text-dark border border-dark border-1 w-80 fs-1">
                         <div>
                         <form 
                             method="post" 
-                            action="functions/php/faculLog.php"
+                            action="functions/php/forgotPassword.php"
                             class="d-grid text-dark gap-3">
                             <div class="mb-3">
                                 <label for="username" class="form-label text-dark fs-2">Username</label>
                                 <input type="text" class="form-control" name="username" id="username">
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label text-dark fs-2">Password</label>
-                                <div class="input-group" id="apassword">
-                                    <input type="password" class="form-control" name="password" id="password">
-                                    <div class="input-group-text text-black">
-                                        <a href="" class="text-dark"><i class="bi bi-eye-fill" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3 form-check justify-content-center">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                                <label class="form-check-label text-dark fs-5" for="exampleCheck1">Verify log-in</label>
-                            </div>
-                            <div class="alert alert-danger border border-danger border-end-0 border-top-0 border-bottom-0 border-4" role="danger">
-                                <p class="fs-6 text-dark p-0 m-0"><i class="bi bi-exclamation-octagon">
-                                </i> Never share your information to others!</p>
                             </div>
                             <div class="d-flex flex-column text-center gap-2">
                                 <button type="submit" class="btn btn-primary w-auto">Submit</button>

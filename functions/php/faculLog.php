@@ -8,7 +8,7 @@
     $data = $query -> fetch_assoc();
 
     $userChk = $data['idFaculty'];
-    $passChk = $data['password'];
+    $passChk = dataDecrypt($userChk, $data['password']);
     if($user == $userChk){
         if($pass == $passChk){
             $_SESSION['faculUser'] = $data['idFaculty'];

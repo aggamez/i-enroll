@@ -71,7 +71,10 @@
                                 <p class="fs-6 text-dark p-0 m-0"><i class="bi bi-exclamation-octagon">
                                 </i> Never share your password irresponsibly!</p>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="d-flex flex-column text-center gap-2">
+                                <a href="forgotPass.php" class="text-decoration-none text-danger fs-5">Forgot Password?</a>
+                                <button type="submit" class="btn btn-primary w-auto">Submit</button>
+                            </div>
                         </form>
                         </div>
                     </div>

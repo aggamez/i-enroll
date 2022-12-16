@@ -7,8 +7,10 @@
     $query = $con -> query("SELECT * from `user-admin` WHERE `username` = '$user'") or die($con -> error);
     $data = $query -> fetch_assoc();
 
+    $idAdmin = $data['idAdmin'];
+
     $userChk = $data['username'];
-    $passChk = $data['password'];
+    $passChk = dataDecrypt($idAdmin, $data['password']) ;
     if($user == $userChk){
         if($pass == $passChk){
             $_SESSION['idAdmin'] = $data['idAdmin'];
